@@ -1,8 +1,6 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import LocationHubTemplate from '@/components/LocationHubTemplate.astro';
 import CalloutBox from '@/components/CalloutBox.astro';
-import LeadForm from '@/components/LeadForm.astro';
 import { getCountiesByState, getCountyBySlug } from '@/data/counties';
 import { cityUrl, countyUrl } from '@/lib/urls';
 import { brand } from '@/data/brand';
@@ -15,180 +13,183 @@ export function getStaticPaths() {
 }
 
 const { county } = Astro.props;
+const stateAbbr = 'MO';
+const stateName = 'Missouri';
+const stateSlug = 'mo';
 
-const title = `Sell Your House for Cash in ${county.name} County, MO`;
-const description = `We buy houses in ${county.name} County, Missouri. ${county.cities.length} cities served. Get a fair cash offer within 24 hours.`;
+// Build children (cities) for the LocationHubTemplate
+const children = county.cities.map((c) => ({
+  name: c.name,
+  href: cityUrl(stateSlug, county.slug, c.slug),
+  subtitle: `${c.neighborhoods.length} neighborhoods | Median: ${c.medianHomeValue}`,
+  description: c.description,
+}));
 
-const countyPills = getCountiesByState('mo')
-  .filter((c) => c.slug !== county.slug)
-  .map((c) => ({ label: `${c.name} County`, href: countyUrl('mo', c.slug) }));
-
-const relatedLinks = [
-  { label: 'Tax-Delinquent Properties', href: '/tax-delinquent/' },
-  { label: 'Probate Properties', href: '/probate/' },
-  { label: 'Pre-Foreclosure', href: '/situations/pre-foreclosure/' },
-  { label: 'Inherited Property', href: '/situations/inherited-property/' },
-];
-
+// Quick facts for sidebar
 const facts = [
   { label: 'County Seat', value: county.seatCity },
   { label: 'Population', value: county.population },
-  { label: 'Median Home Value', value: county.medianHomeValue },
+  { label: 'Median Home Value', value: county.medianHomeValue, color: 'red' as const },
   { label: 'Cities Served', value: `${county.cities.length}` },
+  { label: 'Our Offer', value: 'Within 24 hours', color: 'green' as const },
+  { label: 'Your Repair Cost', value: '$0', color: 'green' as const },
 ];
+
+// County pills (other counties in same state)
+const countyPills = getCountiesByState(stateSlug)
+  .filter((c) => c.slug !== county.slug)
+  .map((c) => ({ label: `${c.name} County`, href: countyUrl(stateSlug, c.slug) }));
+
+// Related links
+const relatedLinks = [
+  { label: 'Tax-Delinquent Properties', href: '/tax-delinquent/' },
+  { label: 'Probate Guide', href: '/probate/' },
+  { label: 'Pre-Foreclosure', href: '/situations/pre-foreclosure/' },
+  { label: 'Inherited Property', href: '/situations/inherited-property/' },
+  { label: 'Behind on Payments', href: '/situations/behind-on-payments/' },
+];
+
+const breadcrumbs = [
+  { label: stateName, href: `/${stateSlug}/` },
+  { label: `${county.name}` },
+];
+
+const title = `Sell Your House for Cash in ${county.name}, ${stateAbbr}`;
+const description = `We buy houses in ${county.name}, ${stateName}. ${county.cities.length} cities, dozens of neighborhoods. No repairs, no agents, no fees. Fair cash offer within 24 hours.`;
+const shortAnswer = `Yes, we buy houses in any condition across ${county.name}, ${stateName}. Whether your home has foundation problems, fire damage, code violations, or just needs updates, we make a fair cash offer based on the local ${county.name} market and close on your schedule — as fast as 7 days.`;
 ---
 
-<BaseLayout title={title} description={description} canonical={`${brand.domain}/mo/${county.slug}/`}>
-  <div class="container page-grid">
-    <article class="content-col">
-      <Breadcrumbs items={[
-        { label: 'Missouri', href: '/mo/' },
-        { label: `${county.name} County` },
-      ]} />
+<LocationHubTemplate
+  title={title}
+  description={description}
+  shortAnswer={shortAnswer}
+  breadcrumbs={breadcrumbs}
+  children={children}
+  facts={facts}
+  locationName={`${county.name}`}
+  countyPills={countyPills}
+  relatedLinks={relatedLinks}
+  canonical={`${brand.domain}/${stateSlug}/${county.slug}/`}
+>
+  <!-- DEEP SLOT CONTENT: This goes between StepTimeline and FAQ in the template -->
 
-      <header class="hero">
-        <h1>{title}</h1>
-        <p class="hero-sub">{county.description}</p>
-      </header>
+  <section class="content-section">
+    <h2>Who Sells Their Home for Cash in {county.name}?</h2>
+    <div class="section-body">
+      <p>
+        The homeowners who contact us in {county.name} aren't in textbook selling situations.
+        They're people dealing with real problems that make the traditional listing process impractical,
+        too expensive, or too slow. Here's who we typically help:
+      </p>
+      <p>
+        <strong>Homeowners facing foreclosure.</strong> When the bank has set a sale date, you don't have
+        3-6 months to list on the MLS. A cash sale can close before the foreclosure happens, protecting
+        your credit and letting you walk away with equity instead of nothing.
+      </p>
+      <p>
+        <strong>People who inherited property.</strong> You live out of state, the house needs work, and
+        you're paying property taxes on a home you don't want. We buy inherited homes in any condition,
+        even if probate isn't finished yet. {county.probateInfo}
+      </p>
+      <p>
+        <strong>Landlords with problem tenants.</strong> Eviction costs money and takes months. The property
+        is being damaged. The rent isn't coming in. We buy tenant-occupied properties and handle the
+        situation after closing.
+      </p>
+      <p>
+        <strong>Homeowners who can't afford repairs.</strong> The roof needs replacing, the foundation is
+        cracking, the HVAC is dead. Repair estimates come in at $20,000-$50,000. You can't list a house
+        in that condition, and you can't afford to fix it. We buy it as-is.
+      </p>
+    </div>
+  </section>
 
-      <div class="short-answer">
-        <p><strong>Short answer:</strong> Yes, we buy houses in any condition across {county.name} County, Missouri. Our cash offers are based on current local market data, and we close on your schedule, as fast as 7 days.</p>
-      </div>
+  <CalloutBox
+    type="fact"
+    title={`${county.name.toUpperCase()} COUNTY TAX INFO`}
+    text={county.taxLienInfo}
+  />
 
-      <div class="facts-bar">
-        {facts.map((f) => (
-          <div class="fact">
-            <span class="fact-label">{f.label}</span>
-            <span class="fact-value">{f.value}</span>
-          </div>
-        ))}
-      </div>
+  <section class="content-section">
+    <h2>What Does the {county.name} Housing Market Mean for Sellers?</h2>
+    <div class="section-body">
+      <p>
+        The median home value in {county.name} is {county.medianHomeValue}. But that number
+        hides a wide range. Some neighborhoods have homes valued well above that. Others have older
+        homes from the 1940s-1970s that are worth significantly less, especially when deferred
+        maintenance is factored in.
+      </p>
+      <p>
+        For a home valued at {county.medianHomeValue}, listing with an agent means paying
+        5-6% in commissions — that's ${Math.round(parseInt(county.medianHomeValue.replace(/[$,]/g, '')) * 0.055).toLocaleString()} gone
+        before you factor in repairs, staging, closing costs, and the months you'll spend waiting for
+        a buyer whose financing might fall through. For many {county.name} homeowners, especially
+        those with older homes or properties that need work, the math doesn't favor a traditional sale.
+      </p>
+    </div>
+  </section>
 
-      <CalloutBox type="info" text={county.taxLienInfo} />
-      <CalloutBox type="fact" text={county.probateInfo} />
+  <CalloutBox
+    type="info"
+    title={`${county.name.toUpperCase()} COUNTY PROBATE`}
+    text={county.probateInfo}
+  />
 
-      <section class="content-section">
-        <h2>Cities in {county.name} County</h2>
-        <div class="card-grid">
-          {county.cities.map((c) => (
-            <a href={cityUrl('mo', county.slug, c.slug)} class="location-card">
-              <h3>{c.name}</h3>
-              <p class="card-meta">{c.neighborhoods.length} neighborhoods | Median: {c.medianHomeValue}</p>
-              <p>{c.description.substring(0, 120)}...</p>
-            </a>
-          ))}
+  <section class="content-section">
+    <h2>Where Are We Buying in {county.name}?</h2>
+    <div class="section-body">
+      <p>
+        We buy houses across all {county.cities.length} cities in {county.name}, {stateName}.
+        Every city. Every neighborhood. Every property condition. Here's a quick look at where
+        we're active:
+      </p>
+    </div>
+    <div class="city-highlights">
+      {county.cities.map((c) => (
+        <div class="city-highlight">
+          <h3><a href={cityUrl(stateSlug, county.slug, c.slug)}>{c.name}</a></h3>
+          <p class="city-meta">{c.neighborhoods.length} neighborhoods · Median: {c.medianHomeValue}</p>
+          <p class="city-desc">{c.description}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </section>
 
-      <nav class="pill-nav" aria-label="Other Missouri counties">
-        <span class="pill-label">Other counties:</span>
-        {countyPills.map((pill) => (
-          <a href={pill.href} class="pill">{pill.label}</a>
-        ))}
-      </nav>
-
-      <section class="content-section">
-        <h2>Related Resources</h2>
-        <div class="related-links">
-          {relatedLinks.map((link) => (
-            <a href={link.href} class="related-link">{link.label}</a>
-          ))}
-        </div>
-      </section>
-    </article>
-
-    <aside class="sidebar-col">
-      <LeadForm />
-    </aside>
-  </div>
-</BaseLayout>
+</LocationHubTemplate>
 
 <style>
-  .page-grid {
-    display: grid;
-    grid-template-columns: 1fr 360px;
-    gap: 48px;
-    padding-top: 40px;
-    padding-bottom: 60px;
-  }
-  .content-col { min-width: 0; }
-  .sidebar-col { position: sticky; top: calc(var(--nav-height) + 24px); align-self: start; }
-
-  .hero { margin-bottom: 24px; }
-  .hero h1 { font-size: 2.2rem; color: var(--grey-900); margin-bottom: 12px; }
-  .hero-sub { font-size: 1.1rem; color: var(--grey-600); line-height: 1.6; }
-
-  .short-answer {
-    background: var(--cream);
-    border-left: 4px solid var(--red);
-    padding: 20px 24px;
-    border-radius: var(--radius);
-    margin-bottom: 24px;
-  }
-  .short-answer p { margin: 0; line-height: 1.6; }
-
-  .facts-bar {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 32px;
-    padding: 20px;
-    background: var(--grey-50);
-    border-radius: var(--radius);
-  }
-  .fact { text-align: center; }
-  .fact-label { display: block; font-size: 0.8rem; color: var(--grey-500); margin-bottom: 4px; }
-  .fact-value { display: block; font-size: 1.1rem; font-weight: 700; color: var(--grey-900); }
-
-  .content-section { margin-bottom: 40px; }
+  .content-section { margin: 40px 0; }
   .content-section h2 {
     font-size: 1.5rem;
-    color: var(--grey-900);
+    font-weight: 700;
     margin-bottom: 16px;
     padding-bottom: 8px;
-    border-bottom: 1px solid var(--grey-200);
+    border-bottom: 1px solid var(--grey-100);
   }
+  .section-body { color: var(--grey-700); line-height: 1.7; }
+  .section-body p { margin-bottom: 16px; }
+  .section-body p:last-child { margin-bottom: 0; }
 
-  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-  .location-card {
-    display: block;
+  .city-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .city-highlight {
     padding: 20px;
     border: 1px solid var(--grey-200);
     border-radius: var(--radius);
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: border-color 0.2s;
   }
-  .location-card:hover { border-color: var(--red); box-shadow: var(--shadow); text-decoration: none; }
-  .location-card h3 { font-size: 1.1rem; color: var(--grey-900); margin-bottom: 4px; }
-  .card-meta { font-size: 0.85rem; color: var(--grey-500); margin-bottom: 8px; }
-  .location-card p { font-size: 0.9rem; color: var(--grey-600); line-height: 1.5; }
+  .city-highlight:hover { border-color: var(--red); }
+  .city-highlight h3 { font-size: 1.1rem; margin-bottom: 4px; }
+  .city-highlight h3 a { color: var(--grey-900); }
+  .city-highlight h3 a:hover { color: var(--red); text-decoration: none; }
+  .city-meta { font-size: 0.85rem; color: var(--grey-500); margin-bottom: 8px; }
+  .city-desc { font-size: 0.9rem; color: var(--grey-600); line-height: 1.5; }
 
-  .pill-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; align-items: center; }
-  .pill-label { font-size: 0.9rem; color: var(--grey-500); font-weight: 500; }
-  .pill {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 999px;
-    background: var(--grey-100);
-    color: var(--grey-700);
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-  .pill:hover { background: var(--red); color: var(--white); text-decoration: none; }
-
-  .related-links { display: flex; flex-wrap: wrap; gap: 12px; }
-  .related-link {
-    padding: 8px 20px;
-    background: var(--grey-100);
-    border-radius: var(--radius);
-    font-weight: 500;
-    color: var(--grey-700);
-  }
-  .related-link:hover { background: var(--red); color: var(--white); text-decoration: none; }
-
-  @media (max-width: 900px) {
-    .page-grid { grid-template-columns: 1fr; gap: 32px; }
-    .sidebar-col { position: static; }
-    .facts-bar { grid-template-columns: repeat(2, 1fr); }
-    .hero h1 { font-size: 1.8rem; }
+  @media (max-width: 640px) {
+    .city-highlights { grid-template-columns: 1fr; }
   }
 </style>

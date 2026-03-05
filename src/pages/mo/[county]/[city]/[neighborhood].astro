@@ -1,236 +1,31 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import Breadcrumbs from '@/components/Breadcrumbs.astro';
-import CalloutBox from '@/components/CalloutBox.astro';
-import LeadForm from '@/components/LeadForm.astro';
-import { getCountiesByState, getCountyBySlug, getCityBySlug, getNeighborhoodBySlug } from '@/data/counties';
-import { brand } from '@/data/brand';
+import NeighborhoodPageTemplate from '@/components/NeighborhoodPageTemplate.astro';
+import { getCountiesByState } from '@/data/counties';
 
 export function getStaticPaths() {
   return getCountiesByState('mo').flatMap((county) =>
     county.cities.flatMap((city) =>
       city.neighborhoods.map((n) => ({
         params: { county: county.slug, city: city.slug, neighborhood: n.slug },
-        props: { neighborhood: n, cityData: city, countyData: county },
+        props: { neighborhood: n, city, county },
       }))
     )
   );
 }
 
-const { neighborhood, cityData, countyData } = Astro.props;
+const { neighborhood, city, county } = Astro.props;
 
-const title = `Sell Your House in ${neighborhood.name}, ${cityData.name} MO for Cash`;
-const description = `We buy houses in ${neighborhood.name}, ${cityData.name}. ${neighborhood.description} Get a cash offer today.`;
+const breadcrumbs = [
+  { label: 'Missouri', href: '/mo/' },
+  { label: `${county.name}`, href: `/mo/${county.slug}/` },
+  { label: city.name, href: `/mo/${county.slug}/${city.slug}/` },
+  { label: neighborhood.name },
+];
 ---
 
-<BaseLayout title={title} description={description} canonical={`${brand.domain}/mo/${countyData.slug}/${cityData.slug}/${neighborhood.slug}/`}>
-  <div class="container page-grid">
-    <article class="content-col">
-      <Breadcrumbs items={[
-        { label: 'Missouri', href: '/mo/' },
-        { label: `${countyData.name} County`, href: `/mo/${countyData.slug}/` },
-        { label: cityData.name, href: `/mo/${countyData.slug}/${cityData.slug}/` },
-        { label: neighborhood.name },
-      ]} />
-
-      <header class="hero">
-        <h1>Sell Your House in {neighborhood.name} for Cash</h1>
-        <p class="hero-sub">{neighborhood.description}</p>
-      </header>
-
-      <div class="short-answer">
-        <p><strong>Short answer:</strong> Yes, we buy houses in {neighborhood.name} in any condition. Get a fair cash offer based on the local market and close in as few as 7 days.</p>
-      </div>
-
-      <div class="facts-bar">
-        <div class="fact">
-          <span class="fact-label">Neighborhood</span>
-          <span class="fact-value">{neighborhood.name}</span>
-        </div>
-        <div class="fact">
-          <span class="fact-label">City</span>
-          <span class="fact-value">{cityData.name}</span>
-        </div>
-        <div class="fact">
-          <span class="fact-label">County</span>
-          <span class="fact-value">{countyData.name}</span>
-        </div>
-        <div class="fact">
-          <span class="fact-label">Median Home Value</span>
-          <span class="fact-value">{neighborhood.medianHomeValue}</span>
-        </div>
-      </div>
-
-      {neighborhood.localHook && (
-        <section class="content-section">
-          <h2>Why Homeowners in {neighborhood.name} Sell for Cash</h2>
-          <p>{neighborhood.localHook}</p>
-        </section>
-      )}
-
-      {neighborhood.landmarks.length > 0 && (
-        <section class="content-section">
-          <h2>About {neighborhood.name}</h2>
-          <p>
-            {neighborhood.name} is a neighborhood in {cityData.name}, {countyData.name} County, Missouri. Notable landmarks and features include:
-          </p>
-          <ul class="landmark-list">
-            {neighborhood.landmarks.map((landmark) => (
-              <li>{landmark}</li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      {neighborhood.distressFactors.length > 0 && (
-        <section class="content-section">
-          <h2>Common Property Challenges in {neighborhood.name}</h2>
-          <ul class="distress-list">
-            {neighborhood.distressFactors.map((factor) => (
-              <li>{factor}</li>
-            ))}
-          </ul>
-          <CalloutBox type="info" text={`Every one of these issues is something we handle regularly. We buy houses as-is in ${neighborhood.name} -- no repairs, no cleanup, no hassle.`} />
-        </section>
-      )}
-
-      <section class="content-section">
-        <h2>How It Works</h2>
-        <div class="steps">
-          <div class="step">
-            <span class="step-num">1</span>
-            <div>
-              <h3>Contact Us</h3>
-              <p>Tell us about your {neighborhood.name} property. No obligation.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span class="step-num">2</span>
-            <div>
-              <h3>Get Your Offer</h3>
-              <p>We evaluate the property and present a fair cash offer within 24 hours.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span class="step-num">3</span>
-            <div>
-              <h3>Close and Get Paid</h3>
-              <p>Pick your closing date. We handle the paperwork. You get cash.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-section">
-        <h2>Related Resources</h2>
-        <div class="related-links">
-          <a href="/tax-delinquent/" class="related-link">Tax-Delinquent Properties</a>
-          <a href="/probate/" class="related-link">Probate Properties</a>
-          <a href="/situations/pre-foreclosure/" class="related-link">Pre-Foreclosure</a>
-          <a href="/situations/inherited-property/" class="related-link">Inherited Property</a>
-        </div>
-      </section>
-    </article>
-
-    <aside class="sidebar-col">
-      <LeadForm />
-    </aside>
-  </div>
-</BaseLayout>
-
-<style>
-  .page-grid {
-    display: grid;
-    grid-template-columns: 1fr 360px;
-    gap: 48px;
-    padding-top: 40px;
-    padding-bottom: 60px;
-  }
-  .content-col { min-width: 0; }
-  .sidebar-col { position: sticky; top: calc(var(--nav-height) + 24px); align-self: start; }
-
-  .hero { margin-bottom: 24px; }
-  .hero h1 { font-size: 2rem; color: var(--grey-900); margin-bottom: 12px; }
-  .hero-sub { font-size: 1.1rem; color: var(--grey-600); line-height: 1.6; }
-
-  .short-answer {
-    background: var(--cream);
-    border-left: 4px solid var(--red);
-    padding: 20px 24px;
-    border-radius: var(--radius);
-    margin-bottom: 24px;
-  }
-  .short-answer p { margin: 0; line-height: 1.6; }
-
-  .facts-bar {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 32px;
-    padding: 20px;
-    background: var(--grey-50);
-    border-radius: var(--radius);
-  }
-  .fact { text-align: center; }
-  .fact-label { display: block; font-size: 0.8rem; color: var(--grey-500); margin-bottom: 4px; }
-  .fact-value { display: block; font-size: 1.1rem; font-weight: 700; color: var(--grey-900); }
-
-  .content-section { margin-bottom: 40px; }
-  .content-section h2 {
-    font-size: 1.4rem;
-    color: var(--grey-900);
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--grey-200);
-  }
-  .content-section p { margin-bottom: 16px; line-height: 1.7; color: var(--grey-700); }
-
-  .landmark-list, .distress-list {
-    padding-left: 20px;
-    margin-bottom: 16px;
-  }
-  .landmark-list li, .distress-list li {
-    margin-bottom: 8px;
-    line-height: 1.5;
-    color: var(--grey-700);
-  }
-
-  .steps { display: flex; flex-direction: column; gap: 20px; }
-  .step {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  .step-num {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--red);
-    color: var(--white);
-    font-weight: 700;
-    font-size: 1rem;
-    flex-shrink: 0;
-  }
-  .step h3 { font-size: 1rem; color: var(--grey-900); margin-bottom: 4px; }
-  .step p { font-size: 0.9rem; color: var(--grey-600); margin: 0; }
-
-  .related-links { display: flex; flex-wrap: wrap; gap: 12px; }
-  .related-link {
-    padding: 8px 20px;
-    background: var(--grey-100);
-    border-radius: var(--radius);
-    font-weight: 500;
-    color: var(--grey-700);
-  }
-  .related-link:hover { background: var(--red); color: var(--white); text-decoration: none; }
-
-  @media (max-width: 900px) {
-    .page-grid { grid-template-columns: 1fr; gap: 32px; }
-    .sidebar-col { position: static; }
-    .facts-bar { grid-template-columns: repeat(2, 1fr); }
-    .hero h1 { font-size: 1.6rem; }
-  }
-</style>
+<NeighborhoodPageTemplate
+  neighborhood={neighborhood}
+  city={city}
+  county={county}
+  breadcrumbs={breadcrumbs}
+/>

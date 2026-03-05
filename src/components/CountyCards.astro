@@ -15,7 +15,7 @@ const { counties, title = 'Service Areas' } = Astro.props;
     {counties.map((county) => (
       <a href={`/${county.state}/${county.slug}/`} class="card county-card">
         <div class="county-header">
-          <h3>{county.name} County</h3>
+          <h3>{county.name}</h3>
           <span class:list={["badge", county.state === 'mo' ? 'badge-blue' : 'badge-green']}>
             {county.state.toUpperCase()}
           </span>

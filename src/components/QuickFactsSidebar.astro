@@ -1,6 +1,6 @@
 ---
 interface Props {
-  facts: { label: string; value: string }[];
+  facts: { label: string; value: string; color?: 'red' | 'green' | 'default' }[];
   title?: string;
 }
 
@@ -8,12 +8,14 @@ const { facts, title = 'Quick Facts' } = Astro.props;
 ---
 
 <div class="card quick-facts">
-  <h3>{title}</h3>
+  <h3 class="qf-title">{title}</h3>
   <dl>
     {facts.map((fact) => (
       <div class="fact-row">
         <dt>{fact.label}</dt>
-        <dd>{fact.value}</dd>
+        <dd class:list={[fact.color === 'red' && 'val-red', fact.color === 'green' && 'val-green']}>
+          {fact.value}
+        </dd>
       </div>
     ))}
   </dl>
@@ -24,9 +26,12 @@ const { facts, title = 'Quick Facts' } = Astro.props;
     background: var(--grey-50);
   }
 
-  h3 {
+  .qf-title {
     font-weight: 700;
-    font-size: 1.125rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--red);
     margin-bottom: 16px;
   }
 
@@ -40,6 +45,13 @@ const { facts, title = 'Quick Facts' } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--grey-200);
+  }
+
+  .fact-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   dt {
@@ -50,5 +62,14 @@ const { facts, title = 'Quick Facts' } = Astro.props;
   dd {
     font-weight: 700;
     color: var(--grey-900);
+    text-align: right;
+  }
+
+  dd.val-red {
+    color: var(--red);
+  }
+
+  dd.val-green {
+    color: var(--green-dark);
   }
 </style>

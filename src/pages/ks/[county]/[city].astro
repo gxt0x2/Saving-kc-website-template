@@ -1,9 +1,7 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import LocationHubTemplate from '@/components/LocationHubTemplate.astro';
 import CalloutBox from '@/components/CalloutBox.astro';
-import LeadForm from '@/components/LeadForm.astro';
-import { getCountiesByState, getCountyBySlug, getCityBySlug } from '@/data/counties';
+import { getCountiesByState } from '@/data/counties';
 import { neighborhoodUrl, cityUrl } from '@/lib/urls';
 import { brand } from '@/data/brand';
 
@@ -11,184 +9,227 @@ export function getStaticPaths() {
   return getCountiesByState('ks').flatMap((county) =>
     county.cities.map((city) => ({
       params: { county: county.slug, city: city.slug },
-      props: { city, countySlug: county.slug },
+      props: { city, county },
     }))
   );
 }
 
-const { city, countySlug } = Astro.props;
-const county = getCountyBySlug('ks', countySlug);
+const { city, county } = Astro.props;
+const stateAbbr = 'KS';
+const stateName = 'Kansas';
+const stateSlug = 'ks';
 
-const title = `Sell Your House for Cash in ${city.name}, KS`;
-const description = `We buy houses in ${city.name}, Kansas. ${city.neighborhoods.length} neighborhoods served. Get a fair cash offer within 24 hours.`;
+// Build children (neighborhoods) for the template
+const children = city.neighborhoods.map((n) => ({
+  name: n.name,
+  href: neighborhoodUrl(stateSlug, county.slug, city.slug, n.slug),
+  subtitle: `Median: ${n.medianHomeValue}`,
+  description: n.description,
+}));
 
-const countyPills = county
-  ? county.cities
-      .filter((c) => c.slug !== city.slug)
-      .map((c) => ({ label: c.name, href: cityUrl('ks', countySlug, c.slug) }))
-  : [];
+// Quick facts for sidebar with colored values
+const medianNum = parseInt(city.medianHomeValue.replace(/[$,]/g, ''));
+const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toLocaleString()}` : 'thousands';
 
+const facts = [
+  { label: 'City', value: city.name },
+  { label: 'County', value: `${county.name}` },
+  { label: 'Population', value: city.population },
+  { label: 'Median Home Value', value: city.medianHomeValue, color: 'red' as const },
+  { label: 'Neighborhoods', value: `${city.neighborhoods.length}` },
+  { label: 'Agent Commissions', value: commissionEstimate, color: 'red' as const },
+  { label: 'Our Offer', value: 'Within 24 hours', color: 'green' as const },
+  { label: 'Your Repair Cost', value: '$0', color: 'green' as const },
+];
+
+// Other cities in same county
+const countyPills = county.cities
+  .filter((c) => c.slug !== city.slug)
+  .map((c) => ({ label: c.name, href: cityUrl(stateSlug, county.slug, c.slug) }));
+
+// Related links
 const relatedLinks = [
   { label: 'Tax-Delinquent Properties', href: '/tax-delinquent/' },
+  { label: 'Probate Guide', href: '/probate/' },
   { label: 'Pre-Foreclosure Help', href: '/situations/pre-foreclosure/' },
   { label: 'Inherited Property', href: '/situations/inherited-property/' },
   { label: 'Behind on Payments', href: '/situations/behind-on-payments/' },
+  { label: 'Foundation Issues', href: '/situations/foundation-issues/' },
 ];
 
+const breadcrumbs = [
+  { label: stateName, href: `/${stateSlug}/` },
+  { label: `${county.name}`, href: `/${stateSlug}/${county.slug}/` },
+  { label: city.name },
+];
+
+const title = `Sell Your House for Cash in ${city.name}, ${stateAbbr}`;
+const description = `We buy houses in ${city.name}, ${stateName}. ${city.neighborhoods.length} neighborhoods served. No repairs, no agents, no fees. Get a fair cash offer within 24 hours.`;
+const shortAnswer = `Yes, we buy houses in any condition in ${city.name}, ${stateName}. Whether your home needs major repairs, has code violations, or you simply need to sell quickly — we make a fair cash offer based on the local ${city.name} market and close on your schedule.`;
+
+// Collect common distress factors across neighborhoods
+const allDistressFactors = [...new Set(city.neighborhoods.flatMap((n) => n.distressFactors))].slice(0, 8);
+
+// Common situations
 const situations = [
-  { title: 'Pre-Foreclosure', href: '/situations/pre-foreclosure/', desc: 'Sell before the bank forecloses' },
-  { title: 'Inherited Property', href: '/situations/inherited-property/', desc: 'Sell an inherited house fast' },
-  { title: 'Divorce', href: '/situations/divorce/', desc: 'Split assets quickly and fairly' },
-  { title: 'Behind on Payments', href: '/situations/behind-on-payments/', desc: 'Stop the debt from growing' },
-  { title: 'Vacant Property', href: '/situations/vacant-property/', desc: 'Stop paying to maintain an empty house' },
-  { title: 'Foundation Issues', href: '/situations/foundation-issues/', desc: 'Sell as-is without expensive repairs' },
-];
-
-const facts = [
-  { label: 'Population', value: city.population },
-  { label: 'Median Home Value', value: city.medianHomeValue },
-  { label: 'County', value: city.county },
-  { label: 'Neighborhoods', value: `${city.neighborhoods.length}` },
+  { title: 'Pre-Foreclosure', href: '/situations/pre-foreclosure/', desc: 'Sell before the bank forecloses and protect your credit.' },
+  { title: 'Inherited Property', href: '/situations/inherited-property/', desc: 'Skip the hassle of repairing and listing an inherited home.' },
+  { title: 'Divorce', href: '/situations/divorce/', desc: 'Sell the shared home quickly and split proceeds fairly.' },
+  { title: 'Behind on Payments', href: '/situations/behind-on-payments/', desc: 'Stop the spiral of late fees and mounting debt.' },
+  { title: 'Vacant Property', href: '/situations/vacant-property/', desc: 'Stop paying to maintain a house nobody lives in.' },
+  { title: 'Foundation Issues', href: '/situations/foundation-issues/', desc: 'Sell as-is without spending $10K-$80K on foundation work.' },
 ];
 ---
 
-<BaseLayout title={title} description={description} canonical={`${brand.domain}/ks/${countySlug}/${city.slug}/`}>
-  <div class="container page-grid">
-    <article class="content-col">
-      <Breadcrumbs items={[
-        { label: 'Kansas', href: '/ks/' },
-        { label: `${city.county} County`, href: `/ks/${countySlug}/` },
-        { label: city.name },
-      ]} />
+<LocationHubTemplate
+  title={title}
+  description={description}
+  shortAnswer={shortAnswer}
+  breadcrumbs={breadcrumbs}
+  children={children}
+  facts={facts}
+  locationName={city.name}
+  countyPills={countyPills}
+  relatedLinks={relatedLinks}
+  canonical={`${brand.domain}/${stateSlug}/${county.slug}/${city.slug}/`}
+>
+  <!-- DEEP SLOT CONTENT -->
 
-      <header class="hero">
-        <h1>{title}</h1>
-        <p class="hero-sub">{city.description}</p>
-      </header>
-
-      <div class="short-answer">
-        <p><strong>Short answer:</strong> Yes, we buy houses in any condition in {city.name}, Kansas. Whether your home needs major repairs or you simply need to sell fast, we make fair cash offers based on the local {city.name} market.</p>
-      </div>
-
-      <div class="facts-bar">
-        {facts.map((f) => (
-          <div class="fact">
-            <span class="fact-label">{f.label}</span>
-            <span class="fact-value">{f.value}</span>
-          </div>
+  <section class="content-section">
+    <h2>Common Property Issues We See in {city.name}</h2>
+    <div class="section-body">
+      <p>
+        Every city has its own set of housing challenges, and {city.name} is no exception.
+        These are the problems that scare off traditional buyers and make listing on the MLS
+        an uphill battle. We buy homes with every single one of these issues — and more.
+      </p>
+    </div>
+    {allDistressFactors.length > 0 && (
+      <ul class="issue-list">
+        {allDistressFactors.map((factor) => (
+          <li class="issue-item">
+            <span class="issue-icon">&#10003;</span>
+            <span>{factor}</span>
+          </li>
         ))}
-      </div>
+      </ul>
+    )}
+    <CalloutBox
+      type="info"
+      title="EVERY CONDITION WELCOME"
+      text={`We've bought hundreds of homes in the Kansas City metro. Foundation cracks, fire damage, mold, hoarder conditions, code violations — none of it stops us from making a fair offer. The condition of your ${city.name} home is our problem to solve, not yours.`}
+    />
+  </section>
 
-      <section class="content-section">
-        <h2>Neighborhoods in {city.name}</h2>
-        <div class="card-grid">
-          {city.neighborhoods.map((n) => (
-            <a href={neighborhoodUrl('ks', countySlug, city.slug, n.slug)} class="location-card">
-              <h3>{n.name}</h3>
-              <p class="card-meta">Median: {n.medianHomeValue}</p>
-              <p>{n.description.substring(0, 120)}...</p>
-            </a>
-          ))}
-        </div>
-      </section>
+  <section class="content-section">
+    <h2>Who Sells Their {city.name} Home to Us?</h2>
+    <div class="section-body">
+      <p>
+        We work with {city.name} homeowners in every situation you can imagine.
+        People facing foreclosure who need to close before the bank sale date.
+        Families who inherited a house and don't want to deal with repairs, cleanouts,
+        or months of showings. Landlords tired of problem tenants destroying their investment.
+        Couples going through divorce who need to sell quickly and split the proceeds.
+      </p>
+      <p>
+        The common thread? Traditional listing doesn't work for their situation.
+        When you need to sell fast, can't afford repairs, or don't want the stress and
+        uncertainty of the MLS, a cash offer from an experienced {city.name} buyer
+        is the practical path forward.
+      </p>
+    </div>
+  </section>
 
-      <section class="content-section">
-        <h2>Common Situations in {city.name}</h2>
-        <div class="sit-grid">
-          {situations.map((sit) => (
-            <a href={sit.href} class="sit-card">
-              <h3>{sit.title}</h3>
-              <p>{sit.desc}</p>
-            </a>
-          ))}
-        </div>
-      </section>
+  <section class="content-section">
+    <h2>Common Situations in {city.name}</h2>
+    <div class="sit-grid">
+      {situations.map((sit) => (
+        <a href={sit.href} class="sit-card">
+          <h3>{sit.title}</h3>
+          <p>{sit.desc}</p>
+        </a>
+      ))}
+    </div>
+  </section>
 
-      <CalloutBox type="info" text={`We buy houses in any condition in ${city.name}. Whether your home has foundation problems, fire damage, or just needs updates, we make a fair cash offer based on the local market.`} />
+  <CalloutBox
+    type="fact"
+    title={`${county.name.toUpperCase()} COUNTY TAX INFO`}
+    text={county.taxLienInfo}
+  />
 
-      {countyPills.length > 0 && (
-        <nav class="pill-nav" aria-label="Other cities">
-          <span class="pill-label">Other cities in {county?.name} County:</span>
-          {countyPills.map((pill) => (
-            <a href={pill.href} class="pill">{pill.label}</a>
-          ))}
-        </nav>
-      )}
+  <section class="content-section">
+    <h2>What Should {city.name} Homeowners Know About Property Taxes?</h2>
+    <div class="section-body">
+      <p>
+        If you've fallen behind on property taxes in {city.name}, the clock is already running.
+        {county.taxLienInfo} Back taxes, interest, and penalties compound fast. A home worth
+        {city.medianHomeValue} can rack up $10,000 or more in tax debt over just a few years.
+      </p>
+      <p>
+        You don't need to pay off back taxes before selling to us. At closing, the title company
+        uses the sale proceeds to clear all tax liens, mechanic's liens, and judgment liens.
+        You walk away with the remaining equity — and a clean break from the property.
+      </p>
+    </div>
+  </section>
 
-      <section class="content-section">
-        <h2>Related Resources</h2>
-        <div class="related-links">
-          {relatedLinks.map((link) => (
-            <a href={link.href} class="related-link">{link.label}</a>
-          ))}
-        </div>
-      </section>
-    </article>
+  <section class="content-section">
+    <h2>How We Handle Inherited and Probate Properties in {city.name}</h2>
+    <div class="section-body">
+      <p>
+        Inherited homes are one of the most common reasons {city.name} homeowners call us.
+        Mom or Dad passed away, the house hasn't been maintained, and now multiple family
+        members need to agree on what to do. {county.probateInfo}
+      </p>
+      <p>
+        Whether probate is already complete, still in progress, or hasn't even been filed yet,
+        we can work with your situation. Our team has experience with {county.name}
+        probate and can coordinate with your attorney to close as soon as the court allows.
+        We buy inherited homes in any condition — you don't need to clean out, repair, or
+        even visit the property.
+      </p>
+    </div>
+  </section>
 
-    <aside class="sidebar-col">
-      <LeadForm />
-    </aside>
-  </div>
-</BaseLayout>
+</LocationHubTemplate>
 
 <style>
-  .page-grid {
-    display: grid;
-    grid-template-columns: 1fr 360px;
-    gap: 48px;
-    padding-top: 40px;
-    padding-bottom: 60px;
-  }
-  .content-col { min-width: 0; }
-  .sidebar-col { position: sticky; top: calc(var(--nav-height) + 24px); align-self: start; }
-
-  .hero { margin-bottom: 24px; }
-  .hero h1 { font-size: 2.2rem; color: var(--grey-900); margin-bottom: 12px; }
-  .hero-sub { font-size: 1.1rem; color: var(--grey-600); line-height: 1.6; }
-
-  .short-answer {
-    background: var(--cream);
-    border-left: 4px solid var(--red);
-    padding: 20px 24px;
-    border-radius: var(--radius);
-    margin-bottom: 24px;
-  }
-  .short-answer p { margin: 0; line-height: 1.6; }
-
-  .facts-bar {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 32px;
-    padding: 20px;
-    background: var(--grey-50);
-    border-radius: var(--radius);
-  }
-  .fact { text-align: center; }
-  .fact-label { display: block; font-size: 0.8rem; color: var(--grey-500); margin-bottom: 4px; }
-  .fact-value { display: block; font-size: 1.1rem; font-weight: 700; color: var(--grey-900); }
-
-  .content-section { margin-bottom: 40px; }
+  .content-section { margin: 40px 0; }
   .content-section h2 {
     font-size: 1.5rem;
-    color: var(--grey-900);
+    font-weight: 700;
     margin-bottom: 16px;
     padding-bottom: 8px;
-    border-bottom: 1px solid var(--grey-200);
+    border-bottom: 1px solid var(--grey-100);
   }
+  .section-body { color: var(--grey-700); line-height: 1.7; }
+  .section-body p { margin-bottom: 16px; }
+  .section-body p:last-child { margin-bottom: 0; }
 
-  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
-  .location-card {
-    display: block;
-    padding: 20px;
-    border: 1px solid var(--grey-200);
-    border-radius: var(--radius);
-    transition: border-color 0.2s, box-shadow 0.2s;
+  .issue-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
   }
-  .location-card:hover { border-color: var(--red); box-shadow: var(--shadow); text-decoration: none; }
-  .location-card h3 { font-size: 1.1rem; color: var(--grey-900); margin-bottom: 4px; }
-  .card-meta { font-size: 0.85rem; color: var(--grey-500); margin-bottom: 8px; }
-  .location-card p { font-size: 0.9rem; color: var(--grey-600); line-height: 1.5; }
+  .issue-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 16px;
+    background: var(--grey-50);
+    border-radius: var(--radius);
+    border: 1px solid var(--grey-100);
+    font-size: 0.9rem;
+    color: var(--grey-700);
+  }
+  .issue-icon {
+    color: var(--red);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
 
   .sit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .sit-card {
@@ -198,39 +239,13 @@ const facts = [
     border-radius: var(--radius);
     transition: border-color 0.2s, box-shadow 0.2s;
   }
-  .sit-card:hover { border-color: var(--red); box-shadow: var(--shadow); text-decoration: none; }
+  .sit-card:hover { border-color: var(--red); box-shadow: var(--shadow-md); text-decoration: none; }
   .sit-card h3 { font-size: 1rem; font-weight: 700; color: var(--grey-900); margin-bottom: 4px; }
   .sit-card:hover h3 { color: var(--red); }
   .sit-card p { font-size: 0.85rem; color: var(--grey-500); margin: 0; }
 
-  .pill-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; align-items: center; }
-  .pill-label { font-size: 0.9rem; color: var(--grey-500); font-weight: 500; }
-  .pill {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 999px;
-    background: var(--grey-100);
-    color: var(--grey-700);
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-  .pill:hover { background: var(--red); color: var(--white); text-decoration: none; }
-
-  .related-links { display: flex; flex-wrap: wrap; gap: 12px; }
-  .related-link {
-    padding: 8px 20px;
-    background: var(--grey-100);
-    border-radius: var(--radius);
-    font-weight: 500;
-    color: var(--grey-700);
-  }
-  .related-link:hover { background: var(--red); color: var(--white); text-decoration: none; }
-
-  @media (max-width: 900px) {
-    .page-grid { grid-template-columns: 1fr; gap: 32px; }
-    .sidebar-col { position: static; }
-    .facts-bar { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 640px) {
+    .issue-list { grid-template-columns: 1fr; }
     .sit-grid { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 1.8rem; }
   }
 </style>

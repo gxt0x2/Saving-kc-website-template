@@ -1,15 +1,18 @@
 ---
 interface Props {
-  type: 'warning' | 'info' | 'fact';
+  type: 'warning' | 'info' | 'fact' | 'critical' | 'tip';
   text: string;
+  title?: string;
 }
 
-const { type, text } = Astro.props;
+const { type, text, title } = Astro.props;
 
-const config = {
-  warning: { class: 'callout callout-critical', icon: '\u26A0\uFE0F', label: 'Warning' },
+const config: Record<string, { class: string; icon: string; label: string }> = {
+  warning: { class: 'callout callout-warning', icon: '\u26A0\uFE0F', label: 'Warning' },
+  critical: { class: 'callout callout-critical', icon: '\u26A0\uFE0F', label: 'Critical' },
   info: { class: 'callout callout-info', icon: '\u2139\uFE0F', label: 'Good to Know' },
   fact: { class: 'callout callout-tip', icon: '\u2713', label: 'Key Fact' },
+  tip: { class: 'callout callout-tip', icon: '\u2713', label: 'Tip' },
 };
 
 const style = config[type];
@@ -19,7 +22,7 @@ const style = config[type];
   <div class="callout-inner">
     <span class="callout-icon" aria-hidden="true">{style.icon}</span>
     <div>
-      <p class="callout-label">{style.label}</p>
+      <p class="callout-label">{title || style.label}</p>
       <p class="callout-text">{text}</p>
     </div>
   </div>

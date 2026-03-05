@@ -25,7 +25,7 @@ const { neighborhood, city, county, breadcrumbs } = Astro.props;
 const facts = [
   { label: 'Median Home Value', value: neighborhood.medianHomeValue },
   { label: 'City', value: city.name },
-  { label: 'County', value: `${county.name} County` },
+  { label: 'County', value: county.name },
   { label: 'State', value: county.stateName },
 ];
 
@@ -69,7 +69,7 @@ const faqs = [
   },
   {
     question: `Can I sell an inherited house in ${neighborhood.name}?`,
-    answer: `Yes. We buy inherited properties regularly in ${county.name} County. Whether the estate is in probate or you already have clear title, we can work with your situation. ${county.probateInfo}`,
+    answer: `Yes. We buy inherited properties regularly in ${county.name}. Whether the estate is in probate or you already have clear title, we can work with your situation. ${county.probateInfo}`,
   },
   {
     question: `Do I need to clean out the house before selling?`,
@@ -105,7 +105,7 @@ const steps = [
   },
   {
     title: 'Get Your Cash at Closing',
-    description: `Sign the paperwork at a local ${county.name} County title company. Receive your funds via wire transfer or cashier's check the same day. No waiting, no holdbacks, no surprises.`,
+    description: `Sign the paperwork at a local ${county.name} title company. Receive your funds via wire transfer or cashier's check the same day. No waiting, no holdbacks, no surprises.`,
   },
 ];
 
@@ -160,10 +160,10 @@ const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toL
       <div class="section-body">
         <p>{neighborhood.localHook}</p>
         <p>
-          {neighborhood.name} is part of {city.name} in {county.name} County, {county.stateName}.
+          {neighborhood.name} is part of {city.name} in {county.name}, {county.stateName}.
           The median home value in {neighborhood.name} is {neighborhood.medianHomeValue},
           compared to {city.medianHomeValue} across {city.name} as a whole
-          and {county.medianHomeValue} for {county.name} County. These numbers matter
+          and {county.medianHomeValue} for {county.name}. These numbers matter
           when you're deciding whether to repair and list or sell as-is for cash.
         </p>
       </div>
@@ -253,7 +253,7 @@ const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toL
           Common situations in {neighborhood.name} include inherited homes where the
           family lives out of state, rental properties with problem tenants still
           occupying the unit, homes where the owner is going through divorce,
-          properties facing tax liens through {county.name} County, and homes where
+          properties facing tax liens through {county.name}, and homes where
           the owner is behind on mortgage payments. Whatever your situation, we've
           seen it before and we can help.
         </p>
@@ -264,7 +264,7 @@ const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toL
 
     <!-- Local Tax Info -->
     <section class="content-section">
-      <h2>What Should {neighborhood.name} Homeowners Know About {county.name} County Taxes?</h2>
+      <h2>What Should {neighborhood.name} Homeowners Know About {county.name} Taxes?</h2>
       <div class="section-body">
         <p>{county.taxLienInfo}</p>
         <p>
@@ -287,7 +287,7 @@ const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toL
           stage of the process. Whether you've already been appointed personal
           representative, are still waiting for court approval, or have multiple
           heirs who all need to sign off, we can work with your situation. Our team
-          has experience with {county.name} County probate and can close as soon
+          has experience with {county.name} probate and can close as soon
           as the court allows.
         </p>
       </div>
