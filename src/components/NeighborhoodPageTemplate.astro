@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroBanner from '@/components/HeroBanner.astro';
 import PageShell from '@/components/PageShell.astro';
 import ShortAnswerBlock from '@/components/ShortAnswerBlock.astro';
 import ComparisonTable from '@/components/ComparisonTable.astro';
@@ -147,14 +148,14 @@ const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toL
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <PageShell breadcrumbs={breadcrumbs}>
-    <h1 class="page-title">
-      Sell Your House Fast in {neighborhood.name}, {city.name}
-    </h1>
-    <p class="page-desc">
-      Get a fair cash offer for your {neighborhood.name} home. No repairs, no agents, no fees. Close on your timeline.
-    </p>
+  <HeroBanner
+    heading={`Sell Your House Fast in ${neighborhood.name}, ${city.name} —`}
+    highlight="For Cash"
+    subtitle={`Get a fair cash offer for your ${neighborhood.name} home. No repairs, no agents, no fees. Close on your timeline.`}
+    source={`${neighborhood.slug}-hero`}
+  />
 
+  <PageShell breadcrumbs={breadcrumbs}>
     <ShortAnswerBlock answer={neighborhood.description} />
 
     <!-- About the Neighborhood -->

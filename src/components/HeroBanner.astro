@@ -1,0 +1,143 @@
+---
+import LeadForm from '@/components/LeadForm.astro';
+
+interface Props {
+  heading: string;
+  highlight?: string;
+  subtitle: string;
+  source?: string;
+}
+
+const { heading, highlight, subtitle, source = 'page-hero' } = Astro.props;
+---
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="stars">★★★★★</span> 5-Star Google Rating
+      </div>
+      <h1>
+        {heading}
+        {highlight && (
+          <>{' '}<span class="highlight">{highlight}</span></>
+        )}
+      </h1>
+      <p class="hero-sub">{subtitle}</p>
+      <div class="hero-stats">
+        <div class="stat"><strong>100+</strong><span>Homes Purchased</span></div>
+        <div class="stat"><strong>11 yrs</strong><span>In Kansas City</span></div>
+        <div class="stat"><strong>14 days</strong><span>Avg. Close Time</span></div>
+      </div>
+      <div class="hero-ctas">
+        <a href="tel:8164292900" class="btn btn-secondary btn-lg">Call 816-429-2900</a>
+        <a href="#offer-form" class="btn btn-primary btn-lg">Get My Cash Offer</a>
+      </div>
+    </div>
+    <div class="hero-form">
+      <LeadForm source={source} />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--grey-900) 0%, var(--grey-800) 100%);
+    color: var(--white);
+    padding: 80px 0;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .highlight {
+    color: var(--green);
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--grey-300);
+    margin-bottom: 28px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  .stat strong {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--white);
+  }
+
+  .stat span {
+    font-size: 0.85rem;
+    color: var(--grey-400);
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+  }
+
+  .hero-form :global(.lead-form) {
+    background: var(--white);
+    color: var(--grey-800);
+  }
+
+  @media (max-width: 1000px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-form {
+      max-width: 440px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 40px 0;
+    }
+
+    .hero h1 {
+      font-size: 1.7rem;
+    }
+
+    .hero-stats {
+      gap: 20px;
+    }
+
+    .hero-ctas {
+      flex-direction: column;
+    }
+  }
+</style>

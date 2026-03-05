@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroBanner from '@/components/HeroBanner.astro';
 import PageShell from '@/components/PageShell.astro';
 import ShortAnswerBlock from '@/components/ShortAnswerBlock.astro';
 import CalloutBox from '@/components/CalloutBox.astro';
@@ -70,10 +71,14 @@ const comparisonRows = comparison.map(r => ({
 ---
 
 <BaseLayout title={metaTitle || title} description={metaDescription || description} canonical={canonical}>
-  <PageShell breadcrumbs={breadcrumbs}>
-    <h1 class="page-title">{title}</h1>
-    <p class="page-desc">{description}</p>
+  <HeroBanner
+    heading={title}
+    highlight="For Cash"
+    subtitle={description}
+    source="state-hero"
+  />
 
+  <PageShell breadcrumbs={breadcrumbs}>
     <ShortAnswerBlock answer={shortAnswer} />
 
     {sections.map((section) => (
