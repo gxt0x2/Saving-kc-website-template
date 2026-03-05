@@ -205,7 +205,7 @@ const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toL
       <ul class="distress-list">
         {neighborhood.distressFactors.map((factor) => (
           <li class="distress-item">
-            <span class="distress-icon">!</span>
+            <span class="distress-icon">&#9888;</span>
             <span>{factor}</span>
           </li>
         ))}
@@ -311,7 +311,6 @@ const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toL
 
     <Fragment slot="sidebar">
       <LeadForm />
-      <ContactSidebar />
       <QuickFactsSidebar facts={facts} title={`${neighborhood.name} Facts`} />
       <KeyTermsSidebar terms={[
         { term: 'Cash Offer', definition: 'A purchase offer made without mortgage financing. No appraisal, no lender delays, no risk of deal falling through.' },
