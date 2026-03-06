@@ -1,0 +1,630 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCountiesByState, allCounties } from '@/data/counties';
+import { countyUrl, cityUrl, neighborhoodUrl } from '@/lib/urls';
+import { situations } from '@/data/situations';
+
+const moCounties = getCountiesByState('mo');
+const ksCounties = getCountiesByState('ks');
+
+const totalCities = allCounties.reduce((sum, c) => sum + c.cities.length, 0);
+const totalNeighborhoods = allCounties.reduce(
+  (sum, c) => sum + c.cities.reduce((s, city) => s + city.neighborhoods.length, 0),
+  0
+);
+const totalPages = 14 + situations.length + 1 + 2 + allCounties.length + totalCities + totalNeighborhoods + 3;
+
+const companyPages = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about-us/' },
+  { label: 'How It Works', href: '/how-it-works/' },
+  { label: 'Reviews', href: '/reviews/' },
+  { label: 'FAQ', href: '/faq/' },
+  { label: 'Contact', href: '/contact/' },
+  { label: 'Get Your Cash Offer', href: '/get-offer/' },
+];
+
+const legalPages = [
+  { label: 'Privacy Policy', href: '/privacy/' },
+  { label: 'Terms of Service', href: '/terms/' },
+];
+
+const guidePages = [
+  { label: 'Probate Guide', href: '/probate/', desc: 'Complete guide to selling inherited property in Missouri & Kansas' },
+  { label: 'Tax-Delinquent Properties', href: '/tax-delinquent/', desc: 'How tax liens, redemption, and foreclosure work in the KC metro' },
+  { label: 'Jackson County Tax Redemption', href: '/tax-delinquent/redemption/jackson-county/', desc: 'Redemption rights and deadlines for Jackson County' },
+  { label: 'Jackson County Payment Plans', href: '/tax-delinquent/payment-plans/jackson-county/', desc: 'Tax payment plan options in Jackson County' },
+  { label: 'Johnson County Payment Plans', href: '/tax-delinquent/payment-plans/johnson-county/', desc: 'Tax payment plan options in Johnson County' },
+];
+---
+
+<BaseLayout
+  title="Sitemap | Saving KC Homebuyers"
+  description="Browse every page on savingkc.com. Find your county, city, or neighborhood to get a cash offer on your Kansas City home."
+>
+  <section class="sitemap-hero">
+    <div class="container">
+      <h1>Sitemap</h1>
+      <p class="sitemap-hero__sub">
+        Every page on savingkc.com — {totalPages} pages across {allCounties.length} counties,
+        {totalCities} cities, and {totalNeighborhoods} neighborhoods.
+      </p>
+    </div>
+  </section>
+
+  <div class="container sitemap-body">
+    <!-- Stats Banner -->
+    <div class="stats-banner">
+      <div class="stats-banner__item">
+        <span class="stats-banner__number">{allCounties.length}</span>
+        <span class="stats-banner__label">Counties</span>
+      </div>
+      <div class="stats-banner__item">
+        <span class="stats-banner__number">{totalCities}</span>
+        <span class="stats-banner__label">Cities</span>
+      </div>
+      <div class="stats-banner__item">
+        <span class="stats-banner__number">{totalNeighborhoods}</span>
+        <span class="stats-banner__label">Neighborhoods</span>
+      </div>
+      <div class="stats-banner__item">
+        <span class="stats-banner__number">{situations.length}</span>
+        <span class="stats-banner__label">Situations</span>
+      </div>
+      <div class="stats-banner__item">
+        <span class="stats-banner__number">{totalPages}</span>
+        <span class="stats-banner__label">Total Pages</span>
+      </div>
+    </div>
+
+    <!-- SECTION: Company -->
+    <section class="sitemap-section">
+      <div class="sitemap-section__header">
+        <div class="sitemap-section__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h2>Company</h2>
+      </div>
+      <div class="link-grid link-grid--compact">
+        {companyPages.map((p) => (
+          <a href={p.href} class="sitemap-link">{p.label}</a>
+        ))}
+      </div>
+    </section>
+
+    <!-- SECTION: Guides & Resources -->
+    <section class="sitemap-section">
+      <div class="sitemap-section__header">
+        <div class="sitemap-section__icon sitemap-section__icon--blue">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h2>Guides & Resources</h2>
+      </div>
+      <div class="guide-list">
+        {guidePages.map((p) => (
+          <a href={p.href} class="guide-card">
+            <span class="guide-card__title">{p.label}</span>
+            <span class="guide-card__desc">{p.desc}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- SECTION: Situations -->
+    <section class="sitemap-section">
+      <div class="sitemap-section__header">
+        <div class="sitemap-section__icon sitemap-section__icon--amber">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h2>Situations We Handle</h2>
+      </div>
+      <div class="link-grid">
+        <a href="/situations/" class="sitemap-link sitemap-link--index">All Situations</a>
+        {situations.map((s) => (
+          <a href={`/situations/${s.slug}/`} class="sitemap-link">{s.title.replace(/ in Kansas City$/, '')}</a>
+        ))}
+      </div>
+    </section>
+
+    <!-- SECTION: Missouri -->
+    <section class="sitemap-section">
+      <div class="sitemap-section__header">
+        <div class="sitemap-section__icon sitemap-section__icon--red">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h2>Missouri</h2>
+        <span class="sitemap-section__count">{moCounties.length} counties · {moCounties.reduce((s, c) => s + c.cities.length, 0)} cities</span>
+      </div>
+      <a href="/mo/" class="state-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+        Missouri State Page
+      </a>
+      {moCounties.map((county) => (
+        <div class="county-block">
+          <a href={countyUrl('mo', county.slug)} class="county-block__header">
+            <div class="county-block__info">
+              <h3>{county.name}</h3>
+              <span class="county-block__meta">{county.cities.length} cities · Pop. {county.population} · Median: {county.medianHomeValue}</span>
+            </div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+          </a>
+          <div class="city-list">
+            {county.cities.map((city) => (
+              <div class="city-block">
+                <a href={cityUrl('mo', county.slug, city.slug)} class="city-block__header">
+                  <span class="city-block__name">{city.name}</span>
+                  <span class="city-block__meta">{city.neighborhoods.length} neighborhoods</span>
+                </a>
+                <div class="neighborhood-pills">
+                  {city.neighborhoods.map((n) => (
+                    <a href={neighborhoodUrl('mo', county.slug, city.slug, n.slug)} class="neighborhood-pill">{n.name}</a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <!-- SECTION: Kansas -->
+    <section class="sitemap-section">
+      <div class="sitemap-section__header">
+        <div class="sitemap-section__icon sitemap-section__icon--green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h2>Kansas</h2>
+        <span class="sitemap-section__count">{ksCounties.length} counties · {ksCounties.reduce((s, c) => s + c.cities.length, 0)} cities</span>
+      </div>
+      <a href="/ks/" class="state-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+        Kansas State Page
+      </a>
+      {ksCounties.map((county) => (
+        <div class="county-block">
+          <a href={countyUrl('ks', county.slug)} class="county-block__header">
+            <div class="county-block__info">
+              <h3>{county.name}</h3>
+              <span class="county-block__meta">{county.cities.length} cities · Pop. {county.population} · Median: {county.medianHomeValue}</span>
+            </div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+          </a>
+          <div class="city-list">
+            {county.cities.map((city) => (
+              <div class="city-block">
+                <a href={cityUrl('ks', county.slug, city.slug)} class="city-block__header">
+                  <span class="city-block__name">{city.name}</span>
+                  <span class="city-block__meta">{city.neighborhoods.length} neighborhoods</span>
+                </a>
+                <div class="neighborhood-pills">
+                  {city.neighborhoods.map((n) => (
+                    <a href={neighborhoodUrl('ks', county.slug, city.slug, n.slug)} class="neighborhood-pill">{n.name}</a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <!-- SECTION: Legal -->
+    <section class="sitemap-section sitemap-section--legal">
+      <div class="sitemap-section__header">
+        <div class="sitemap-section__icon sitemap-section__icon--gray">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h2>Legal</h2>
+      </div>
+      <div class="link-grid link-grid--compact">
+        {legalPages.map((p) => (
+          <a href={p.href} class="sitemap-link">{p.label}</a>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .sitemap-hero {
+    background: var(--grey-900);
+    color: var(--white);
+    padding: 64px 0 48px;
+  }
+
+  .sitemap-hero h1 {
+    font-size: 2.4rem;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+
+  .sitemap-hero__sub {
+    font-size: 1.05rem;
+    color: var(--grey-400);
+    max-width: 60ch;
+  }
+
+  /* Body */
+  .sitemap-body {
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+
+  /* Stats Banner */
+  .stats-banner {
+    display: flex;
+    gap: 0;
+    background: var(--white);
+    border: 1px solid var(--grey-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 48px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .stats-banner__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px;
+    border-right: 1px solid var(--grey-100);
+  }
+
+  .stats-banner__item:last-child {
+    border-right: none;
+  }
+
+  .stats-banner__number {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--grey-900);
+    line-height: 1;
+  }
+
+  .stats-banner__label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--grey-500);
+    margin-top: 4px;
+  }
+
+  /* Sections */
+  .sitemap-section {
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--grey-100);
+  }
+
+  .sitemap-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .sitemap-section__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .sitemap-section__header h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: var(--grey-900);
+  }
+
+  .sitemap-section__count {
+    font-size: 0.8rem;
+    color: var(--grey-500);
+    background: var(--grey-50);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-weight: 500;
+  }
+
+  .sitemap-section__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--red-light);
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .sitemap-section__icon--blue {
+    background: var(--blue-light);
+    color: var(--blue);
+  }
+
+  .sitemap-section__icon--amber {
+    background: var(--amber-light);
+    color: var(--amber);
+  }
+
+  .sitemap-section__icon--red {
+    background: var(--red-light);
+    color: var(--red);
+  }
+
+  .sitemap-section__icon--green {
+    background: var(--green-light);
+    color: var(--green);
+  }
+
+  .sitemap-section__icon--gray {
+    background: var(--grey-100);
+    color: var(--grey-500);
+  }
+
+  /* Link Grid */
+  .link-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .sitemap-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--grey-50);
+    border: 1px solid var(--grey-200);
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--grey-700);
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+
+  .sitemap-link:hover {
+    border-color: var(--red);
+    color: var(--red);
+    background: var(--red-light);
+    text-decoration: none;
+  }
+
+  .sitemap-link--index {
+    font-weight: 700;
+    background: var(--grey-100);
+  }
+
+  /* Guide Cards */
+  .guide-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .guide-card {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 20px;
+    background: var(--white);
+    border: 1px solid var(--grey-200);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+
+  .guide-card:hover {
+    border-color: var(--blue);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+  }
+
+  .guide-card__title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--grey-900);
+  }
+
+  .guide-card:hover .guide-card__title {
+    color: var(--blue);
+  }
+
+  .guide-card__desc {
+    font-size: 0.8rem;
+    color: var(--grey-500);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* State Link */
+  .state-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--red);
+    text-decoration: none;
+    margin-bottom: 16px;
+    transition: all 0.15s;
+  }
+
+  .state-link:hover {
+    text-decoration: underline;
+  }
+
+  /* County Block */
+  .county-block {
+    background: var(--white);
+    border: 1px solid var(--grey-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .county-block__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--grey-50);
+    border-bottom: 1px solid var(--grey-100);
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+
+  .county-block__header:hover {
+    background: var(--red-light);
+    text-decoration: none;
+  }
+
+  .county-block__header:hover h3 {
+    color: var(--red);
+  }
+
+  .county-block__header svg {
+    color: var(--grey-400);
+    transition: all 0.15s;
+  }
+
+  .county-block__header:hover svg {
+    color: var(--red);
+    transform: translateX(2px);
+  }
+
+  .county-block__info h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--grey-900);
+    margin: 0;
+  }
+
+  .county-block__meta {
+    font-size: 0.8rem;
+    color: var(--grey-500);
+    margin-top: 2px;
+    display: block;
+  }
+
+  /* City List */
+  .city-list {
+    padding: 12px 20px 16px;
+  }
+
+  .city-block {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--grey-50);
+  }
+
+  .city-block:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .city-block__header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: all 0.15s;
+  }
+
+  .city-block__header:hover {
+    text-decoration: none;
+  }
+
+  .city-block__name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--grey-800);
+    transition: color 0.15s;
+  }
+
+  .city-block__header:hover .city-block__name {
+    color: var(--red);
+  }
+
+  .city-block__meta {
+    font-size: 0.75rem;
+    color: var(--grey-400);
+    font-weight: 500;
+  }
+
+  /* Neighborhood Pills */
+  .neighborhood-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-left: 0;
+  }
+
+  .neighborhood-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--grey-50);
+    border: 1px solid var(--grey-100);
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    color: var(--grey-600);
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+
+  .neighborhood-pill:hover {
+    background: var(--red);
+    color: var(--white);
+    border-color: var(--red);
+    text-decoration: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .sitemap-hero h1 {
+      font-size: 1.8rem;
+    }
+
+    .stats-banner {
+      flex-wrap: wrap;
+    }
+
+    .stats-banner__item {
+      flex: 1 1 calc(33.33% - 1px);
+      border-bottom: 1px solid var(--grey-100);
+    }
+
+    .stats-banner__item:nth-child(4),
+    .stats-banner__item:nth-child(5) {
+      flex: 1 1 calc(50% - 1px);
+    }
+
+    .guide-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats-banner__item {
+      flex: 1 1 50%;
+      padding: 16px 12px;
+    }
+
+    .stats-banner__number {
+      font-size: 1.5rem;
+    }
+
+    .county-block__header {
+      padding: 12px 16px;
+    }
+
+    .city-list {
+      padding: 8px 16px 12px;
+    }
+  }
+</style>
