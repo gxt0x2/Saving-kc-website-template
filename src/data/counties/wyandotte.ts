@@ -25,6 +25,8 @@ export const wyandotte: CountyData = {
   taxDeadline: 'December 20',
   taxSaleMonth: 'September',
   taxSaleDates: 'September 2026',
+  taxSalePattern: 'Court-scheduled (typically 3 auctions per year)',
+  taxSaleDate2026: '2026-09-01',
   taxSaleLocation: 'Wyandotte County Courthouse, 710 N 7th St, Kansas City, KS 66101',
   taxSalePreRegDeadline: 'Contact Wyandotte County Treasurer for 2026 registration dates',
   probateCourtName: 'Wyandotte County District Court, 29th Judicial District',

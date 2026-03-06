@@ -25,6 +25,8 @@ export const johnson: CountyData = {
   taxDeadline: 'December 20',
   taxSaleMonth: 'September',
   taxSaleDates: 'September 2026',
+  taxSalePattern: 'Court-scheduled (dates set by district court)',
+  taxSaleDate2026: '2026-09-01',
   taxSaleLocation: 'Johnson County Courthouse, 100 N Kansas Ave, Olathe, KS 66061',
   taxSalePreRegDeadline: 'Contact Johnson County Treasurer for 2026 registration dates',
   probateCourtName: 'Johnson County District Court, 10th Judicial District',

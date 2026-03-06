@@ -47,6 +47,8 @@ export interface CountyData {
   taxDeadline: string;
   taxSaleMonth: string;
   taxSaleDates?: string;
+  taxSalePattern: string;
+  taxSaleDate2026: string;
   taxSaleLocation?: string;
   taxSalePreRegDeadline?: string;
   probateCourtName: string;

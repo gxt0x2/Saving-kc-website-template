@@ -189,10 +189,14 @@ const countyGraphSchema = courthouseName ? {
     subtitle={description}
     source={`${name.toLowerCase().replace(/\s+/g, '-')}-hero`}
     stats={heroStats}
-    heroSubtitle={heroSubtitleProp}
   />
 
   <PageShell breadcrumbs={breadcrumbs}>
+    {heroSubtitleProp && (
+      <div class="entity-proximity-block">
+        <p>{heroSubtitleProp}</p>
+      </div>
+    )}
     <ShortAnswerBlock answer={shortAnswer} />
 
     <!-- Child Entity Cards -->
@@ -518,6 +522,22 @@ const countyGraphSchema = courthouseName ? {
     .child-cards-grid {
       grid-template-columns: 1fr;
     }
+  }
+
+  .entity-proximity-block {
+    background: #FEF2F1;
+    border-left: 4px solid #CC0000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
+
+  .entity-proximity-block p {
+    font-size: 0.95rem;
+    color: var(--grey-700, #444);
+    line-height: 1.65;
+    margin: 0;
   }
 
   @media (min-width: 768px) {

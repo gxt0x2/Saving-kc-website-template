@@ -25,6 +25,8 @@ export const clay: CountyData = {
   taxDeadline: 'December 31',
   taxSaleMonth: 'late August',
   taxSaleDates: 'Late August 2026',
+  taxSalePattern: 'Fourth Monday of August',
+  taxSaleDate2026: '2026-08-24',
   taxSaleLocation: 'Clay County Courthouse, 11 S Water St, Liberty, MO 64068',
   taxSalePreRegDeadline: 'Contact Clay County Collector for 2026 registration dates',
   probateCourtName: 'Clay County Circuit Court, 7th Judicial Circuit',

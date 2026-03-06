@@ -96,6 +96,12 @@ const distressCards = county.cities.slice(0, 3).flatMap((c) =>
   }))
 );
 
+// Tax sale countdown
+const taxSaleDate = new Date(county.taxSaleDate2026 + 'T10:00:00');
+const today = new Date();
+const daysUntilSale = Math.ceil((taxSaleDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+const taxSaleDateFormatted = taxSaleDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
 const jumpPills = [
   { href: '#probate-help', label: 'Probate / Inherited', desc: 'Sell inherited property during or after probate', color: '#3B82F6' },
   { href: '#tax-delinquent-solutions', label: 'Back Taxes', desc: 'Resolve delinquent property taxes before sale', color: '#CC0000' },
@@ -126,20 +132,11 @@ const jumpPills = [
   heroSubtitle={heroSubtitle}
   heroHighlight=""
 >
-  <!-- QUICK-JUMP ANCHOR MENU (FULL) -->
-  <nav class="anchor-menu" aria-label="Jump to section">
-    <h3 class="anchor-menu__title">Table of Contents</h3>
-    <div class="anchor-pills">
-      {jumpPills.map((p) => (
-        <a href={p.href} class="anchor-pill" style={`--pill-accent: ${p.color}`}>
-          <span class="anchor-pill__label">{p.label}</span>
-          <span class="anchor-pill__desc">{p.desc}</span>
-        </a>
-      ))}
-    </div>
+  <!-- JUMP BAR -->
+  <nav class="jump-bar">
+    <span class="jump-bar__title">What would you like help on?</span>
+    <div class="jump-bar__links">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</div>
   </nav>
-
-  <nav class="jump-bar">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</nav>
 
   <!-- ENTITY PROXIMITY SECTION -->
   <section class="content-section" id="entity-connection">
@@ -157,7 +154,10 @@ const jumpPills = [
     </div>
   </section>
 
-  <nav class="jump-bar">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</nav>
+  <nav class="jump-bar">
+    <span class="jump-bar__title">What would you like help on?</span>
+    <div class="jump-bar__links">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</div>
+  </nav>
 
   <!-- SECTION 1: PROBATE -->
   <section class="content-section" id="probate-help">
@@ -246,7 +246,10 @@ const jumpPills = [
     />
   </section>
 
-  <nav class="jump-bar">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</nav>
+  <nav class="jump-bar">
+    <span class="jump-bar__title">What would you like help on?</span>
+    <div class="jump-bar__links">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</div>
+  </nav>
 
   <!-- SECTION 2: TAX DELINQUENT -->
   <section class="content-section" id="tax-delinquent-solutions">
@@ -277,6 +280,18 @@ const jumpPills = [
       </p>
     </div>
     <h3>2026 Tax Foreclosure Critical Dates</h3>
+    <div class="countdown-banner">
+      <div class="countdown-banner__icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="countdown-banner__text">
+        {daysUntilSale > 0
+          ? <><strong>{daysUntilSale} days</strong> until the {county.name} tax foreclosure sale — <strong>{taxSaleDateFormatted}</strong></>
+          : <><strong>The 2026 {county.name} tax foreclosure sale has passed.</strong></>
+        }
+      </div>
+      <div class="countdown-banner__pattern">{county.taxSalePattern}</div>
+    </div>
     <table class="data-table">
       <thead>
         <tr>
@@ -285,6 +300,14 @@ const jumpPills = [
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>Recurring Schedule</td>
+          <td><strong>{county.taxSalePattern}</strong></td>
+        </tr>
+        <tr>
+          <td>2026 Sale Date</td>
+          <td><strong>{taxSaleDateFormatted}</strong></td>
+        </tr>
         <tr>
           <td>Judicial Foreclosure Sale</td>
           <td>{county.taxSaleDates}</td>
@@ -340,7 +363,10 @@ const jumpPills = [
     />
   </section>
 
-  <nav class="jump-bar">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</nav>
+  <nav class="jump-bar">
+    <span class="jump-bar__title">What would you like help on?</span>
+    <div class="jump-bar__links">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</div>
+  </nav>
 
   <!-- SECTION 3: TAX FORECLOSURE RIGHTS -->
   <section class="content-section" id="tax-redemption-rights">
@@ -378,7 +404,10 @@ const jumpPills = [
     </div>
   </section>
 
-  <nav class="jump-bar">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</nav>
+  <nav class="jump-bar">
+    <span class="jump-bar__title">What would you like help on?</span>
+    <div class="jump-bar__links">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</div>
+  </nav>
 
   <!-- SECTION 4A: COURTHOUSE & COUNTY OFFICES -->
   <section class="content-section" id="county-resources">
@@ -422,7 +451,10 @@ const jumpPills = [
     </div>
   </section>
 
-  <nav class="jump-bar">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</nav>
+  <nav class="jump-bar">
+    <span class="jump-bar__title">What would you like help on?</span>
+    <div class="jump-bar__links">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</div>
+  </nav>
 
   <!-- SECTION 4B: HOW WE HELP -->
   <section class="content-section" id="how-we-help">
@@ -445,7 +477,10 @@ const jumpPills = [
     <a href="/get-offer/" class="inline-cta">Get My Cash Offer →</a>
   </section>
 
-  <nav class="jump-bar">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</nav>
+  <nav class="jump-bar">
+    <span class="jump-bar__title">What would you like help on?</span>
+    <div class="jump-bar__links">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</div>
+  </nav>
 
   <!-- STEP-BY-STEP PROCESS -->
   <section class="content-section" id="process">
@@ -524,90 +559,92 @@ const jumpPills = [
     color: #CC0000;
   }
 
-  /* === Full Anchor Menu (top) === */
-  .anchor-menu {
-    margin: 32px 0;
-    padding: 28px;
-    background: #0F172A;
-    border-radius: 12px;
-  }
-  .anchor-menu__title {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 18px;
-    color: #94A3B8;
-    text-align: center;
-  }
-  .anchor-pills {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  /* === Countdown Banner === */
+  .countdown-banner {
+    display: flex;
+    align-items: center;
     gap: 12px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%);
+    border: 2px solid #F59E0B;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
   }
-  .anchor-pill {
+  .countdown-banner__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #F59E0B;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .countdown-banner__text {
+    font-size: 1rem;
+    color: #78350F;
+    line-height: 1.4;
+    flex: 1;
+    min-width: 200px;
+  }
+  .countdown-banner__text strong {
+    color: #92400E;
+  }
+  .countdown-banner__pattern {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #B45309;
+    background: rgba(245, 158, 11, 0.15);
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  /* === Jump Bar (repeated before every section) === */
+  .jump-bar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    padding: 14px 12px;
-    background: #1E293B;
-    border: 1px solid #334155;
-    border-top: 3px solid var(--pill-accent, #64748B);
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .anchor-pill:hover {
-    background: #334155;
-    border-color: var(--pill-accent, #64748B);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    text-decoration: none;
-    transform: translateY(-2px);
-  }
-  .anchor-pill__label {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--pill-accent, #E2E8F0);
-  }
-  .anchor-pill__desc {
-    font-size: 0.7rem;
-    color: #94A3B8;
-    margin-top: 4px;
-    line-height: 1.4;
-  }
-
-  /* === Compact Jump Bar (repeated) === */
-  .jump-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    padding: 12px 16px;
-    background: #F1F5F9;
+    gap: 10px;
+    padding: 14px 16px;
+    background: #F8FAFC;
     border-radius: 8px;
     margin: 36px 0 8px;
     border: 1px solid #E2E8F0;
   }
+  .jump-bar__title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748B;
+  }
+  .jump-bar__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
   .jump-bar__link {
     font-size: 0.75rem;
     font-weight: 600;
-    color: var(--jb-color, #475569);
+    color: #fff;
+    background: var(--jb-color, #475569);
     text-decoration: none;
     padding: 5px 14px;
-    border: 1.5px solid var(--jb-color, #CBD5E1);
+    border: 1.5px solid var(--jb-color, #475569);
     border-radius: 20px;
     transition: all 0.15s;
     white-space: nowrap;
   }
   .jump-bar__link:hover {
-    background: var(--jb-color, #475569);
-    color: #fff;
+    background: transparent;
+    color: var(--jb-color, #475569);
     text-decoration: none;
-  }
-
-  @media (max-width: 640px) {
-    .anchor-pills { grid-template-columns: repeat(2, 1fr); }
   }
 
   .resource-links { margin-top: 24px; }

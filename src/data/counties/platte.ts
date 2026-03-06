@@ -25,6 +25,8 @@ export const platte: CountyData = {
   taxDeadline: 'December 31',
   taxSaleMonth: 'August',
   taxSaleDates: 'August 2026',
+  taxSalePattern: 'Fourth Monday of August',
+  taxSaleDate2026: '2026-08-24',
   taxSaleLocation: 'Platte County Courthouse, 415 Third St, Platte City, MO 64079',
   taxSalePreRegDeadline: 'Contact Platte County Collector for 2026 registration dates',
   probateCourtName: 'Platte County Circuit Court, 6th Judicial Circuit',

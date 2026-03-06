@@ -25,6 +25,8 @@ export const jackson: CountyData = {
   taxDeadline: 'December 31',
   taxSaleMonth: 'August',
   taxSaleDates: 'August 2026',
+  taxSalePattern: 'Second Monday (Independence) & Third Monday (Kansas City) of August',
+  taxSaleDate2026: '2026-08-17',
   taxSaleLocation: 'Jackson County Courthouse, 415 E 12th St, Kansas City, MO 64106',
   taxSalePreRegDeadline: 'Contact Jackson County Collector for 2026 registration dates',
   probateCourtName: 'Jackson County Circuit Court, 16th Judicial Circuit',
