@@ -10,6 +10,7 @@ interface HeroStat {
 interface Props {
   heading: string;
   highlight?: string;
+  greenText?: string;
   subtitle: string;
   source?: string;
   stats?: HeroStat[];
@@ -34,8 +35,19 @@ const defaultStats: HeroStat[] = [
   },
 ];
 
-const { heading, highlight, subtitle, source = 'page-hero', stats, heroSubtitle } = Astro.props;
+const { heading, highlight, greenText, subtitle, source = 'page-hero', stats, heroSubtitle } = Astro.props;
 const resolvedStats = stats || defaultStats;
+
+// Split heading around greenText for highlighting
+let headingParts: { before: string; green: string; after: string } | null = null;
+if (greenText && heading.includes(greenText)) {
+  const idx = heading.indexOf(greenText);
+  headingParts = {
+    before: heading.slice(0, idx),
+    green: greenText,
+    after: heading.slice(idx + greenText.length),
+  };
+}
 ---
 
 <section class="hero">
@@ -45,7 +57,10 @@ const resolvedStats = stats || defaultStats;
         <span class="stars">★★★★★</span> 4.9-Star Google Rating
       </div>
       <h1>
-        {heading}
+        {headingParts
+          ? <>{headingParts.before}<span class="highlight">{headingParts.green}</span>{headingParts.after}</>
+          : heading
+        }
         {highlight && (
           <>{' '}<span class="highlight">{highlight}</span></>
         )}
@@ -85,7 +100,7 @@ const resolvedStats = stats || defaultStats;
     display: grid;
     grid-template-columns: 1fr 440px;
     gap: 60px;
-    align-items: center;
+    align-items: start;
   }
 
   .hero-badge {

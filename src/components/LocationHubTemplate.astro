@@ -46,6 +46,7 @@ interface Props {
   heroStats?: { icon: string; number: string; label: string }[];
   heroSubtitle?: string;
   heroHighlight?: string;
+  heroGreenText?: string;
 }
 
 const {
@@ -70,6 +71,7 @@ const {
   heroStats,
   heroSubtitle: heroSubtitleProp,
   heroHighlight = 'For Cash',
+  heroGreenText,
 } = Astro.props;
 
 const name = locationName || title.replace(/Sell Your House for Cash in /g, '').replace(/, (MO|KS)$/g, '');
@@ -186,6 +188,7 @@ const countyGraphSchema = courthouseName ? {
   <HeroBanner
     heading={title}
     highlight={heroHighlight}
+    greenText={heroGreenText}
     subtitle={description}
     source={`${name.toLowerCase().replace(/\s+/g, '-')}-hero`}
     stats={heroStats}
