@@ -1,5 +1,6 @@
 ---
 import LocationHubTemplate from '@/components/LocationHubTemplate.astro';
+import CityHeroBanner from '@/components/CityHeroBanner.astro';
 import CalloutBox from '@/components/CalloutBox.astro';
 import NeighborhoodAuthorityBlock from '@/components/NeighborhoodAuthorityBlock.astro';
 import NeighborhoodComparisonTable from '@/components/NeighborhoodComparisonTable.astro';
@@ -83,7 +84,7 @@ const breadcrumbs = [
   { label: city.name },
 ];
 
-const title = `Sell Your House for Cash in ${city.name}, ${stateAbbr}`;
+const title = `We Buy Houses in ${city.name}, ${stateAbbr}`;
 const description = `We buy houses in ${city.name}, ${stateName}. ${city.neighborhoods.length} neighborhoods served. No repairs, no agents, no fees. Get a fair cash offer within 24 hours.`;
 const shortAnswer = `Yes, we buy houses in any condition in ${city.name}, ${stateName}. Whether your home needs major repairs, has code violations, or you simply need to sell quickly — we make a fair cash offer based on the local ${city.name} market and close on your schedule.`;
 
@@ -115,6 +116,19 @@ const situations = [
   relatedLinks={relatedLinks}
   canonical={`${brand.domain}/${stateSlug}/${county.slug}/${city.slug}/`}
 >
+  <CityHeroBanner
+    slot="hero"
+    cityName={city.name}
+    stateAbbr={stateAbbr}
+    countyName={county.name}
+    neighborhoodCount={city.neighborhoods.length}
+    medianHomeValue={city.medianHomeValue}
+    marketCondition={city.marketCondition}
+    daysOnMarket={city.daysOnMarket}
+    distanceFromOffice={city.distanceFromOffice}
+    population={city.population}
+  />
+
   <!-- NEIGHBORHOOD DIRECTORY -->
   <section class="content-section">
     <h2>Neighborhoods We Serve in {city.name}</h2>

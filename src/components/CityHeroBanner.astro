@@ -1,0 +1,318 @@
+---
+interface Props {
+  cityName: string;
+  stateAbbr: string;
+  countyName: string;
+  neighborhoodCount: number;
+  medianHomeValue: string;
+  marketCondition: string;
+  daysOnMarket: string;
+  distanceFromOffice: string;
+  population: string;
+}
+
+const {
+  cityName,
+  stateAbbr,
+  countyName,
+  neighborhoodCount,
+  medianHomeValue,
+  marketCondition,
+  daysOnMarket,
+  distanceFromOffice,
+  population,
+} = Astro.props;
+---
+
+<section class="city-hero">
+  <div class="container city-hero-inner">
+    <div class="city-hero-content">
+      <div class="city-hero-breadcrumb">
+        <span class="breadcrumb-tag">{countyName}</span>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-tag">{stateAbbr}</span>
+      </div>
+      <h1>We Buy Houses in <span class="city-name">{cityName}</span></h1>
+      <p class="city-hero-sub">
+        No repairs. No agents. No fees. Get a fair cash offer on your {cityName} home within 24 hours — and close in as few as 7 days.
+      </p>
+
+      <div class="city-stats-bar">
+        <div class="city-stat">
+          <span class="city-stat-value">{neighborhoodCount}</span>
+          <span class="city-stat-label">Neighborhoods</span>
+        </div>
+        <div class="city-stat-divider"></div>
+        <div class="city-stat">
+          <span class="city-stat-value">{medianHomeValue}</span>
+          <span class="city-stat-label">Median Value</span>
+        </div>
+        <div class="city-stat-divider"></div>
+        <div class="city-stat">
+          <span class="city-stat-value">{daysOnMarket}</span>
+          <span class="city-stat-label">Avg. Days on Market</span>
+        </div>
+        <div class="city-stat-divider"></div>
+        <div class="city-stat">
+          <span class="city-stat-value market-badge">{marketCondition}</span>
+          <span class="city-stat-label">Market</span>
+        </div>
+      </div>
+
+      <div class="city-hero-ctas">
+        <a href="tel:8164292900" class="btn-city-call">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (816) 429-2900
+        </a>
+        <a href="#offer-form" class="btn-city-offer">Get My Cash Offer &rarr;</a>
+      </div>
+
+      <div class="city-hero-trust">
+        <span class="trust-stars">★★★★★</span>
+        <span class="trust-text">4.9-Star Google Rating · {distanceFromOffice} from our office · {population} residents</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .city-hero {
+    background: linear-gradient(135deg, #B91C1C 0%, #991B1B 40%, #7F1D1D 100%);
+    color: #fff;
+    padding: 64px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .city-hero::before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    pointer-events: none;
+  }
+
+  .city-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+  }
+
+  .city-hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .city-hero-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .breadcrumb-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .breadcrumb-sep {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+  }
+
+  .city-hero h1 {
+    font-size: 2.6rem;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    max-width: 700px;
+  }
+
+  .city-name {
+    color: #FDE68A;
+  }
+
+  .city-hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 600px;
+  }
+
+  .city-stats-bar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 16px 24px;
+    margin-bottom: 32px;
+    max-width: 680px;
+    backdrop-filter: blur(4px);
+  }
+
+  .city-stat {
+    flex: 1;
+    text-align: center;
+    min-width: 0;
+  }
+
+  .city-stat-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+  }
+
+  .city-stat-value {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .city-stat-label {
+    display: block;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+  }
+
+  .market-badge {
+    font-size: 1rem;
+  }
+
+  .city-hero-ctas {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .btn-city-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: #fff;
+    color: #991B1B;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-city-call:hover {
+    background: #FDE68A;
+    color: #7F1D1D;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-city-offer {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    background: transparent;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-city-offer:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+
+  .city-hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .trust-stars {
+    color: #FDE68A;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .city-hero {
+      padding: 48px 0;
+    }
+
+    .city-hero h1 {
+      font-size: 1.9rem;
+    }
+
+    .city-stats-bar {
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .city-stat {
+      flex: 0 0 calc(50% - 12px);
+    }
+
+    .city-stat-divider {
+      display: none;
+    }
+
+    .city-hero-trust {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .city-hero h1 {
+      font-size: 1.6rem;
+    }
+
+    .city-hero-ctas {
+      flex-direction: column;
+    }
+
+    .btn-city-call,
+    .btn-city-offer {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+</style>

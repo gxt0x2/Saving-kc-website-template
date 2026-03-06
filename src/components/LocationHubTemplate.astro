@@ -185,14 +185,17 @@ const countyGraphSchema = courthouseName ? {
   <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
   {countyGraphSchema && <script type="application/ld+json" set:html={JSON.stringify(countyGraphSchema)} />}
 
-  <HeroBanner
-    heading={title}
-    highlight={heroHighlight}
-    greenText={heroGreenText}
-    subtitle={description}
-    source={`${name.toLowerCase().replace(/\s+/g, '-')}-hero`}
-    stats={heroStats}
-  />
+  {Astro.slots.has('hero')
+    ? <slot name="hero" />
+    : <HeroBanner
+        heading={title}
+        highlight={heroHighlight}
+        greenText={heroGreenText}
+        subtitle={description}
+        source={`${name.toLowerCase().replace(/\s+/g, '-')}-hero`}
+        stats={heroStats}
+      />
+  }
 
   <PageShell breadcrumbs={breadcrumbs}>
     {heroSubtitleProp && (
