@@ -1,63 +1,121 @@
 ---
 interface Props {
-  type: 'warning' | 'info' | 'fact' | 'critical' | 'tip';
+  type?: 'warning' | 'info' | 'fact' | 'critical' | 'tip';
+  variant?: 'blue' | 'red' | 'green' | 'gray' | 'yellow';
   text: string;
   title?: string;
 }
 
-const { type, text, title } = Astro.props;
+const { type, variant, text, title } = Astro.props;
 
-const config: Record<string, { class: string; icon: string; label: string }> = {
-  warning: { class: 'callout callout-warning', icon: '\u26A0\uFE0F', label: 'Warning' },
-  critical: { class: 'callout callout-critical', icon: '\u26A0\uFE0F', label: 'Critical' },
-  info: { class: 'callout callout-info', icon: '\u2139\uFE0F', label: 'Good to Know' },
-  fact: { class: 'callout callout-tip', icon: '\u2713', label: 'Key Fact' },
-  tip: { class: 'callout callout-tip', icon: '\u2713', label: 'Tip' },
-};
+// Resolve variant from either prop
+let resolvedVariant: 'blue' | 'red' | 'green' | 'gray' | 'yellow';
+if (variant) {
+  resolvedVariant = variant;
+} else if (type === 'info') {
+  resolvedVariant = 'blue';
+} else if (type === 'fact' || type === 'warning' || type === 'critical') {
+  resolvedVariant = 'red';
+} else if (type === 'tip') {
+  resolvedVariant = 'yellow';
+} else {
+  resolvedVariant = 'blue';
+}
 
-const style = config[type];
+const label = title;
 ---
 
-<div class={style.class}>
-  <div class="callout-inner">
-    <span class="callout-icon" aria-hidden="true">{style.icon}</span>
-    <div>
-      <p class="callout-label">{title || style.label}</p>
-      <p class="callout-text">{text}</p>
-    </div>
-  </div>
+<div class={`insert insert--${resolvedVariant}`}>
+  {label && resolvedVariant !== 'gray' && <span class="insert__label">{label}</span>}
+  <div class="insert__body" set:html={text} />
 </div>
 
 <style>
-  .callout-inner {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+  .insert {
+    padding: 20px;
+    border-radius: 8px;
+    margin: 24px 0;
+    border-left: 4px solid transparent;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   }
 
-  .callout-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: var(--radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 0.875rem;
-    background: rgba(0, 0, 0, 0.05);
-  }
-
-  .callout-label {
+  .insert__label {
+    display: block;
     font-weight: 700;
-    font-size: 0.75rem;
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 4px;
-    color: var(--grey-500);
+    letter-spacing: 0.07em;
+    margin-bottom: 6px;
   }
 
-  .callout-text {
-    color: var(--grey-700);
+  .insert__body {
     line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* Blue — info */
+  .insert--blue {
+    background: #EBF4FB;
+    border-left-color: #3B82F6;
+    color: #1e3a5f;
+  }
+  .insert--blue .insert__label {
+    color: #1D4ED8;
+  }
+  .insert--blue .insert__body a {
+    color: #1D4ED8;
+  }
+
+  /* Red — warning/critical */
+  .insert--red {
+    background: #FEF2F1;
+    border-left-color: #CC0000;
+    color: #450a0a;
+  }
+  .insert--red .insert__label {
+    color: #CC0000;
+  }
+  .insert--red .insert__body a {
+    color: #CC0000;
+  }
+
+  /* Green — option/opportunity */
+  .insert--green {
+    background: #F0FDF4;
+    border-left-color: #16A34A;
+    color: #14532d;
+  }
+  .insert--green .insert__label {
+    color: #15803D;
+  }
+  .insert--green .insert__body a {
+    color: #15803D;
+  }
+
+  /* Yellow — tip/note */
+  .insert--yellow {
+    background: #FFFBEB;
+    border-left-color: #F59E0B;
+    color: #78350f;
+  }
+  .insert--yellow .insert__label {
+    color: #B45309;
+  }
+  .insert--yellow .insert__body a {
+    color: #B45309;
+  }
+
+  /* Gray — bold callout, no border, no label */
+  .insert--gray {
+    background: #F3F3F3;
+    border-left: none;
+    color: var(--grey-900, #111827);
+  }
+  .insert--gray .insert__body {
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .insert--gray .insert__body a {
+    color: var(--grey-700, #374151);
   }
 </style>

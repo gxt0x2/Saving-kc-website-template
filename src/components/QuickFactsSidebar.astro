@@ -7,46 +7,55 @@ interface Props {
 const { facts, title = 'Quick Facts' } = Astro.props;
 ---
 
-<div class="card quick-facts">
-  <h3 class="qf-title">{title}</h3>
-  <dl>
-    {facts.map((fact) => (
-      <div class="fact-row">
-        <dt>{fact.label}</dt>
-        <dd class:list={[fact.color === 'red' && 'val-red', fact.color === 'green' && 'val-green']}>
-          {fact.value}
-        </dd>
-      </div>
-    ))}
-  </dl>
+<div class="sidebar-box quick-facts">
+  <div class="sidebar-box__inner">
+    <h3 class="qf-title">{title}</h3>
+    <dl>
+      {facts.map((fact) => (
+        <div class="fact-row">
+          <dt>{fact.label}</dt>
+          <dd class:list={[fact.color === 'red' && 'val-red', fact.color === 'green' && 'val-green']}>
+            {fact.value}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  </div>
 </div>
 
 <style>
-  .quick-facts {
-    background: var(--grey-50);
+  .sidebar-box {
+    background: #fff;
+    border: 1px solid #E2E2E2;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .sidebar-box__inner {
+    padding: 20px;
   }
 
   .qf-title {
     font-weight: 700;
-    font-size: 0.75rem;
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--red);
+    letter-spacing: 0.07em;
+    color: #CC0000;
     margin-bottom: 16px;
   }
 
   dl {
     display: flex;
     flex-direction: column;
-    gap: 12px;
   }
 
   .fact-row {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--grey-200);
+    padding: 10px 0;
+    border-bottom: 1px solid #EBEBEB;
+    font-size: 13px;
   }
 
   .fact-row:last-child {
@@ -54,22 +63,26 @@ const { facts, title = 'Quick Facts' } = Astro.props;
     padding-bottom: 0;
   }
 
+  .fact-row:first-child {
+    padding-top: 0;
+  }
+
   dt {
-    font-size: 0.875rem;
-    color: var(--grey-500);
+    color: #888888;
+    font-weight: 400;
   }
 
   dd {
     font-weight: 700;
-    color: var(--grey-900);
+    color: #000;
     text-align: right;
   }
 
   dd.val-red {
-    color: var(--red);
+    color: #CC0000;
   }
 
   dd.val-green {
-    color: var(--green-dark);
+    color: #1a7a1a;
   }
 </style>

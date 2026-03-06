@@ -23,6 +23,15 @@ export interface CityData {
   neighborhoods: NeighborhoodData[];
 }
 
+export interface CourthouseData {
+  name: string;
+  address: string;
+  phone: string;
+  website: string;
+  distanceMiles: number;
+  mapsCid: string;
+}
+
 export interface CountyData {
   name: string;
   slug: string;
@@ -34,6 +43,17 @@ export interface CountyData {
   medianHomeValue: string;
   taxLienInfo: string;
   probateInfo: string;
+  courthouse: CourthouseData;
+  taxDeadline: string;
+  taxSaleMonth: string;
+  taxSaleDates?: string;
+  taxSaleLocation?: string;
+  taxSalePreRegDeadline?: string;
+  probateCourtName: string;
+  reassessmentCycle: string;
+  narrativeHook: string;
+  courthouseLandmarks: string;
+  countyFaqs: { question: string; answer: string }[];
   cities: CityData[];
 }
 

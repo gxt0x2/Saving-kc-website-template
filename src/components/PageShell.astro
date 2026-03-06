@@ -33,4 +33,14 @@ const hasSidebar = Astro.slots.has('sidebar');
     padding-top: 24px;
     padding-bottom: 24px;
   }
+
+  .sidebar {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 </style>

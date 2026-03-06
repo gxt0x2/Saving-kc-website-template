@@ -6,7 +6,7 @@ import ShortAnswerBlock from '@/components/ShortAnswerBlock.astro';
 import ComparisonTable from '@/components/ComparisonTable.astro';
 import StepTimeline from '@/components/StepTimeline.astro';
 import CalibratedQuestionCTA from '@/components/CalibratedQuestionCTA.astro';
-import FAQ from '@/components/FAQ.astro';
+import FAQAccordion from '@/components/FAQAccordion.astro';
 import LeadForm from '@/components/LeadForm.astro';
 import QuickFactsSidebar from '@/components/QuickFactsSidebar.astro';
 import ContactSidebar from '@/components/ContactSidebar.astro';
@@ -39,6 +39,13 @@ interface Props {
   canonical?: string;
   metaTitle?: string;
   metaDescription?: string;
+  countyFaqs?: { question: string; answer: string }[];
+  courthouseName?: string;
+  courthouseAddress?: string;
+  courthouseWebsite?: string;
+  heroStats?: { icon: string; number: string; label: string }[];
+  heroSubtitle?: string;
+  heroHighlight?: string;
 }
 
 const {
@@ -56,6 +63,13 @@ const {
   canonical,
   metaTitle,
   metaDescription,
+  countyFaqs = [],
+  courthouseName,
+  courthouseAddress,
+  courthouseWebsite,
+  heroStats,
+  heroSubtitle: heroSubtitleProp,
+  heroHighlight = 'For Cash',
 } = Astro.props;
 
 const name = locationName || title.replace(/Sell Your House for Cash in /g, '').replace(/, (MO|KS)$/g, '');
@@ -76,7 +90,8 @@ const defaultSteps = [
   { title: 'Get Paid', description: "Sign at a local title company and receive your funds via wire transfer or cashier's check the same day." },
 ];
 
-const faqs = [
+// Merge generic FAQs with county-specific FAQs
+const genericFaqs = [
   {
     question: `How fast can you close on a house in ${name}?`,
     answer: `We can close in as few as 7 days. Because we pay cash, there's no lender approval, no appraisal, and no financing delays. You choose the date that works best for you, up to 60 days out if you need more time.`,
@@ -102,14 +117,79 @@ const faqs = [
     answer: `Yes. Many homeowners who sell to us are behind on payments or facing foreclosure. We can often close fast enough to stop foreclosure proceedings and help you avoid a hit to your credit.`,
   },
 ];
+const allFaqs = [...genericFaqs, ...countyFaqs];
+
+// Schema: BreadcrumbList
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://savingkc.com/' },
+    ...breadcrumbs.map((bc, i) => ({
+      '@type': 'ListItem',
+      position: i + 2,
+      name: bc.label,
+      ...(bc.href ? { item: `https://savingkc.com${bc.href}` } : {}),
+    })),
+  ],
+};
+
+// Schema: HowTo
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: `How to Sell Your House for Cash in ${name}`,
+  description: 'Get a fair cash offer and close in as few as 7 days.',
+  step: defaultSteps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.title,
+    text: s.description,
+  })),
+};
+
+// Schema: LocalBusiness + GovernmentOrganization graph (county pages only)
+const countyGraphSchema = courthouseName ? {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'LocalBusiness',
+      '@id': 'https://savingkc.com/#business',
+      name: 'Saving KC Homebuyers',
+      url: 'https://savingkc.com',
+      telephone: '+1-816-429-2900',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '1712 Main St',
+        addressLocality: 'Kansas City',
+        addressRegion: 'MO',
+        postalCode: '64108',
+      },
+      areaServed: { '@type': 'AdministrativeArea', name },
+    },
+    {
+      '@type': 'GovernmentOrganization',
+      '@id': `${courthouseWebsite}/#courthouse`,
+      name: courthouseName,
+      url: courthouseWebsite,
+      address: { '@type': 'PostalAddress', streetAddress: courthouseAddress },
+    },
+  ],
+} : null;
 ---
 
 <BaseLayout title={metaTitle || title} description={metaDescription || description} canonical={canonical}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+  {countyGraphSchema && <script type="application/ld+json" set:html={JSON.stringify(countyGraphSchema)} />}
+
   <HeroBanner
     heading={title}
-    highlight="For Cash"
+    highlight={heroHighlight}
     subtitle={description}
     source={`${name.toLowerCase().replace(/\s+/g, '-')}-hero`}
+    stats={heroStats}
+    heroSubtitle={heroSubtitleProp}
   />
 
   <PageShell breadcrumbs={breadcrumbs}>
@@ -165,7 +245,7 @@ const faqs = [
 
     <slot />
 
-    <FAQ items={faqs} />
+    <FAQAccordion items={allFaqs} title={`Frequently Asked Questions About Selling in ${name}`} />
 
     <CalibratedQuestionCTA />
 
@@ -174,11 +254,13 @@ const faqs = [
       {contactItems && contactItems.length > 0 && <ContactSidebar items={contactItems} />}
       {countyPills && countyPills.length > 0 && (
         <div class="sidebar-box">
-          <h3>{pillsTitle}</h3>
-          <div class="county-pills">
-            {countyPills.map((pill) => (
-              <a href={pill.href} class="county-pill">{pill.label}</a>
-            ))}
+          <div class="sidebar-box__inner">
+            <h3 class="sidebar-box__label">{pillsTitle}</h3>
+            <div class="county-pills">
+              {countyPills.map((pill) => (
+                <a href={pill.href} class="county-pill">{pill.label}</a>
+              ))}
+            </div>
           </div>
         </div>
       )}
@@ -192,19 +274,27 @@ const faqs = [
       ]} />
       {relatedLinks && relatedLinks.length > 0 && (
         <div class="sidebar-box">
-          <h3>Related Resources</h3>
-          <ul class="sidebar-links">
-            {relatedLinks.map((link) => (
-              <li>
-                <a href={link.href}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div class="sidebar-box__inner">
+            <h3 class="sidebar-box__label">Related Resources</h3>
+            <ul class="sidebar-links">
+              {relatedLinks.map((link) => (
+                <li class="sidebar-link-item">
+                  <a href={link.href} class="sidebar-link">{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
+      <div class="sidebar-box sidebar-cta-box">
+        <div class="sidebar-box__inner">
+          <p class="sidebar-cta-box__question">
+            Need to sell your {name} property fast?
+          </p>
+          <a href="/get-offer/" class="btn-cta-primary">Get My Cash Offer</a>
+          <a href="tel:8164292900" class="sidebar-cta-box__phone">816-429-2900</a>
+        </div>
+      </div>
     </Fragment>
   </PageShell>
 </BaseLayout>
@@ -321,14 +411,22 @@ const faqs = [
   }
 
   .sidebar-box {
-    background: var(--grey-50);
-    border-radius: var(--radius-lg);
-    padding: 24px;
+    background: #fff;
+    border: 1px solid #E2E2E2;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
-  .sidebar-box h3 {
+  .sidebar-box__inner {
+    padding: 20px;
+  }
+
+  .sidebar-box__label {
     font-weight: 700;
-    font-size: 1.125rem;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #CC0000;
     margin-bottom: 16px;
   }
 
@@ -336,26 +434,84 @@ const faqs = [
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 8px;
   }
 
-  .sidebar-links a {
+  .sidebar-link-item {
+    border-bottom: 1px solid #EBEBEB;
+  }
+
+  .sidebar-link-item:last-child {
+    border-bottom: none;
+  }
+
+  .sidebar-link {
+    display: block;
+    font-size: 13px;
+    color: var(--grey-700, #444);
+    text-decoration: none;
+    padding: 9px 0;
+    transition: color 0.15s;
+  }
+
+  .sidebar-link::after {
+    content: " →";
+  }
+
+  .sidebar-link:hover {
+    color: #CC0000;
+  }
+
+  /* Bottom CTA box */
+  .sidebar-cta-box {
+    text-align: center;
+  }
+
+  .sidebar-cta-box__question {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-text-primary, #111);
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+
+  .btn-cta-primary {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.875rem;
-    color: var(--grey-700);
+    justify-content: center;
+    width: 100%;
+    background: var(--color-red, #CC0000);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 20px;
+    border-radius: 6px;
     text-decoration: none;
-    transition: color 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    margin-bottom: 12px;
+    transition: background 0.15s;
   }
 
-  .sidebar-links a:hover {
-    color: var(--red);
+  .btn-cta-primary:hover {
+    background: var(--color-red-dark, #A50000);
+    color: #fff;
+    text-decoration: none;
   }
 
-  .sidebar-links svg {
-    color: var(--red);
-    flex-shrink: 0;
+  .btn-cta-primary::after {
+    content: " →";
+    margin-left: 4px;
+  }
+
+  .sidebar-cta-box__phone {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-red, #CC0000);
+    text-decoration: none;
+    display: block;
+  }
+
+  .sidebar-cta-box__phone:hover {
+    text-decoration: underline;
   }
 
   @media (max-width: 640px) {

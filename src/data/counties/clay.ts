@@ -14,6 +14,57 @@ export const clay: CountyData = {
     'Clay County conducts tax lien sales through the county collector\'s office in Liberty. Delinquent properties are auctioned at the Clay County Administration Building, typically in late August. A full list is published in the Liberty Tribune and on the county website.',
   probateInfo:
     'Probate matters are handled by the Clay County Circuit Court, 7th Judicial Circuit, at the Clay County Courthouse in Liberty. Missouri\'s small estate affidavit process applies for estates valued under $40,000.',
+  courthouse: {
+    name: 'Clay County Courthouse',
+    address: '11 S Water St, Liberty, MO 64068',
+    phone: '(816) 407-3500',
+    website: 'https://www.claycountymo.gov',
+    distanceMiles: 18,
+    mapsCid: '7398077831900000001',
+  },
+  taxDeadline: 'December 31',
+  taxSaleMonth: 'late August',
+  taxSaleDates: 'Late August 2026',
+  taxSaleLocation: 'Clay County Courthouse, 11 S Water St, Liberty, MO 64068',
+  taxSalePreRegDeadline: 'Contact Clay County Collector for 2026 registration dates',
+  probateCourtName: 'Clay County Circuit Court, 7th Judicial Circuit',
+  reassessmentCycle: 'odd-numbered years',
+  narrativeHook: 'Clay County is the fastest-growing part of the KC metro\'s Northland. That growth means rising assessments, new construction pushing out older homes, and homeowners caught between a property that needs work and a market that rewards move-in-ready condition.',
+  courthouseLandmarks: 'The Clay County Courthouse at 11 S Water Street sits on the historic Liberty Square — surrounded by the Jesse James Bank Museum, the Clay County Museum, and the shops and restaurants that make downtown Liberty one of the most recognizable town squares in the Kansas City metro. William Jewell College is just blocks north. The Liberty Jail Historic Site draws visitors year-round. Our office at 1712 Main St in Kansas City is 18 miles south, and we make the drive to Liberty regularly for courthouse filings, title company closings, and property inspections throughout Clay County. We work with Liberty-based title companies who know Clay County\'s recording timelines and lien search procedures. Whether your property is in Liberty, Excelsior Springs, Kearney, or Smithville, we\'ve closed transactions across every corner of Clay County.',
+  countyFaqs: [
+    {
+      question: 'When are Clay County property taxes due?',
+      answer: 'Clay County property taxes are due by December 31 each year. If you miss the deadline, a penalty is added in January and interest accrues monthly. The county publishes its delinquent tax list in the Liberty Tribune before the annual lien sale in late August. Once your property appears on that list, the timeline to resolve the debt shrinks fast. Selling before the lien sale lets you use the proceeds to clear the balance and walk away with your equity intact. We close in as few as 7 days.',
+    },
+    {
+      question: 'Where is the Clay County probate court?',
+      answer: 'Probate cases in Clay County are handled by the 7th Judicial Circuit Court at 11 S Water Street in Liberty. The court oversees estate administration, guardianships, and conservatorships. For small estates under $40,000, Missouri\'s small-estate affidavit process can bypass full probate entirely. If your inherited property in Clay County needs to be sold as part of the estate, we can coordinate with your attorney and close as soon as the court allows — you do not need to make repairs or clean out the home first.',
+    },
+    {
+      question: 'How does the Northland housing boom affect selling a distressed home in Clay County?',
+      answer: 'Clay County\'s growth — especially in Liberty, Pleasant Valley, and the Shoal Creek corridor — has pushed median home values up significantly. But that boom creates a gap: if your home needs major repairs, it may sit on the MLS for months while buyers chase new construction nearby. Rising assessments also mean higher tax bills on a property you may not be able to afford to fix. A cash sale bridges that gap. We buy homes in any condition and base our offer on the local market, not what the house could be worth after $50,000 in renovations.',
+    },
+    {
+      question: 'Can I sell a house in Clay County with title issues from an old industrial property?',
+      answer: 'Parts of North Kansas City and the industrial corridors in Clay County have properties with complex title histories — previous commercial use, environmental liens, or deed restrictions from decades-old industrial operations. Traditional buyers and their lenders often walk away from these complications. We have experience purchasing properties with title clouds in Clay County and work with local title companies to resolve issues at closing. If you own a property with a complicated history, we can still make an offer.',
+    },
+    {
+      question: 'Can I sell an inherited house in Clay County before probate is finished?',
+      answer: "Yes. In Missouri, you can sell inherited real estate during the probate process with court approval. The Clay County Circuit Court, 7th Judicial Circuit in Liberty routinely grants permission for estate sales when the proceeds benefit the estate. If probate has not been filed yet, we can help you understand whether a small-estate affidavit applies or whether full probate is required. Either way, we buy inherited homes in any condition — you do not need to clean out, repair, or visit the property.",
+    },
+    {
+      question: "How does Missouri's 2025 Electronic Wills Act affect probate in Clay County?",
+      answer: "Missouri now recognizes electronic wills signed after August 28, 2025. If your loved one created an electronic will, it may be accepted by the Clay County Circuit Court, 7th Judicial Circuit — potentially speeding up the probate filing process. Whether the will is paper or electronic, we can purchase the inherited property at any stage of probate.",
+    },
+    {
+      question: 'What are the penalties for late property taxes in Clay County?',
+      answer: 'If you miss the December 31 deadline in Clay County, penalties begin accruing at 1% per month on the unpaid balance. By late August, your property becomes eligible for tax lien sale. The longer you wait, the more you owe. Selling the property clears all tax debt at closing — we can close in as few as 7 days.',
+    },
+    {
+      question: 'Can I sell a house with a tax lien in Clay County?',
+      answer: 'Yes. You do not need to pay off tax liens before selling. At closing, the title company uses sale proceeds to clear all liens — including tax liens, mechanic\'s liens, and judgment liens. You receive whatever equity remains. We buy Clay County properties with liens regularly and can close in as few as 7 days.',
+    },
+  ],
   cities: [
     {
       name: 'Liberty',

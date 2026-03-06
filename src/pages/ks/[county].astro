@@ -54,26 +54,47 @@ const breadcrumbs = [
   { label: `${county.name}` },
 ];
 
-const title = `Sell Your House for Cash in ${county.name}, ${stateAbbr}`;
-const description = `We buy houses in ${county.name}, ${stateName}. ${county.cities.length} cities, dozens of neighborhoods. No repairs, no agents, no fees. Fair cash offer within 24 hours.`;
-const shortAnswer = `Yes, we buy houses in any condition across ${county.name}, ${stateName}. Whether your home has foundation problems, fire damage, code violations, or just needs updates, we make a fair cash offer based on the local ${county.name} market and close on your schedule — as fast as 7 days.`;
+const title = `Navigating ${county.name} Distressed Property: Your 2026 Guide to Probate, Tax Delinquency, and Redemption`;
+const description = `Navigating Probate, Tax Delinquency, and Redemption in ${county.name}, ${stateName}. Expert guidance for distressed property owners across ${county.cities.length} cities.`;
+const shortAnswer = `Whether you're navigating probate through the ${county.probateCourtName}, facing a judicial tax foreclosure under K.S.A. 79-2801, or trying to understand your rights before a sheriff's sale in ${county.name} — you have options. We help ${county.name} property owners resolve distressed situations with fair cash offers, no repairs, and closings as fast as 7 days.`;
 
-const countyContacts: Record<string, { label: string; value: string; href?: string }[]> = {
-  wyandotte: [
-    { label: 'Office', value: `${county.name} Appraiser` },
-    { label: 'Phone', value: '(913) 573-2810', href: 'tel:9135732810' },
-    { label: 'Address', value: '710 N 7th St, Kansas City, KS 66101' },
-    { label: 'Website', value: 'wycokck.org', href: 'https://www.wycokck.org' },
-  ],
-  johnson: [
-    { label: 'Office', value: `${county.name} Appraiser` },
-    { label: 'Phone', value: '(913) 715-0725', href: 'tel:9137150725' },
-    { label: 'Address', value: '100 N Kansas Ave, Olathe, KS 66061' },
-    { label: 'Website', value: 'jocogov.org', href: 'https://www.jocogov.org' },
-  ],
-};
+const heroSubtitle = `${county.name} property owners facing probate through the ${county.probateCourtName}, judicial tax foreclosure with a ${county.taxSaleMonth} sheriff's sale, or pre-sale redemption questions under K.S.A. 79-2801 — we've helped families in your exact situation. Our office is ${county.courthouse.distanceMiles} miles from the ${county.courthouse.name} at ${county.courthouse.address}. K.S.A. Chapter 59 governs probate; K.S.A. 79-2801 governs tax foreclosure. We know both.`;
 
-const contactItems = countyContacts[county.slug] || [];
+const heroStats = [
+  {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+    number: '47+',
+    label: 'Happy Sellers Helped',
+  },
+  {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    number: '11+',
+    label: 'Years Serving KC Metro',
+  },
+  {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
+    number: '15 Day',
+    label: 'Average Closing',
+  },
+];
+
+// Build contact items from courthouse data
+const contactItems = [
+  { label: 'Office', value: county.courthouse.name },
+  { label: 'Phone', value: county.courthouse.phone, href: `tel:${county.courthouse.phone.replace(/[^0-9]/g, '')}` },
+  { label: 'Address', value: county.courthouse.address },
+  { label: 'Website', value: county.courthouse.website.replace('https://', '').replace('http://', ''), href: county.courthouse.website },
+];
+
+// Collect neighborhood distress data for the county page
+const distressCards = county.cities.slice(0, 3).flatMap((c) =>
+  c.neighborhoods.slice(0, 2).map((n) => ({
+    neighborhood: n.name,
+    city: c.name,
+    factors: n.distressFactors,
+    hook: n.localHook,
+  }))
+);
 ---
 
 <LocationHubTemplate
@@ -88,78 +109,343 @@ const contactItems = countyContacts[county.slug] || [];
   countyPills={countyPills}
   relatedLinks={relatedLinks}
   canonical={`${brand.domain}/${stateSlug}/${county.slug}/`}
+  countyFaqs={county.countyFaqs}
+  courthouseName={county.courthouse.name}
+  courthouseAddress={county.courthouse.address}
+  courthouseWebsite={county.courthouse.website}
+  heroStats={heroStats}
+  heroSubtitle={heroSubtitle}
+  heroHighlight=""
 >
-  <!-- DEEP SLOT CONTENT: This goes between StepTimeline and FAQ in the template -->
+  <!-- QUICK-JUMP ANCHOR MENU -->
+  <nav class="anchor-menu" aria-label="Jump to section">
+    <h3 class="anchor-menu__title">What Do You Need Help With?</h3>
+    <div class="anchor-pills">
+      <a href="#probate-help" class="anchor-pill">
+        <span class="anchor-pill__label">Probate / Inherited Property</span>
+        <span class="anchor-pill__desc">Sell inherited property during or after probate</span>
+      </a>
+      <a href="#tax-delinquent-solutions" class="anchor-pill">
+        <span class="anchor-pill__label">Back Taxes</span>
+        <span class="anchor-pill__desc">Resolve delinquent property taxes before sale</span>
+      </a>
+      <a href="#tax-redemption-rights" class="anchor-pill">
+        <span class="anchor-pill__label">Tax Redemption</span>
+        <span class="anchor-pill__desc">Understand your rights before sheriff's sale</span>
+      </a>
+      <a href="#county-resources" class="anchor-pill">
+        <span class="anchor-pill__label">Courthouse & Resources</span>
+        <span class="anchor-pill__desc">County offices, contacts, and directions</span>
+      </a>
+      <a href="#how-we-help" class="anchor-pill">
+        <span class="anchor-pill__label">How Saving KC Helps</span>
+        <span class="anchor-pill__desc">Our process for {county.name} property owners</span>
+      </a>
+    </div>
+  </nav>
 
-  <section class="content-section">
-    <h2>Who Sells Their Home for Cash in {county.name}?</h2>
+  <!-- SECTION 1: PROBATE -->
+  <section class="content-section" id="probate-help">
+    <h2>How Do I Sell Inherited Property in {county.name}?</h2>
+    <p class="answer-block">
+      You can sell inherited property in Kansas without waiting for probate to close. If a transfer-on-death deed was filed, you can sell immediately after recording the transfer. Otherwise, the {county.probateCourtName} oversees proceedings that typically take 6 to 12 months — but selling during probate is allowed with court approval.
+    </p>
+    <a href="/get-offer/" class="inline-cta">Get My Cash Offer →</a>
     <div class="section-body">
       <p>
-        The homeowners who contact us in {county.name} aren't in textbook selling situations.
-        They're people dealing with real problems that make the traditional listing process impractical,
-        too expensive, or too slow. Here's who we typically help:
+        Losing a loved one is hard enough without the added weight of an inherited property you're not sure what to do with. If you're now facing decisions about a home in {county.name}, know that you don't have to figure it all out at once. Whether you're weeks into the grief or months into the process, your options remain open.
       </p>
       <p>
-        <strong>Homeowners facing foreclosure.</strong> When the bank has set a sale date, you don't have
-        3-6 months to list on the MLS. A cash sale can close before the foreclosure happens, protecting
-        your credit and letting you walk away with equity instead of nothing.
+        We're here to help you understand them without pressure. Call us at <a href="tel:8164292900">816-429-2900</a> to discuss your inherited property.
       </p>
       <p>
-        <strong>People who inherited property.</strong> You live out of state, the house needs work, and
-        you're paying property taxes on a home you don't want. We buy inherited homes in any condition,
-        even if probate isn't finished yet. {county.probateInfo}
+        Kansas probate works differently from Missouri, and it's worth understanding how. Kansas courts offer both supervised and unsupervised administration of estates. Unsupervised administration is far more common — under this process, the personal representative (the executor) has broad authority to act on behalf of the estate without seeking court approval at every step.
       </p>
       <p>
-        <strong>Landlords with problem tenants.</strong> Eviction costs money and takes months. The property
-        is being damaged. The rent isn't coming in. We buy tenant-occupied properties and handle the
-        situation after closing.
+        Once the {county.probateCourtName} issues Letters Testamentary, the personal representative can sign contracts, list the property, and accept offers — all without waiting for the estate to formally close.
+      </p>
+      <CalloutBox
+        variant="blue"
+        title="KANSAS PROBATE: SUPERVISED VS. UNSUPERVISED"
+        text={`<strong>Unsupervised administration</strong> (most common) gives the personal representative broad authority to sell property without court approval at every step. <strong>Supervised administration</strong> requires court approval for each transaction — adding time and cost. Ask your attorney which applies to your ${county.name} estate.`}
+      />
+      <p>
+        {county.probateInfo}
+      </p>
+      <CalloutBox
+        variant="yellow"
+        title="TRANSFER-ON-DEATH DEED"
+        text={`Kansas offers TOD deeds that bypass probate entirely. If the deceased owner filed a TOD deed with the ${county.name} Register of Deeds, the named beneficiary receives the property automatically upon the owner's death. Have a TOD deed? You can sell to us as soon as the transfer is recorded — often within days of receiving the death certificate. No probate, no court approval, no waiting. <a href="tel:8164292900">Call 816-429-2900</a>.`}
+      />
+      <p>
+        If the estate's gross value is $40,000 or less, Kansas allows a simplified procedure. You can file a petition with the {county.probateCourtName} for summary administration, which significantly reduces the timeline and cost compared to full probate.
       </p>
       <p>
-        <strong>Homeowners who can't afford repairs.</strong> The roof needs replacing, the foundation is
-        cracking, the HVAC is dead. Repair estimates come in at $20,000-$50,000. You can't list a house
-        in that condition, and you can't afford to fix it. We buy it as-is.
+        Full probate in {county.name} typically takes 6 to 12 months — generally faster than Missouri. Filing fees run $50 to $200. Attorney fees range from $1,500 to $4,000 depending on complexity. During this period, you're still responsible for property taxes, insurance, and maintenance on a property that may be sitting vacant.
+      </p>
+      <p>
+        You don't need to wait for the estate to close. Kansas law allows the personal representative to sell real property during probate with court approval. Whether probate is complete, in progress, or hasn't been filed yet, you have options. We buy inherited properties at any stage — you don't need to clean out, repair, or even visit the property.
+      </p>
+    </div>
+    <CalloutBox
+      variant="green"
+      title="SELLING IS AN OPTION"
+      text={`You don't have to wait for probate to close, a TOD deed to be recorded, or the estate to be settled. We buy inherited properties in ${county.name} at any stage — as-is, no cleaning, no repairs. <a href="tel:8164292900">Call 816-429-2900</a> to discuss your situation.`}
+    />
+
+    <!-- Probate Timeline -->
+    <h3>Kansas Probate Timeline</h3>
+    <div class="process-timeline">
+      <div class="process-timeline__step">
+        <span class="process-timeline__number">1</span>
+        <div class="process-timeline__title">Death of Property Owner</div>
+        <p class="process-timeline__desc">Check for a transfer-on-death (TOD) deed first — if filed, the beneficiary receives the property automatically under K.S.A. Chapter 59. No probate needed.</p>
+      </div>
+      <div class="process-timeline__step">
+        <span class="process-timeline__number">2</span>
+        <div class="process-timeline__title">File Probate with {county.probateCourtName}</div>
+        <p class="process-timeline__desc">If no TOD deed exists, submit the will and petition. Kansas courts typically assign unsupervised administration, giving the personal representative broad authority.</p>
+      </div>
+      <div class="process-timeline__step">
+        <span class="process-timeline__number">3</span>
+        <div class="process-timeline__title">Receive Letters Testamentary</div>
+        <p class="process-timeline__desc">Court issues authority to act on behalf of the estate. Under unsupervised administration, you can sell property without seeking court approval for each transaction.</p>
+      </div>
+      <div class="process-timeline__step">
+        <span class="process-timeline__number">4</span>
+        <div class="process-timeline__title">Sell Property (During Probate)</div>
+        <p class="process-timeline__desc">You don't have to wait for the estate to close. With Letters Testamentary, you can accept a cash offer and close on your timeline.</p>
+      </div>
+      <div class="process-timeline__step">
+        <span class="process-timeline__number">5</span>
+        <div class="process-timeline__title">Close Estate</div>
+        <p class="process-timeline__desc">Final accounting, distribute remaining assets, and close the estate. Kansas probate typically takes 6–12 months — faster than Missouri.</p>
+      </div>
+    </div>
+
+    <CalloutBox
+      type="info"
+      title={`${county.name.toUpperCase()} PROBATE COURT`}
+      text={`Probate cases in ${county.name} are handled by the ${county.probateCourtName}, located at ${county.courthouse.address}. Our office is ${county.courthouse.distanceMiles} miles away — we work with this court regularly and can coordinate with your attorney to close as soon as the court allows.`}
+    />
+  </section>
+
+  <!-- SECTION 2: TAX DELINQUENT -->
+  <section class="content-section" id="tax-delinquent-solutions">
+    <h2>What Happens When You Owe Back Taxes in {county.name}?</h2>
+    <p class="answer-block">
+      Your property faces judicial tax foreclosure if taxes remain unpaid past December 20. Under K.S.A. 79-2801, Kansas counties file suit in district court — not a lien sale. In {county.name}, the sheriff's sale typically occurs in {county.taxSaleMonth}. Your right to redeem ends the day before the sheriff's sale. Once the sheriff's deed is issued, ownership transfers permanently with no post-sale redemption.
+    </p>
+    <div class="section-body">
+      <p>
+        If you've missed your {county.name} property tax payment, the clock started the moment the December 20 deadline passed — and Kansas moves faster than most homeowners expect. Unlike Missouri, which gives until December 31, Kansas counties begin enforcement earlier. Penalties accrue immediately. By {county.taxSaleMonth}, delinquent properties in {county.name} are eligible for judicial foreclosure under K.S.A. 79-2801, and once that process begins, your options narrow quickly.
+      </p>
+      <p>
+        {county.taxLienInfo}
+      </p>
+      <p>
+        Kansas reassesses property values {county.reassessmentCycle}, which means your tax bill can change every year even if you've made no improvements. If rising assessments have pushed your tax burden beyond what you can manage, selling eliminates that obligation entirely.
+      </p>
+      <CalloutBox
+        variant="red"
+        title="KANSAS HAS NO POST-SALE REDEMPTION"
+        text={`Unlike Missouri's 1-year redemption window, Kansas uses <strong>judicial tax foreclosure</strong> under K.S.A. 79-2801. Your right to pay and stop the sale ends the <strong>day before the sheriff's sale</strong>. Once the sheriff's deed is recorded, ownership transfers permanently. No second chance.`}
+      />
+      <p>
+        Here's how it works: when taxes go unpaid, the county attorney files a foreclosure action in district court. The court enters a judgment and orders a sheriff's sale. You may redeem the property by paying all delinquent taxes, interest, and costs — but that right expires the day before the sheriff's sale. Once the sheriff's deed is issued, ownership transfers permanently.
+      </p>
+      <p>
+        You don't need to pay off back taxes before selling. At closing, the title company uses the sale proceeds to clear all delinquent taxes, mechanic's liens, and judgment liens. If your equity exceeds what you owe, you walk away with the remaining balance — and a clean break from the property. Even if the taxes are significant, selling before the sheriff's sale is almost always better than losing the property entirely through foreclosure.
+      </p>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>DETAIL</th>
+          <th>INFORMATION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Judicial Foreclosure Sale</td>
+          <td>{county.taxSaleDates}</td>
+        </tr>
+        <tr>
+          <td>Sale Location</td>
+          <td>{county.taxSaleLocation}</td>
+        </tr>
+        <tr>
+          <td>Annual Tax Deadline</td>
+          <td>{county.taxDeadline}</td>
+        </tr>
+        <tr>
+          <td>Redemption Deadline</td>
+          <td>Day before the sheriff's sale — no redemption rights after sale</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Tax Foreclosure Timeline -->
+    <h3>{county.name} Tax Foreclosure Timeline</h3>
+    <div class="process-timeline">
+      <div class="process-timeline__step">
+        <span class="process-timeline__number">1</span>
+        <div class="process-timeline__title">December 20 — Tax Due Date</div>
+        <p class="process-timeline__desc">Kansas property taxes are due December 20 (earlier than Missouri's December 31). Miss this date and penalties start immediately.</p>
+      </div>
+      <div class="process-timeline__step">
+        <span class="process-timeline__number">2</span>
+        <div class="process-timeline__title">Judicial Foreclosure Filed</div>
+        <p class="process-timeline__desc">The county attorney files a foreclosure action in district court under K.S.A. 79-2801. The court enters a judgment and orders a sheriff's sale.</p>
+      </div>
+      <div class="process-timeline__step">
+        <span class="process-timeline__number">3</span>
+        <div class="process-timeline__title">{county.taxSaleMonth} — Sheriff's Sale</div>
+        <p class="process-timeline__desc">Your property is sold at sheriff's sale. Your right to redeem expires the day before the sale — not after.</p>
+      </div>
+      <div class="process-timeline__step">
+        <span class="process-timeline__number">4</span>
+        <div class="process-timeline__title">No Post-Sale Redemption</div>
+        <p class="process-timeline__desc">Unlike Missouri's 1-year window, Kansas has NO redemption period after the sheriff's sale. Once the sheriff's deed records, ownership is gone permanently.</p>
+      </div>
+    </div>
+
+    <CalloutBox
+      variant="gray"
+      text={`Every month you wait, the judgment grows and the sheriff's sale gets closer. Kansas uses judicial tax foreclosure — there is no redemption period after the sale. Once the sheriff's deed records, ownership is gone permanently. Selling your ${county.name} property now clears all tax debt at closing and puts remaining equity in your hands. <a href="tel:8164292900">Call Ernest: 816-429-2900</a>.`}
+    />
+    <CalloutBox
+      type="fact"
+      title={`${county.name.toUpperCase()} TAX DEADLINE`}
+      text={`Your ${county.name} property tax is due ${county.taxDeadline}. Delinquent properties face judicial foreclosure under K.S.A. 79-2801 with a sheriff's sale typically in ${county.taxSaleMonth}. There is no redemption after the sale — if you're behind, selling before the sheriff's sale is your only option to preserve equity. We can close in as few as 7 days.`}
+    />
+  </section>
+
+  <!-- SECTION 3: TAX FORECLOSURE RIGHTS -->
+  <section class="content-section" id="tax-redemption-rights">
+    <h2>What Are My Rights Before a {county.name} Sheriff's Sale?</h2>
+    <p class="answer-block">
+      Under Kansas judicial tax foreclosure (K.S.A. 79-2801), you have the right to pay all delinquent taxes, interest, and court costs to stop the foreclosure — but only before the sheriff's sale. Once the sheriff's sale occurs and a sheriff's deed is issued, your ownership is extinguished permanently. There is no post-sale redemption in Kansas.
+    </p>
+    <div class="section-body">
+      <p>
+        Kansas judicial tax foreclosure under K.S.A. 79-2801 works differently from Missouri's system. In Kansas, the county attorney files a court action, the district court enters a foreclosure judgment, and a sheriff's sale is ordered. Before that sale occurs, you can stop the foreclosure by paying all delinquent taxes, accrued interest, penalties, and court costs. Your right to pay and stop the sale expires the day before the sheriff's sale. Once the sale takes place and a sheriff's deed is recorded, ownership transfers permanently. There is no grace period, no post-sale redemption window, and no court process to reclaim the property after the deed issues.
+      </p>
+      <p>
+        Here's a complication most homeowners miss: if there's a pending probate on the property, the judicial foreclosure proceeds concurrently with estate administration. The probate court will not pause the sheriff's sale while the estate is being settled. Neither the estate nor the heir may be able to act fast enough when both processes run simultaneously. In these situations, selling before the sheriff's sale is often the only path to preserving any equity in the property.
+      </p>
+    </div>
+    <CalloutBox
+      variant="red"
+      title="CRITICAL DEADLINE"
+      text={`If your ${county.name} property is headed for sheriff's sale, your rights end the day before the gavel drops. Kansas has no post-sale redemption — once the sheriff's deed records, ownership is gone permanently. There is no second chance. Act now — <a href="tel:8164292900">call 816-429-2900</a>.`}
+    />
+    <div class="section-body">
+      <p>
+        If your {county.name} property is approaching a sheriff's sale or a judicial foreclosure judgment has been entered, every day matters. We can close in as few as 7 days — well before most sheriff's sale dates. We work with title companies that specialize in distressed properties and can navigate tax payoffs, estate coordination, and courthouse filings simultaneously. Don't wait for a notice you may not receive in time.
       </p>
     </div>
   </section>
 
-  <CalloutBox
-    type="fact"
-    title={`${county.name.toUpperCase()} TAX INFO`}
-    text={county.taxLienInfo}
-  />
-
-  <section class="content-section">
-    <h2>What Does the {county.name} Housing Market Mean for Sellers?</h2>
+  <!-- SECTION 4A: COURTHOUSE & COUNTY OFFICES -->
+  <section class="content-section" id="county-resources">
+    <h2>{county.name} Courthouse & County Offices</h2>
+    <p class="answer-block">
+      The {county.courthouse.name} is {county.courthouse.distanceMiles} miles from our office at 1712 Main St in Kansas City. We work with this courthouse regularly — filing documents, coordinating with attorneys, and closing transactions through local title companies in {county.seatCity}.
+    </p>
     <div class="section-body">
       <p>
-        The median home value in {county.name} is {county.medianHomeValue}. But that number
-        hides a wide range. Some neighborhoods have homes valued well above that. Others have older
-        homes from the 1940s-1970s that are worth significantly less, especially when deferred
-        maintenance is factored in.
+        {county.narrativeHook}
       </p>
       <p>
-        For a home valued at {county.medianHomeValue}, listing with an agent means paying
-        5-6% in commissions — that's ${Math.round(parseInt(county.medianHomeValue.replace(/[$,]/g, '')) * 0.055).toLocaleString()} gone
-        before you factor in repairs, staging, closing costs, and the months you'll spend waiting for
-        a buyer whose financing might fall through. For many {county.name} homeowners, especially
-        those with older homes or properties that need work, the math doesn't favor a traditional sale.
+        {county.courthouseLandmarks}
       </p>
+    </div>
+
+    <div class="resource-links">
+      <div class="resource-grid">
+        <div class="resource-card resource-card--featured">
+          <div class="resource-card__header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="resource-card__icon"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
+            <strong>{county.courthouse.name}</strong>
+          </div>
+          <div class="resource-card__details">
+            <p>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              {county.courthouse.address}
+            </p>
+            <p>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href={`tel:${county.courthouse.phone.replace(/[^0-9]/g, '')}`}>{county.courthouse.phone}</a>
+            </p>
+            <p>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <a href={county.courthouse.website} target="_blank" rel="noopener">{county.courthouse.website.replace('https://', '')}</a>
+            </p>
+            <p>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              <a href={`https://www.google.com/maps?cid=${county.courthouse.mapsCid}`} target="_blank" rel="noopener">Get Directions</a>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <CalloutBox
-    type="info"
-    title={`${county.name.toUpperCase()} PROBATE`}
-    text={county.probateInfo}
-  />
-
-  <section class="content-section">
-    <h2>Where Are We Buying in {county.name}?</h2>
+  <!-- SECTION 4B: HOW WE HELP -->
+  <section class="content-section" id="how-we-help">
+    <h2>How Saving KC Helps {county.name} Property Owners</h2>
     <div class="section-body">
       <p>
-        We buy houses across all {county.cities.length} cities in {county.name}, {stateName}.
-        Every city. Every neighborhood. Every property condition. Here's a quick look at where
-        we're active:
+        Our office at 1712 Main St in Kansas City is {county.courthouse.distanceMiles} miles from
+        the {county.courthouse.name}. We close transactions through
+        local title companies in {county.seatCity} and know {county.name}'s recording timelines,
+        lien search processes, and courthouse procedures from firsthand experience.
+      </p>
+    </div>
+    <ul class="check-list">
+      <li><strong>Fair, transparent cash offers</strong> — we show you how we got to our number with no hidden fees</li>
+      <li><strong>Close in as few as 7 days</strong> — or up to 60 days if you need more time to move</li>
+      <li><strong>No repairs, no cleaning, no prep</strong> — sell your {county.name} home in any condition, as-is</li>
+      <li><strong>We pay all closing costs</strong> — title fees, recording fees, transfer taxes — all of it</li>
+      <li><strong>Probate & tax foreclosure coordination</strong> — we work with courts, attorneys, and title companies so you don't have to</li>
+    </ul>
+    <a href="/get-offer/" class="inline-cta">Get My Cash Offer →</a>
+  </section>
+
+  <!-- DISTRESS PATTERNS -->
+  <section class="content-section">
+    <h2>What We See in {county.name} Properties</h2>
+    <div class="section-body">
+      <p>
+        Across {county.cities.length} cities and dozens of neighborhoods, certain patterns repeat
+        in the homes we buy in {county.name}. Here's what sellers are typically dealing with:
+      </p>
+    </div>
+    {distressCards.length > 0 && (
+      <div class="distress-grid">
+        {distressCards.map((card) => (
+          <div class="distress-card">
+            <h3>{card.neighborhood} <span class="distress-city">({card.city})</span></h3>
+            <ul class="distress-factors">
+              {card.factors.map((f) => (
+                <li><span class="distress-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span> {f}</li>
+              ))}
+            </ul>
+            <p class="distress-hook">{card.hook}</p>
+          </div>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <!-- CITIES SERVED -->
+  <section class="content-section">
+    <h2>{county.name} Cities & Neighborhoods</h2>
+    <div class="section-body">
+      <p>
+        Your property in any of {county.cities.length} cities across {county.name}, {stateName} qualifies
+        for a cash offer. Every neighborhood. Every condition.
       </p>
     </div>
     <div class="city-highlights">
@@ -176,6 +462,94 @@ const contactItems = countyContacts[county.slug] || [];
 </LocationHubTemplate>
 
 <style>
+  .answer-block {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--grey-800);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    background: var(--cream, #faf9f6);
+    border-left: 3px solid var(--red);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+
+  .anchor-menu {
+    margin: 32px 0;
+    padding: 24px;
+    background: var(--grey-50);
+    border-radius: var(--radius);
+    border: 1px solid var(--grey-200);
+  }
+  .anchor-menu__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--grey-900);
+  }
+  .anchor-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .anchor-pill {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 16px;
+    background: var(--white);
+    border: 1px solid var(--grey-200);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: all 0.2s;
+    max-width: 220px;
+  }
+  .anchor-pill:hover {
+    border-color: var(--red);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+  }
+  .anchor-pill__label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--grey-800);
+  }
+  .anchor-pill:hover .anchor-pill__label {
+    color: var(--red);
+  }
+  .anchor-pill__desc {
+    font-size: 0.75rem;
+    color: var(--grey-500);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  .resource-links { margin-top: 24px; }
+  .resource-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .resource-card--featured {
+    padding: 24px;
+    background: var(--grey-50);
+    border: 1px solid var(--grey-200);
+    border-radius: var(--radius);
+  }
+  .resource-card__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .resource-card__header strong { font-size: 1.1rem; }
+  .resource-card__icon { color: var(--red); flex-shrink: 0; }
+  .resource-card__details p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+    font-size: 0.9rem;
+    color: var(--grey-600);
+  }
+  .resource-card__details svg { color: var(--grey-400); flex-shrink: 0; }
+  .resource-card__details a { color: var(--red); }
+
   .content-section { margin: 40px 0; }
   .content-section h2 {
     font-size: 1.5rem;
@@ -185,8 +559,24 @@ const contactItems = countyContacts[county.slug] || [];
     border-bottom: 1px solid var(--grey-100);
   }
   .section-body { color: var(--grey-700); line-height: 1.7; }
-  .section-body p { margin-bottom: 16px; }
+  .section-body p { margin-bottom: 16px; max-width: 68ch; }
   .section-body p:last-child { margin-bottom: 0; }
+
+  .answer-block { max-width: 68ch; }
+
+  .inline-cta {
+    display: inline-block;
+    background: var(--color-red, #CC0000);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin: 16px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+  .inline-cta:hover { background: var(--color-red-dark, #A50000); color: #fff; text-decoration: none; }
 
   .city-highlights {
     display: grid;
@@ -207,7 +597,71 @@ const contactItems = countyContacts[county.slug] || [];
   .city-meta { font-size: 0.85rem; color: var(--grey-500); margin-bottom: 8px; }
   .city-desc { font-size: 0.9rem; color: var(--grey-600); line-height: 1.5; }
 
+  .distress-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .distress-card {
+    padding: 16px 20px;
+    border: 1px solid var(--grey-200);
+    border-radius: var(--radius);
+    background: var(--grey-50);
+  }
+  .distress-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .distress-city { color: var(--grey-500); font-weight: 400; }
+  .distress-factors {
+    list-style: none;
+    margin: 0 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .distress-factors li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 0.875rem;
+    color: var(--grey-700);
+  }
+  .distress-icon { color: var(--red); flex-shrink: 0; }
+  .distress-hook {
+    font-size: 0.85rem;
+    color: var(--grey-500);
+    font-style: italic;
+    margin: 0;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  .data-table th {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #888;
+    padding: 8px 12px 8px 0;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border, #E2E2E2);
+  }
+  .data-table td {
+    padding: 12px 12px 12px 0;
+    color: #111;
+    border-bottom: 1px solid var(--color-divider, #EBEBEB);
+    vertical-align: top;
+  }
+
   @media (max-width: 640px) {
     .city-highlights { grid-template-columns: 1fr; }
+    .distress-grid { grid-template-columns: 1fr; }
   }
 </style>

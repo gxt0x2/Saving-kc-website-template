@@ -45,6 +45,98 @@
   /* Layout */
   --max-width: 1200px;
   --nav-height: 64px;
+
+  /* === Design Token System === */
+
+  /* Brand Colors */
+  --color-red: #CC0000;
+  --color-red-dark: #A50000;
+  --color-green-cta: #16A34A;
+  --color-green-cta-hover: #15803D;
+
+  /* Text Colors */
+  --color-text-primary: #111111;
+  --color-text-secondary: #555555;
+  --color-text-muted: #888888;
+  --color-text-white: #FFFFFF;
+
+  /* Surface Colors */
+  --color-bg-page: #FFFFFF;
+  --color-bg-hub: #F4F4F4;
+  --color-bg-sidebar: #FFFFFF;
+  --color-bg-card: #FFFFFF;
+
+  /* Insert Colors — Blue */
+  --color-insert-blue-bg: #EBF4FB;
+  --color-insert-blue-border: #3B82F6;
+  --color-insert-blue-label: #1D4ED8;
+
+  /* Insert Colors — Red */
+  --color-insert-red-bg: #FEF2F1;
+  --color-insert-red-border: #CC0000;
+  --color-insert-red-label: #CC0000;
+
+  /* Insert Colors — Green */
+  --color-insert-green-bg: #F0FDF4;
+  --color-insert-green-border: #16A34A;
+  --color-insert-green-label: #15803D;
+
+  /* Insert Colors — Yellow */
+  --color-insert-yellow-bg: #FFFBEB;
+  --color-insert-yellow-border: #F59E0B;
+  --color-insert-yellow-label: #B45309;
+
+  /* Insert Colors — Gray */
+  --color-insert-gray-bg: #F3F3F3;
+
+  /* Structural Colors */
+  --color-border: #E2E2E2;
+  --color-divider: #EBEBEB;
+  --color-nav-border: #E5E5E5;
+
+  /* Typography Scale */
+  --font-size-h1: 34px;
+  --font-size-h2: 26px;
+  --font-size-body: 16px;
+  --font-size-body-sm: 15px;
+  --font-size-label: 11px;
+  --line-height-body: 1.65;
+  --line-height-tight: 1.3;
+  --letter-spacing-label: 0.07em;
+
+  /* Border Radius */
+  --radius-box: 8px;
+  --radius-card: 10px;
+  --radius-button: 6px;
+  --radius-badge: 50%;
+  --radius-list-icon: 50%;
+
+  /* Shadows */
+  --shadow-box: 0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.05);
+  --shadow-card: 0 1px 4px rgba(0,0,0,0.07), 0 3px 10px rgba(0,0,0,0.06);
+  --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.07);
+  --shadow-button: 0 1px 3px rgba(0,0,0,0.15);
+
+  /* Spacing Scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+
+  /* Layout */
+  --max-width-page: 1160px;
+  --width-body-col: 65%;
+  --width-sidebar-col: 32%;
+  --gap-body-sidebar: 40px;
+  --width-sidebar-box: 300px;
+  --padding-page-x: 32px;
+  --padding-page-x-mobile: 16px;
 }
 
 /* Reset */
@@ -78,6 +170,28 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* === Typography Rules (Section 5) === */
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: var(--line-height-tight);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: 700;
+  margin-top: 48px;
+  margin-bottom: 12px;
+  line-height: var(--line-height-tight);
+}
+
+p {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  max-width: 68ch;
 }
 
 /* Utility Classes */
@@ -640,6 +754,276 @@ a:hover {
   flex-shrink: 0;
 }
 
+/* === Insert Boxes (Section 6) === */
+.insert {
+  border-radius: var(--radius-box);
+  padding: var(--space-5);
+  margin: var(--space-6) 0;
+  box-shadow: var(--shadow-box);
+}
+
+.insert__label {
+  font-size: var(--font-size-label);
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-label);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.insert__body {
+  font-size: var(--font-size-body-sm);
+  line-height: 1.6;
+  color: var(--color-text-primary);
+}
+
+.insert--blue {
+  background: var(--color-insert-blue-bg);
+  border-left: 4px solid var(--color-insert-blue-border);
+}
+
+.insert--blue .insert__label {
+  color: var(--color-insert-blue-label);
+}
+
+.insert--red {
+  background: var(--color-insert-red-bg);
+  border-left: 4px solid var(--color-insert-red-border);
+}
+
+.insert--red .insert__label {
+  color: var(--color-insert-red-label);
+}
+
+.insert--green {
+  background: var(--color-insert-green-bg);
+  border-left: 4px solid var(--color-insert-green-border);
+}
+
+.insert--green .insert__label {
+  color: var(--color-insert-green-label);
+}
+
+.insert--gray {
+  background: var(--color-insert-gray-bg);
+  border: none;
+  padding: var(--space-6);
+}
+
+.insert--gray .insert__body {
+  font-weight: 700;
+  font-size: var(--font-size-body);
+}
+
+.insert--yellow {
+  background: var(--color-insert-yellow-bg);
+  border-left: 4px solid var(--color-insert-yellow-border);
+}
+
+.insert--yellow .insert__label {
+  color: var(--color-insert-yellow-label);
+}
+
+/* === Check List (red circle + white checkmark) === */
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-5) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+}
+
+.check-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background: var(--color-red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/14px no-repeat;
+}
+
+/* === Numbered List (red circle + white number) === */
+.num-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-5) 0;
+  counter-reset: num-list-counter;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.num-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+  counter-increment: num-list-counter;
+}
+
+.num-list li::before {
+  content: counter(num-list-counter);
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background: var(--color-red);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* === Process Timeline (vertical) === */
+.process-timeline {
+  position: relative;
+  padding-left: 48px;
+  margin: 32px 0;
+}
+
+.process-timeline__step {
+  position: relative;
+  padding-bottom: 28px;
+}
+
+.process-timeline__step:last-child {
+  padding-bottom: 0;
+}
+
+.process-timeline__step::before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 36px;
+  bottom: 0;
+  width: 2px;
+  background: var(--grey-200);
+}
+
+.process-timeline__step:last-child::before {
+  display: none;
+}
+
+.process-timeline__number {
+  position: absolute;
+  left: -48px;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-red);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.process-timeline__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--grey-900);
+  margin-bottom: 4px;
+}
+
+.process-timeline__desc {
+  color: var(--grey-600);
+  font-size: var(--font-size-body-sm);
+  line-height: 1.6;
+}
+
+/* === Warning Icon (SVG replacement for ⚠ emoji) === */
+.warning-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* === Data Table === */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-5) 0;
+  font-size: 14px;
+}
+
+.data-table th {
+  font-size: var(--font-size-label);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+  color: var(--color-text-muted);
+  padding: var(--space-2) var(--space-3) var(--space-2) 0;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.data-table td {
+  padding: 12px var(--space-3) 12px 0;
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-divider);
+  vertical-align: top;
+}
+
+/* === Icon List (Section 7) === */
+.icon-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-5) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.icon-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+}
+
+.icon-list__icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-list-icon, var(--color-red));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.icon-list__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.icon-list__term {
+  font-weight: 700;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
@@ -652,6 +1036,30 @@ a:hover {
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .hybrid-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: calc(var(--font-size-h1) * 0.75);
+  }
+
+  h2 {
+    font-size: calc(var(--font-size-h2) * 0.85);
+  }
+
+  .container {
+    padding: 0 var(--padding-page-x-mobile);
+  }
+}
+
 @media (max-width: 1000px) {
   .container {
     padding: 0 40px;

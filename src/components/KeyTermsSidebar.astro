@@ -8,46 +8,57 @@ interface Props {
 const { terms } = Astro.props;
 ---
 
-<div class="key-terms">
-  <h3>Key Terms</h3>
-  <dl>
-    {terms.map((term) => (
-      <div class="term-entry">
-        <dt>{term.term}</dt>
-        <dd>{term.definition}</dd>
-      </div>
-    ))}
-  </dl>
+<div class="sidebar-box key-terms">
+  <div class="sidebar-box__inner">
+    <h3 class="kt-title">Key Terms</h3>
+    <dl>
+      {terms.map((term) => (
+        <div class="term-entry">
+          <dt>{term.term}</dt>
+          <dd>{term.definition}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
 </div>
 
 <style>
-  .key-terms {
-    background: var(--blue-light);
-    border-radius: var(--radius-lg);
-    padding: 24px;
+  .sidebar-box {
+    background: #fff;
+    border: 1px solid #E2E2E2;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
-  h3 {
+  .sidebar-box__inner {
+    padding: 20px;
+  }
+
+  .kt-title {
     font-weight: 700;
-    font-size: 1.125rem;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #CC0000;
     margin-bottom: 16px;
   }
 
   dl {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
   }
 
   dt {
     font-weight: 700;
-    font-size: 0.875rem;
-    color: var(--grey-900);
+    font-size: 14px;
+    color: #111;
+    margin-bottom: 4px;
   }
 
   dd {
-    font-size: 0.875rem;
-    color: var(--grey-700);
-    margin-top: 4px;
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.55;
   }
 </style>
