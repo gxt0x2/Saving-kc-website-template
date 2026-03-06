@@ -133,10 +133,11 @@ const jumpPills = [
   heroSubtitle={heroSubtitle}
   heroHighlight=""
   heroGreenText={county.name}
+  state="mo"
 >
-  <!-- JUMP BAR -->
-  <nav class="jump-bar">
-    <span class="jump-bar__title">What would you like help on?</span>
+  <!-- STICKY JUMP BAR -->
+  <nav class="jump-bar jump-bar--sticky" id="jump-bar-primary">
+    <span class="jump-bar__title">What Do You Need Help With Today?</span>
     <div class="jump-bar__links">{jumpPills.map((p) => (<a href={p.href} class="jump-bar__link" style={`--jb-color: ${p.color}`}>{p.label}</a>))}</div>
   </nav>
 
@@ -144,6 +145,7 @@ const jumpPills = [
   <section class="content-section" id="entity-connection">
     <h2>Local Expertise Near the {county.name} Courthouse</h2>
     <p class="answer-block">
+      <span class="answer-date">Updated March 2026</span>
       Saving KC Homebuyers operates from 1705 Baltimore Ave in Kansas City — {county.courthouse.distanceMiles} miles from the {county.courthouse.name} at {county.courthouse.address}. We file documents, attend hearings, and close transactions through local title companies in {county.seatCity} multiple times a week. Call <a href="tel:8164292900">(816) 429-2900</a>.
     </p>
     <div class="section-body">
@@ -166,6 +168,7 @@ const jumpPills = [
   <section class="content-section" id="probate-help">
     <h2>How Do I Sell Inherited Property in {county.name}?</h2>
     <p class="answer-block">
+      <span class="answer-date">Updated March 2026</span>
       Yes, you can sell inherited real estate in Missouri during probate if you have Letters Testamentary and, in some cases, court approval. In {county.name}, the {county.probateCourtName} oversees estate proceedings that typically take 6 to 18 months. During that time, you're responsible for taxes, insurance, and upkeep on a home you may not want — but you don't have to wait to sell. To bypass repairs and long listing times, contact Saving KC at <a href="tel:8164292900">(816) 429-2900</a> for a direct cash offer while the estate is still open.
     </p>
     <a href="/get-offer/" class="inline-cta">Get My Cash Offer →</a>
@@ -259,6 +262,7 @@ const jumpPills = [
   <section class="content-section" id="tax-delinquent-solutions">
     <h2>What Happens When You Owe Back Taxes in {county.name}?</h2>
     <p class="answer-block">
+      <span class="answer-date">Updated March 2026</span>
       Your property faces tax lien sale if taxes remain unpaid past {county.taxDeadline}. In {county.name}, delinquent properties go to auction in {county.taxSaleMonth}. Penalties accrue at 1% per month from the first missed deadline. Once a lien is sold, you face a one-year countdown to redeem — or lose the property entirely. If you are behind on taxes, Saving KC (<a href="tel:8164292900">816-429-2900</a>) can clear your debt at closing, allowing you to walk away with your remaining equity.
     </p>
     <div class="section-body">
@@ -299,6 +303,17 @@ const jumpPills = [
       </div>
       <div class="countdown-banner__pattern">{county.taxSalePattern}</div>
     </div>
+    {county.delinquentPropertyCount2026 && (
+      <div class="auction-watch">
+        <div class="auction-watch__badge">2026 AUCTION WATCH</div>
+        <div class="auction-watch__body">
+          <strong>{county.delinquentPropertyCount2026} properties</strong> are currently on the {county.name} delinquent tax list for the upcoming {county.taxSaleMonth} sale.
+          {county.delinquentListUrl && (
+            <a href={county.delinquentListUrl} target="_blank" rel="noopener" class="auction-watch__link">View the county list →</a>
+          )}
+        </div>
+      </div>
+    )}
     <table class="data-table">
       <thead>
         <tr>
@@ -385,6 +400,7 @@ const jumpPills = [
   <section class="content-section" id="tax-redemption-rights">
     <h2>How Do I Redeem Tax-Delinquent Property in {county.name}?</h2>
     <p class="answer-block">
+      <span class="answer-date">Updated March 2026</span>
       You have exactly one year from the date of the tax lien sale to redeem your property in {county.name}. You must pay the full lien amount plus 10% interest plus all costs incurred by the lien purchaser. Miss that window and the lien holder petitions for a collector's deed — permanently transferring ownership away from you. To avoid losing ownership permanently, contact Saving KC at <a href="tel:8164292900">(816) 429-2900</a> to discuss a cash buyout that protects your equity.
     </p>
     <div class="section-body">
@@ -430,6 +446,7 @@ const jumpPills = [
   <section class="content-section" id="county-resources">
     <h2>{county.name} Courthouse & County Offices</h2>
     <p class="answer-block">
+      <span class="answer-date">Updated March 2026</span>
       The {county.courthouse.name} is {county.courthouse.distanceMiles} miles from our office at 1705 Baltimore Ave in Kansas City. We work with this courthouse regularly — filing documents, coordinating with attorneys, and closing transactions through local title companies in {county.seatCity}.
     </p>
     <div class="section-body">
@@ -505,6 +522,7 @@ const jumpPills = [
   <section class="content-section" id="process">
     <h2>How to Get Your Fair Cash Offer in {county.name}</h2>
     <p class="answer-block">
+      <span class="answer-date">Updated March 2026</span>
       Selling a distressed property in {county.name} to Saving KC takes four steps — no agents, no repairs, no fees. Most sellers go from first call to cash in hand within 15 days. Call <a href="tel:8164292900">(816) 429-2900</a> to start.
     </p>
     <ol class="num-list">
@@ -546,6 +564,7 @@ const jumpPills = [
   <section class="content-section">
     <h2>Serving Every Neighborhood in {county.name}</h2>
     <p class="answer-block">
+      <span class="answer-date">Updated March 2026</span>
       Saving KC buys homes in all {county.cities.length} cities across {county.name}, {stateName} — every neighborhood, every condition, every situation. Whether it's probate, back taxes, or a property that needs major repairs, we've bought homes in your area. Call <a href="tel:8164292900">(816) 429-2900</a> for a no-obligation cash offer.
     </p>
     <div class="city-highlights">
@@ -619,6 +638,13 @@ const jumpPills = [
     margin: 36px 0 8px;
     border: 1px solid #E2E8F0;
   }
+  .jump-bar--sticky {
+    position: sticky;
+    top: calc(var(--nav-height, 64px) + 8px);
+    z-index: 40;
+    margin-top: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
   .jump-bar__title {
     font-size: 1.25rem;
     font-weight: 800;
@@ -690,6 +716,15 @@ const jumpPills = [
   }
   .answer-block a {
     color: #CC0000;
+  }
+  .answer-date {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #991B1B;
+    margin-bottom: 8px;
   }
 
   .content-section { margin: 40px 0; }
@@ -777,6 +812,44 @@ const jumpPills = [
     color: var(--grey-500);
     font-style: italic;
     margin: 0;
+  }
+
+  /* === Auction Watch === */
+  .auction-watch {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #FEE2E2 0%, #FFF5F5 100%);
+    border: 2px solid #DC2626;
+    border-radius: 10px;
+    margin-bottom: 16px;
+  }
+  .auction-watch__badge {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #fff;
+    background: #DC2626;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .auction-watch__body {
+    font-size: 0.95rem;
+    color: #7F1D1D;
+    line-height: 1.5;
+  }
+  .auction-watch__body strong {
+    color: #991B1B;
+  }
+  .auction-watch__link {
+    display: inline-block;
+    margin-left: 6px;
+    color: #DC2626;
+    font-weight: 600;
+    font-size: 0.875rem;
   }
 
   .data-table {

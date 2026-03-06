@@ -1,0 +1,86 @@
+---
+interface Props {
+  state: 'mo' | 'ks';
+}
+
+const { state } = Astro.props;
+
+const moSources = [
+  { label: 'RSMo Chapter 140 — Tax Sales', href: 'https://revisor.mo.gov/main/OneChapter.aspx?chapter=140' },
+  { label: 'RSMo Chapter 473 — Probate Code', href: 'https://revisor.mo.gov/main/OneChapter.aspx?chapter=473' },
+  { label: 'Missouri Courts — Probate', href: 'https://www.courts.mo.gov/page.jsp?id=704' },
+  { label: 'RSMo 140.340 — Redemption Rights', href: 'https://revisor.mo.gov/main/OneSection.aspx?section=140.340' },
+];
+
+const ksSources = [
+  { label: 'K.S.A. 79-2801 — Tax Foreclosure', href: 'https://www.ksrevisor.org/statutes/chapters/ch79/079_028_0001.html' },
+  { label: 'K.S.A. Chapter 59 — Probate Code', href: 'https://www.ksrevisor.org/statutes/chapters/ch59/' },
+  { label: 'K.S.A. 59-2305 — Sale of Real Estate', href: 'https://www.ksrevisor.org/statutes/chapters/ch59/059_023_0005.html' },
+  { label: 'Kansas Judicial Branch', href: 'https://www.kscourts.org/Public/Courts/District-Courts' },
+];
+
+const sources = state === 'mo' ? moSources : ksSources;
+const stateLabel = state === 'mo' ? 'Missouri' : 'Kansas';
+---
+
+<div class="sidebar-box legal-sources-box">
+  <div class="sidebar-box__inner">
+    <h3 class="sidebar-box__label">Verified Legal Sources</h3>
+    <p class="legal-sources-desc">Official {stateLabel} statute references</p>
+    <ul class="legal-sources-list">
+      {sources.map((source) => (
+        <li class="legal-sources-item">
+          <a href={source.href} target="_blank" rel="noopener" class="legal-sources-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="legal-sources-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            {source.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .legal-sources-box {
+    background: #fff;
+    border: 1px solid #E2E2E2;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  .legal-sources-desc {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 12px;
+  }
+  .legal-sources-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .legal-sources-item {
+    border-bottom: 1px solid #EBEBEB;
+  }
+  .legal-sources-item:last-child {
+    border-bottom: none;
+  }
+  .legal-sources-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: #444;
+    text-decoration: none;
+    padding: 9px 0;
+    transition: color 0.15s;
+  }
+  .legal-sources-link:hover {
+    color: #CC0000;
+  }
+  .legal-sources-icon {
+    color: #bbb;
+    flex-shrink: 0;
+  }
+  .legal-sources-link:hover .legal-sources-icon {
+    color: #CC0000;
+  }
+</style>

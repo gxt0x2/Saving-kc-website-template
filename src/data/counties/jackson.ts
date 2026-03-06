@@ -29,6 +29,8 @@ export const jackson: CountyData = {
   taxSaleDate2026: '2026-08-17',
   taxSaleLocation: 'Jackson County Courthouse, 415 E 12th St, Kansas City, MO 64106',
   taxSalePreRegDeadline: 'Contact Jackson County Collector for 2026 registration dates',
+  delinquentPropertyCount2026: '2,400+',
+  delinquentListUrl: 'https://www.jacksongov.org/Government/Departments/Collection/Tax-Sale',
   probateCourtName: 'Jackson County Circuit Court, 16th Judicial Circuit',
   reassessmentCycle: 'odd-numbered years',
   narrativeHook: 'Jackson County is the urban core of the KC metro — the highest transaction volume, the most complex title histories, and the most aggressive lien sale schedule in the region. We have closed more deals here than in any other county we serve.',

@@ -29,6 +29,8 @@ export const clay: CountyData = {
   taxSaleDate2026: '2026-08-24',
   taxSaleLocation: 'Clay County Courthouse, 11 S Water St, Liberty, MO 64068',
   taxSalePreRegDeadline: 'Contact Clay County Collector for 2026 registration dates',
+  delinquentPropertyCount2026: '350+',
+  delinquentListUrl: 'https://www.claycountymo.tax/',
   probateCourtName: 'Clay County Circuit Court, 7th Judicial Circuit',
   reassessmentCycle: 'odd-numbered years',
   narrativeHook: 'Clay County is the fastest-growing part of the KC metro\'s Northland. That growth means rising assessments, new construction pushing out older homes, and homeowners caught between a property that needs work and a market that rewards move-in-ready condition.',

@@ -56,6 +56,8 @@ export interface CountyData {
   taxSaleDate2026: string;
   taxSaleLocation?: string;
   taxSalePreRegDeadline?: string;
+  delinquentPropertyCount2026?: string;
+  delinquentListUrl?: string;
   probateCourtName: string;
   reassessmentCycle: string;
   narrativeHook: string;

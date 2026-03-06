@@ -29,6 +29,8 @@ export const wyandotte: CountyData = {
   taxSaleDate2026: '2026-09-01',
   taxSaleLocation: 'Wyandotte County Courthouse, 710 N 7th St, Kansas City, KS 66101',
   taxSalePreRegDeadline: 'Contact Wyandotte County Treasurer for 2026 registration dates',
+  delinquentPropertyCount2026: '1,100+',
+  delinquentListUrl: 'https://www.wycokck.org/Departments/Treasury-Taxation',
   probateCourtName: 'Wyandotte County District Court, 29th Judicial District',
   reassessmentCycle: 'annually',
   narrativeHook: 'Wyandotte County operates under a unified government — the only county in Kansas where the county and its largest city share a single governing body. That structure means zoning, code enforcement, and tax collection all run through one office, which can accelerate liens and violations faster than homeowners expect.',

@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SavingKC.com — Site Hierarchy Tree</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #f5f2eb;
+  color: #1a1a1a;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 48px 40px 80px;
+  min-width: 900px;
+}
+
+header {
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #0f0f0f;
+}
+
+h1 span { color: #d4500a; }
+
+.subtitle {
+  font-size: 11px;
+  color: #888;
+  margin-top: 6px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.stats-row {
+  display: flex;
+  gap: 28px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  font-size: 11px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* Tree Container */
+.tree {
+  line-height: 1;
+}
+
+/* Each node row */
+.node {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* The visible row (connector + label) */
+.node-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.node-row:hover .node-label { background: #ece8df; }
+
+/* Connector lines drawn with pseudo-elements */
+.connector {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Indented children */
+.children {
+  margin-left: 0;
+  border-left: 1.5px solid #c8c0b0;
+  margin-left: 20px;
+  padding-left: 0;
+}
+
+.children.collapsed { display: none; }
+
+/* The branch line from parent to child */
+.branch-line {
+  width: 20px;
+  height: 1.5px;
+  background: #c8c0b0;
+  flex-shrink: 0;
+}
+
+/* Toggle icon */
+.toggle {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-right: 6px;
+  transition: background 0.15s;
+  line-height: 1;
+}
+
+.no-toggle {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-toggle::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #bbb;
+}
+
+/* Node label */
+.node-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 10px 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  transition: background 0.12s;
+  margin: 1px 0;
+}
+
+.node-label .path {
+  color: #999;
+  font-size: 10.5px;
+}
+
+/* Color-coded type badges */
+.badge {
+  font-size: 9px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* Root node special styling */
+.root-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  padding: 8px 16px;
+  background: #1a1a1a;
+  color: #f5f2eb;
+  border-radius: 6px;
+  letter-spacing: -0.3px;
+}
+
+.root-label span { color: #d4500a; }
+
+/* Type colors */
+.t-root { color: #1a1a1a; }
+.t-company { color: #0d7a4e; --c: #0d7a4e; }
+.t-situations { color: #b84500; --c: #b84500; }
+.t-guides { color: #7c3aed; --c: #7c3aed; }
+.t-mo { color: #0066b3; --c: #0066b3; }
+.t-ks { color: #b07000; --c: #b07000; }
+.t-llm { color: #1a7a5e; --c: #1a7a5e; }
+.t-legal { color: #666; --c: #666; }
+
+.badge-company { background: #dcfce7; color: #0d7a4e; }
+.badge-situations { background: #ffedd5; color: #b84500; }
+.badge-guides { background: #ede9fe; color: #7c3aed; }
+.badge-mo { background: #dbeafe; color: #0066b3; }
+.badge-ks { background: #fef3c7; color: #b07000; }
+.badge-llm { background: #d1fae5; color: #1a7a5e; }
+.badge-legal { background: #f1f5f9; color: #666; }
+
+/* Vertical connector between sibling rows */
+.node > .children > .node {
+  position: relative;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  font-size: 10px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.legend-item { display: flex; align-items: center; gap: 5px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; }
+
+/* Expand/collapse all */
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.ctrl-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  padding: 5px 14px;
+  border: 1.5px solid #c8c0b0;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.15s;
+  letter-spacing: 0.04em;
+}
+
+.ctrl-btn:hover { background: #ece8df; color: #1a1a1a; }
+
+/* Vertical line for last item alignment */
+.node-children-wrap {
+  display: flex;
+}
+
+.vert-bar {
+  width: 20px;
+  flex-shrink: 0;
+  border-right: 1.5px solid #c8c0b0;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Saving<span>KC</span>.com</h1>
+  <div class="subtitle">Full Site Hierarchy Tree · 175 Pages</div>
+  <div class="stats-row">
+    <div class="stat"><span class="stat-num">175</span> pages</div>
+    <div class="stat"><span class="stat-num">5</span> counties</div>
+    <div class="stat"><span class="stat-num">35</span> cities</div>
+    <div class="stat"><span class="stat-num">103</span> neighborhoods</div>
+    <div class="stat"><span class="stat-num">4</span> depth levels</div>
+  </div>
+</header>
+
+<div class="legend">
+  <div class="legend-item"><div class="dot" style="background:#0d7a4e"></div>Company</div>
+  <div class="legend-item"><div class="dot" style="background:#b84500"></div>Situations</div>
+  <div class="legend-item"><div class="dot" style="background:#7c3aed"></div>Guides</div>
+  <div class="legend-item"><div class="dot" style="background:#0066b3"></div>Missouri</div>
+  <div class="legend-item"><div class="dot" style="background:#b07000"></div>Kansas</div>
+  <div class="legend-item"><div class="dot" style="background:#1a7a5e"></div>LLM Files</div>
+  <div class="legend-item"><div class="dot" style="background:#666"></div>Legal</div>
+</div>
+
+<div class="controls">
+  <button class="ctrl-btn" onclick="expandAll()">+ Expand All</button>
+  <button class="ctrl-btn" onclick="collapseAll()">− Collapse All</button>
+</div>
+
+<div class="tree" id="tree"></div>
+
+<script>
+const data = {
+  label: 'savingkc.com',
+  path: '/',
+  type: 'root',
+  children: [
+    {
+      label: 'Company',
+      type: 'company',
+      children: [
+        { label: 'Home', path: '/' },
+        { label: 'About Us', path: '/about-us/' },
+        { label: 'How It Works', path: '/how-it-works/' },
+        { label: 'Reviews', path: '/reviews/' },
+        { label: 'FAQ', path: '/faq/' },
+        { label: 'Contact', path: '/contact/' },
+        { label: 'Get Your Cash Offer', path: '/get-offer/' },
+      ]
+    },
+    {
+      label: 'Situations',
+      path: '/situations/',
+      type: 'situations',
+      children: [
+        { label: 'All Situations Index', path: '/situations/' },
+        { label: 'Foundation Issues', path: '/situations/foundation-issues/' },
+        { label: 'Fire Damage', path: '/situations/fire-damage/' },
+        { label: 'Water Damage', path: '/situations/water-damage/' },
+        { label: 'Mold', path: '/situations/mold/' },
+        { label: 'Hoarder House', path: '/situations/hoarder-house/' },
+        { label: 'Inherited Property', path: '/situations/inherited-property/' },
+        { label: 'Divorce', path: '/situations/divorce/' },
+        { label: 'Behind on Payments', path: '/situations/behind-on-payments/' },
+        { label: 'Pre-Foreclosure', path: '/situations/pre-foreclosure/' },
+        { label: 'Vacant Property', path: '/situations/vacant-property/' },
+        { label: 'Bad Tenants', path: '/situations/bad-tenants/' },
+        { label: 'Code Violations', path: '/situations/code-violations/' },
+      ]
+    },
+    {
+      label: 'Guides & Resources',
+      type: 'guides',
+      children: [
+        { label: 'Probate Guide', path: '/probate/' },
+        {
+          label: 'Tax-Delinquent', path: '/tax-delinquent/',
+          children: [
+            { label: 'Redemption — Jackson County', path: '/tax-delinquent/redemption/jackson-county/' },
+            {
+              label: 'Payment Plans', path: '/tax-delinquent/payment-plans/',
+              children: [
+                { label: 'Jackson County', path: '/tax-delinquent/payment-plans/jackson-county/' },
+                { label: 'Johnson County', path: '/tax-delinquent/payment-plans/johnson-county/' },
+              ]
+            },
+          ]
+        },
+      ]
+    },
+    {
+      label: 'Missouri',
+      path: '/mo/',
+      type: 'mo',
+      children: [
+        {
+          label: 'Jackson County', path: '/mo/jackson/',
+          type: 'mo',
+          children: [
+            {
+              label: 'Kansas City', path: '/mo/jackson/kansas-city/',
+              children: [
+                { label: 'Westport', path: '/mo/jackson/kansas-city/westport/' },
+                { label: 'Waldo', path: '/mo/jackson/kansas-city/waldo/' },
+                { label: 'Brookside', path: '/mo/jackson/kansas-city/brookside/' },
+                { label: 'Northeast Kansas City', path: '/mo/jackson/kansas-city/northeast-kc/' },
+                { label: 'Swope Park / Blue Hills', path: '/mo/jackson/kansas-city/swope-park-blue-hills/' },
+                { label: 'Midtown / Valentine', path: '/mo/jackson/kansas-city/midtown-valentine/' },
+                { label: 'Troost / Prospect', path: '/mo/jackson/kansas-city/troost-prospect/' },
+                { label: 'Armour Hills / Ward Pkwy', path: '/mo/jackson/kansas-city/armour-hills-ward-parkway/' },
+                { label: 'Ruskin Heights / Hickman Mills', path: '/mo/jackson/kansas-city/ruskin-heights-hickman-mills/' },
+                { label: 'River Market', path: '/mo/jackson/kansas-city/river-market/' },
+              ]
+            },
+            {
+              label: 'Independence', path: '/mo/jackson/independence/',
+              children: [
+                { label: 'Historic Independence Square', path: '/mo/jackson/independence/historic-independence-square/' },
+                { label: 'Fairmount', path: '/mo/jackson/independence/fairmount/' },
+                { label: 'East Independence', path: '/mo/jackson/independence/east-independence/' },
+                { label: 'Englewood', path: '/mo/jackson/independence/englewood/' },
+              ]
+            },
+            {
+              label: 'Blue Springs', path: '/mo/jackson/blue-springs/',
+              children: [
+                { label: 'Downtown Blue Springs', path: '/mo/jackson/blue-springs/downtown-blue-springs/' },
+                { label: 'Lake Tapawingo Area', path: '/mo/jackson/blue-springs/lake-tapawingo-area/' },
+                { label: 'Adams Dairy Landing', path: '/mo/jackson/blue-springs/adams-dairy-landing/' },
+              ]
+            },
+            {
+              label: "Lee's Summit", path: '/mo/jackson/lees-summit/',
+              children: [
+                { label: "Historic Downtown Lee's Summit", path: '/mo/jackson/lees-summit/historic-downtown-lees-summit/' },
+                { label: 'Lakewood', path: '/mo/jackson/lees-summit/lakewood/' },
+                { label: 'Chapel Ridge / Greenwood', path: '/mo/jackson/lees-summit/chapel-ridge-greenwood/' },
+                { label: 'Longview', path: '/mo/jackson/lees-summit/longview/' },
+              ]
+            },
+            {
+              label: 'Grandview', path: '/mo/jackson/grandview/',
+              children: [
+                { label: 'North Grandview', path: '/mo/jackson/grandview/north-grandview/' },
+                { label: 'South Grandview', path: '/mo/jackson/grandview/south-grandview/' },
+                { label: 'Meadowmere / Park Hills', path: '/mo/jackson/grandview/meadowmere-park-hills/' },
+              ]
+            },
+            {
+              label: 'Raytown', path: '/mo/jackson/raytown/',
+              children: [
+                { label: 'Downtown Raytown', path: '/mo/jackson/raytown/downtown-raytown/' },
+                { label: 'Norfleet / South Raytown', path: '/mo/jackson/raytown/norfleet-south-raytown/' },
+                { label: 'Gregory Heights', path: '/mo/jackson/raytown/gregory-heights/' },
+              ]
+            },
+            {
+              label: 'Grain Valley', path: '/mo/jackson/grain-valley/',
+              children: [
+                { label: 'Old Town Grain Valley', path: '/mo/jackson/grain-valley/old-town-grain-valley/' },
+                { label: 'Eagles Landing', path: '/mo/jackson/grain-valley/eagles-landing/' },
+              ]
+            },
+            {
+              label: 'Oak Grove', path: '/mo/jackson/oak-grove/',
+              children: [
+                { label: 'Downtown Oak Grove', path: '/mo/jackson/oak-grove/downtown-oak-grove/' },
+                { label: 'South Oak Grove', path: '/mo/jackson/oak-grove/south-oak-grove/' },
+              ]
+            },
+            {
+              label: 'Sugar Creek', path: '/mo/jackson/sugar-creek/',
+              children: [
+                { label: 'Central Sugar Creek', path: '/mo/jackson/sugar-creek/central-sugar-creek/' },
+                { label: 'North Sugar Creek', path: '/mo/jackson/sugar-creek/north-sugar-creek/' },
+              ]
+            },
+          ]
+        },
+        {
+          label: 'Clay County', path: '/mo/clay/',
+          type: 'mo',
+          children: [
+            {
+              label: 'Liberty', path: '/mo/clay/liberty/',
+              children: [
+                { label: 'Historic Downtown Liberty', path: '/mo/clay/liberty/historic-downtown-liberty/' },
+                { label: 'Liberty Hills', path: '/mo/clay/liberty/liberty-hills/' },
+                { label: 'Old Town Liberty', path: '/mo/clay/liberty/old-town-liberty/' },
+                { label: 'South Liberty / Shoal Creek', path: '/mo/clay/liberty/south-liberty-shoal-creek/' },
+              ]
+            },
+            {
+              label: 'Gladstone', path: '/mo/clay/gladstone/',
+              children: [
+                { label: 'Antioch / Vivion Road', path: '/mo/clay/gladstone/antioch-vivion-road/' },
+                { label: 'North Oak / I-35 Corridor', path: '/mo/clay/gladstone/north-oak-i35-corridor/' },
+                { label: 'Englewood / East Gladstone', path: '/mo/clay/gladstone/englewood-east-gladstone/' },
+                { label: 'Oakwood / West Gladstone', path: '/mo/clay/gladstone/oakwood-west-gladstone/' },
+              ]
+            },
+            {
+              label: 'Kearney', path: '/mo/clay/kearney/',
+              children: [
+                { label: 'Downtown Kearney', path: '/mo/clay/kearney/downtown-kearney/' },
+                { label: 'Kearney South', path: '/mo/clay/kearney/kearney-south/' },
+              ]
+            },
+            {
+              label: 'Excelsior Springs', path: '/mo/clay/excelsior-springs/',
+              children: [
+                { label: 'Historic Elms District', path: '/mo/clay/excelsior-springs/historic-elms-district/' },
+                { label: 'Eastside / Fishing River', path: '/mo/clay/excelsior-springs/eastside-fishing-river/' },
+                { label: 'West Excelsior / Thompson Hills', path: '/mo/clay/excelsior-springs/west-excelsior-thompson-hills/' },
+              ]
+            },
+            {
+              label: 'Smithville', path: '/mo/clay/smithville/',
+              children: [
+                { label: 'Smithville Lake Area', path: '/mo/clay/smithville/smithville-lake-area/' },
+                { label: 'Downtown Smithville', path: '/mo/clay/smithville/downtown-smithville/' },
+              ]
+            },
+            {
+              label: 'North Kansas City', path: '/mo/clay/north-kansas-city/',
+              children: [
+                { label: 'NKC Residential Core', path: '/mo/clay/north-kansas-city/nkc-residential-core/' },
+                { label: 'NKC Industrial Transition', path: '/mo/clay/north-kansas-city/nkc-industrial-transition/' },
+              ]
+            },
+            {
+              label: 'Claycomo', path: '/mo/clay/claycomo/',
+              children: [{ label: 'Claycomo Residential', path: '/mo/clay/claycomo/claycomo-residential/' }]
+            },
+            {
+              label: 'Holt', path: '/mo/clay/holt/',
+              children: [{ label: 'Holt Village', path: '/mo/clay/holt/holt-village/' }]
+            },
+            {
+              label: 'Lawson', path: '/mo/clay/lawson/',
+              children: [{ label: 'Lawson Town Center', path: '/mo/clay/lawson/lawson-town-center/' }]
+            },
+            {
+              label: 'Missouri City', path: '/mo/clay/missouri-city/',
+              children: [{ label: 'Missouri City Riverside', path: '/mo/clay/missouri-city/missouri-city-riverside/' }]
+            },
+          ]
+        },
+        {
+          label: 'Platte County', path: '/mo/platte/',
+          type: 'mo',
+          children: [
+            {
+              label: 'Platte City', path: '/mo/platte/platte-city/',
+              children: [
+                { label: 'Historic Platte City Square', path: '/mo/platte/platte-city/historic-platte-city-square/' },
+                { label: 'Platte City North', path: '/mo/platte/platte-city/platte-city-north/' },
+                { label: 'Platte City South / KCI Corridor', path: '/mo/platte/platte-city/platte-city-south-kci-corridor/' },
+              ]
+            },
+            {
+              label: 'Parkville', path: '/mo/platte/parkville/',
+              children: [
+                { label: 'Downtown Parkville', path: '/mo/platte/parkville/downtown-parkville/' },
+                { label: 'Riss Lake / National', path: '/mo/platte/parkville/riss-lake-national/' },
+                { label: 'Old Parkville / University Heights', path: '/mo/platte/parkville/old-parkville-university-heights/' },
+              ]
+            },
+            {
+              label: 'Riverside', path: '/mo/platte/riverside/',
+              children: [
+                { label: 'Riverside Residential', path: '/mo/platte/riverside/riverside-residential/' },
+                { label: 'Briarcliff / Tiffany Springs', path: '/mo/platte/riverside/briarcliff-tiffany-springs/' },
+                { label: 'Riverside South / Horizons', path: '/mo/platte/riverside/riverside-south-horizons/' },
+              ]
+            },
+            {
+              label: 'Weatherby Lake', path: '/mo/platte/weatherby-lake/',
+              children: [{ label: 'Weatherby Lake Community', path: '/mo/platte/weatherby-lake/weatherby-lake-community/' }]
+            },
+            {
+              label: 'Weston', path: '/mo/platte/weston/',
+              children: [{ label: 'Historic Weston', path: '/mo/platte/weston/historic-weston/' }]
+            },
+            {
+              label: 'Camden Point', path: '/mo/platte/camden-point/',
+              children: [{ label: 'Camden Point Village', path: '/mo/platte/camden-point/camden-point-village/' }]
+            },
+          ]
+        },
+      ]
+    },
+    {
+      label: 'Kansas',
+      path: '/ks/',
+      type: 'ks',
+      children: [
+        {
+          label: 'Wyandotte County', path: '/ks/wyandotte/',
+          type: 'ks',
+          children: [
+            {
+              label: 'Kansas City, KS', path: '/ks/wyandotte/kansas-city/',
+              children: [
+                { label: 'Strawberry Hill', path: '/ks/wyandotte/kansas-city/strawberry-hill/' },
+                { label: 'Argentine', path: '/ks/wyandotte/kansas-city/argentine/' },
+                { label: 'Village West / Legends', path: '/ks/wyandotte/kansas-city/village-west-legends/' },
+                { label: 'Turner / Muncie', path: '/ks/wyandotte/kansas-city/turner-muncie/' },
+                { label: 'Bethel / Piper', path: '/ks/wyandotte/kansas-city/bethel-piper/' },
+                { label: 'Riverview', path: '/ks/wyandotte/kansas-city/riverview/' },
+                { label: 'Rosedale', path: '/ks/wyandotte/kansas-city/rosedale/' },
+                { label: 'Quindaro', path: '/ks/wyandotte/kansas-city/quindaro/' },
+                { label: 'Armourdale', path: '/ks/wyandotte/kansas-city/armourdale/' },
+              ]
+            },
+            {
+              label: 'Bonner Springs', path: '/ks/wyandotte/bonner-springs/',
+              children: [
+                { label: 'Downtown Bonner Springs', path: '/ks/wyandotte/bonner-springs/downtown-bonner-springs/' },
+                { label: 'Bonner Springs South', path: '/ks/wyandotte/bonner-springs/bonner-springs-south/' },
+              ]
+            },
+            {
+              label: 'Edwardsville', path: '/ks/wyandotte/edwardsville/',
+              children: [
+                { label: 'Edwardsville Residential', path: '/ks/wyandotte/edwardsville/edwardsville-residential/' },
+                { label: 'Edwardsville Heights', path: '/ks/wyandotte/edwardsville/edwardsville-heights/' },
+              ]
+            },
+            {
+              label: 'Lake Quivira', path: '/ks/wyandotte/lake-quivira/',
+              children: [{ label: 'Lake Quivira Shores', path: '/ks/wyandotte/lake-quivira/lake-quivira-shores/' }]
+            },
+          ]
+        },
+        {
+          label: 'Johnson County', path: '/ks/johnson/',
+          type: 'ks',
+          children: [
+            {
+              label: 'Overland Park', path: '/ks/johnson/overland-park/',
+              children: [
+                { label: 'Downtown Overland Park', path: '/ks/johnson/overland-park/downtown-overland-park/' },
+                { label: 'Metcalf South / Indian Creek', path: '/ks/johnson/overland-park/metcalf-south-indian-creek/' },
+                { label: 'Blue Valley', path: '/ks/johnson/overland-park/blue-valley/' },
+                { label: 'North Overland Park / Milburn', path: '/ks/johnson/overland-park/north-overland-park-milburn/' },
+                { label: 'Oak Park / Antioch', path: '/ks/johnson/overland-park/oak-park-antioch/' },
+                { label: 'Stilwell / South OP', path: '/ks/johnson/overland-park/stilwell-south-op/' },
+              ]
+            },
+            {
+              label: 'Olathe', path: '/ks/johnson/olathe/',
+              children: [
+                { label: 'Historic Downtown Olathe', path: '/ks/johnson/olathe/historic-downtown-olathe/' },
+                { label: 'Cedar Creek / Prairie Center', path: '/ks/johnson/olathe/cedar-creek-prairie-center/' },
+                { label: 'Great Plains / Old 56 Corridor', path: '/ks/johnson/olathe/great-plains-old-56/' },
+                { label: 'Ridgeview / Heritage', path: '/ks/johnson/olathe/ridgeview-heritage/' },
+              ]
+            },
+            {
+              label: 'Shawnee', path: '/ks/johnson/shawnee/',
+              children: [
+                { label: 'Downtown Shawnee', path: '/ks/johnson/shawnee/downtown-shawnee/' },
+                { label: 'Western Shawnee / Monticello', path: '/ks/johnson/shawnee/western-shawnee-monticello/' },
+                { label: 'Shawnee Mission Pkwy Corridor', path: '/ks/johnson/shawnee/shawnee-mission-parkway-corridor/' },
+                { label: 'Nieman Road / East Shawnee', path: '/ks/johnson/shawnee/nieman-road-east-shawnee/' },
+              ]
+            },
+            {
+              label: 'Lenexa', path: '/ks/johnson/lenexa/',
+              children: [
+                { label: 'Lenexa City Center', path: '/ks/johnson/lenexa/lenexa-city-center/' },
+                { label: 'Old Town Lenexa', path: '/ks/johnson/lenexa/old-town-lenexa/' },
+                { label: 'Falcon Ridge / Woodland', path: '/ks/johnson/lenexa/falcon-ridge-woodland/' },
+                { label: 'Lackman / Rose Hill', path: '/ks/johnson/lenexa/lackman-rose-hill/' },
+              ]
+            },
+            {
+              label: 'Merriam', path: '/ks/johnson/merriam/',
+              children: [
+                { label: 'Downtown Merriam / Merriam Drive', path: '/ks/johnson/merriam/downtown-merriam/' },
+                { label: 'Turkey Creek Area', path: '/ks/johnson/merriam/turkey-creek-area/' },
+              ]
+            },
+            {
+              label: 'Mission', path: '/ks/johnson/mission/',
+              children: [
+                { label: 'Johnson Drive Corridor', path: '/ks/johnson/mission/johnson-drive-corridor/' },
+                { label: 'East Mission / Nall Hills', path: '/ks/johnson/mission/east-mission-nall-hills/' },
+                { label: 'West Mission / Foxridge', path: '/ks/johnson/mission/west-mission-foxridge/' },
+              ]
+            },
+          ]
+        },
+      ]
+    },
+    {
+      label: 'LLM & Machine-Readable',
+      type: 'llm',
+      children: [
+        { label: 'llms.txt', path: '/llms.txt' },
+        { label: 'llms-full.txt', path: '/llms-full.txt' },
+        { label: 'llms-xl.txt', path: '/llms-xl.txt' },
+        { label: 'sitemap-index.xml', path: '/sitemap-index.xml' },
+      ]
+    },
+    {
+      label: 'Legal',
+      type: 'legal',
+      children: [
+        { label: 'Privacy Policy', path: '/privacy/' },
+        { label: 'Terms of Service', path: '/terms/' },
+      ]
+    },
+  ]
+};
+
+// Color type inheritance
+function resolveType(node, parentType) {
+  return node.type || parentType || 'company';
+}
+
+const typeColors = {
+  root: '#1a1a1a',
+  company: '#0d7a4e',
+  situations: '#b84500',
+  guides: '#7c3aed',
+  mo: '#0066b3',
+  ks: '#b07000',
+  llm: '#1a7a5e',
+  legal: '#666',
+};
+
+function buildTree(node, parentType, depth) {
+  const type = resolveType(node, parentType);
+  const color = typeColors[type] || '#666';
+  const hasChildren = node.children && node.children.length > 0;
+
+  const wrapper = document.createElement('div');
+  wrapper.className = 'node';
+
+  const row = document.createElement('div');
+  row.className = 'node-row';
+
+  if (depth > 0) {
+    const line = document.createElement('div');
+    line.className = 'branch-line';
+    row.appendChild(line);
+  }
+
+  if (hasChildren) {
+    const toggle = document.createElement('div');
+    toggle.className = 'toggle';
+    toggle.style.color = color;
+    toggle.textContent = '−';
+    row.appendChild(toggle);
+  } else {
+    const noToggle = document.createElement('div');
+    noToggle.className = 'no-toggle';
+    row.appendChild(noToggle);
+  }
+
+  const label = document.createElement('div');
+  label.className = 'node-label';
+
+  if (depth === 0) {
+    label.className = 'node-label root-label';
+    label.innerHTML = `Saving<span>KC</span>.com`;
+  } else {
+    const nameSpan = document.createElement('span');
+    nameSpan.style.color = depth <= 2 ? color : '#333';
+    nameSpan.style.fontWeight = depth <= 1 ? '600' : '400';
+    nameSpan.textContent = node.label;
+    label.appendChild(nameSpan);
+
+    if (node.path) {
+      const pathSpan = document.createElement('span');
+      pathSpan.className = 'path';
+      pathSpan.textContent = node.path;
+      label.appendChild(pathSpan);
+    }
+  }
+
+  row.appendChild(label);
+  wrapper.appendChild(row);
+
+  if (hasChildren) {
+    const childrenDiv = document.createElement('div');
+    childrenDiv.className = 'children';
+    childrenDiv.style.borderLeftColor = color + '55';
+
+    node.children.forEach(child => {
+      childrenDiv.appendChild(buildTree(child, type, depth + 1));
+    });
+
+    wrapper.appendChild(childrenDiv);
+
+    row.addEventListener('click', () => {
+      const collapsed = childrenDiv.classList.toggle('collapsed');
+      row.querySelector('.toggle').textContent = collapsed ? '+' : '−';
+    });
+  }
+
+  return wrapper;
+}
+
+document.getElementById('tree').appendChild(buildTree(data, null, 0));
+
+function expandAll() {
+  document.querySelectorAll('.children').forEach(el => el.classList.remove('collapsed'));
+  document.querySelectorAll('.toggle').forEach(el => el.textContent = '−');
+}
+
+function collapseAll() {
+  document.querySelectorAll('.children').forEach(el => {
+    if (!el.closest('#tree > .node > .children') === false) return;
+    el.classList.add('collapsed');
+  });
+  // Keep root level open, collapse everything else
+  const rootChildren = document.querySelectorAll('#tree > .node > .children > .node > .children');
+  rootChildren.forEach(el => {
+    el.classList.add('collapsed');
+    const toggle = el.previousElementSibling?.querySelector('.toggle');
+    if (toggle) toggle.textContent = '+';
+  });
+}
+</script>
+</body>
+</html>

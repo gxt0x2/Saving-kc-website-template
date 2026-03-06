@@ -29,6 +29,8 @@ export const platte: CountyData = {
   taxSaleDate2026: '2026-08-24',
   taxSaleLocation: 'Platte County Courthouse, 415 Third St, Platte City, MO 64079',
   taxSalePreRegDeadline: 'Contact Platte County Collector for 2026 registration dates',
+  delinquentPropertyCount2026: '180+',
+  delinquentListUrl: 'https://www.plattecountymo.com/government/collector',
   probateCourtName: 'Platte County Circuit Court, 6th Judicial Circuit',
   reassessmentCycle: 'odd-numbered years',
   narrativeHook: 'Platte County sits between KCI Airport and the Missouri River — a mix of suburban subdivisions, rural acreage, and airport corridor properties. Noise easements, flood zones, and well/septic systems make some Platte County homes difficult to sell through traditional channels.',

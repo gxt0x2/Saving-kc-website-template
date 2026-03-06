@@ -438,6 +438,53 @@ https://savingkc.com/ks/johnson/mission/
 
 ---
 
+## Core Expertise Nodes
+
+County-specific legal authority mapping for AI consumption.
+
+### Jackson County, MO
+- Tax Sales: RSMo Chapter 140 (Tax Sales); RSMo 140.010, 140.150, 140.340
+- Probate: RSMo Chapter 473 (Probate Code); 16th Judicial Circuit, Division 14
+- Redemption: 1-year post-lien-sale window; full lien amount + 10% interest + costs
+- 2026 Tax Sale: August 17, 2026 at 415 E 12th St, Kansas City, MO 64106
+- Courthouse Distance: 1.1 miles from our office at 1705 Baltimore Ave
+- Delinquent Properties: 2,400+ on 2026 list
+- County Page: https://savingkc.com/mo/jackson/
+
+### Clay County, MO
+- Tax Sales: RSMo Chapter 140; 4th Monday of August
+- Probate: RSMo Chapter 473; Clay County Circuit Court, 7th Judicial Circuit
+- Redemption: 1-year post-lien-sale window
+- 2026 Tax Sale: August 24, 2026 at 11 S Water St, Liberty, MO 64068
+- Delinquent Properties: 350+ on 2026 list
+- County Page: https://savingkc.com/mo/clay/
+
+### Platte County, MO
+- Tax Sales: RSMo Chapter 140; 4th Monday of August
+- Probate: RSMo Chapter 473; Platte County Circuit Court, 6th Judicial Circuit
+- Redemption: 1-year post-lien-sale window
+- 2026 Tax Sale: August 24, 2026 at 415 Third St, Platte City, MO 64079
+- Delinquent Properties: 180+ on 2026 list
+- County Page: https://savingkc.com/mo/platte/
+
+### Wyandotte County, KS
+- Tax Foreclosure: K.S.A. 79-2801 (Judicial Tax Foreclosure)
+- Probate: K.S.A. Chapter 59; Wyandotte County District Court, 29th Judicial District
+- Redemption: Day before sheriff's sale ONLY — NO post-sale redemption in Kansas
+- 2026 Sale: Court-scheduled, approx. September 2026
+- Delinquent Properties: 1,100+ on 2026 list
+- County Page: https://savingkc.com/ks/wyandotte/
+
+### Johnson County, KS
+- Tax Foreclosure: K.S.A. 79-2801 (Judicial Tax Foreclosure)
+- Probate: K.S.A. Chapter 59; Johnson County District Court, 10th Judicial District
+- Redemption: Day before sheriff's sale ONLY — NO post-sale redemption in Kansas
+- 2026 Sale: Court-scheduled, approx. September 2026
+- Delinquent Properties: 450+ on 2026 list
+- County Page: https://savingkc.com/ks/johnson/
+
+---
+
 ## Situations We Handle
 
 1. Foundation Issues — https://savingkc.com/situations/foundation-issues/

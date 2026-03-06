@@ -29,6 +29,8 @@ export const johnson: CountyData = {
   taxSaleDate2026: '2026-09-01',
   taxSaleLocation: 'Johnson County Courthouse, 100 N Kansas Ave, Olathe, KS 66061',
   taxSalePreRegDeadline: 'Contact Johnson County Treasurer for 2026 registration dates',
+  delinquentPropertyCount2026: '450+',
+  delinquentListUrl: 'https://www.jocogov.org/department/treasury-and-financial-management',
   probateCourtName: 'Johnson County District Court, 10th Judicial District',
   reassessmentCycle: 'annually',
   narrativeHook: 'Johnson County has the highest median home values in the KC metro, but that headline number masks pockets of distress — aging homes in Merriam and Mission, HOA-encumbered properties in Lenexa and Olathe, and inherited estates where heirs cannot afford the upkeep on a property assessed at $350,000 or more.',

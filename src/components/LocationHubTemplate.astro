@@ -11,6 +11,7 @@ import LeadForm from '@/components/LeadForm.astro';
 import QuickFactsSidebar from '@/components/QuickFactsSidebar.astro';
 import ContactSidebar from '@/components/ContactSidebar.astro';
 import KeyTermsSidebar from '@/components/KeyTermsSidebar.astro';
+import LegalSourcesSidebar from '@/components/LegalSourcesSidebar.astro';
 import type { BreadcrumbItem } from '@/types/content';
 
 interface ChildEntity {
@@ -48,6 +49,7 @@ interface Props {
   heroHighlight?: string;
   heroGreenText?: string;
   heroVariant?: 'dark' | 'cream' | 'sage';
+  state?: 'mo' | 'ks';
 }
 
 const {
@@ -74,6 +76,7 @@ const {
   heroHighlight = 'For Cash',
   heroGreenText,
   heroVariant = 'dark',
+  state,
 } = Astro.props;
 
 const name = locationName || title.replace(/Sell Your House for Cash in /g, '').replace(/, (MO|KS)$/g, '');
@@ -256,6 +259,7 @@ const countyGraphSchema = courthouseName ? {
         </div>
       )}
       {facts && <QuickFactsSidebar facts={facts} />}
+      {state && <LegalSourcesSidebar state={state} />}
       <KeyTermsSidebar terms={[
         { term: 'Cash Offer', definition: 'A purchase offer made without mortgage financing. No appraisal, no lender delays, no risk of deal falling through.' },
         { term: 'As-Is Sale', definition: 'Selling your home in its current condition with no repairs, cleaning, or improvements required before closing.' },
