@@ -199,25 +199,6 @@ const countyGraphSchema = courthouseName ? {
     )}
     <ShortAnswerBlock answer={shortAnswer} />
 
-    <!-- Child Entity Cards -->
-    <section class="child-cards-section">
-      <div class="child-cards-grid">
-        {childEntities.map((child) => (
-          <a href={child.href} class="child-card card">
-            <div class="child-card-header">
-              <h3>{child.name}</h3>
-              <div class="child-card-meta">
-                {child.badge && <span class="badge">{child.badge}</span>}
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
-              </div>
-            </div>
-            {child.subtitle && <p class="child-subtitle">{child.subtitle}</p>}
-            {child.description && <p class="child-desc">{child.description}</p>}
-          </a>
-        ))}
-      </div>
-    </section>
-
     <!-- Why Cash Sale Section -->
     <section class="content-section">
       <h2>Why Do {name} Homeowners Sell for Cash?</h2>
