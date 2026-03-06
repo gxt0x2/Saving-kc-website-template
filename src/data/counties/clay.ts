@@ -140,7 +140,12 @@ export const clay: CountyData = {
           localHook:
             'Play Shoal Creek Golf Course, catch a Liberty North football game, and hike the creek trails. South Liberty is built for active families.'
         }
-      ]
+      ],
+      authorityBlock: 'Liberty is the county seat of Clay County and home to William Jewell College, the Jesse James Bank Museum, and one of the best-preserved town squares in the metro. The neighborhoods around the square feature Victorian and Craftsman homes that need updated electrical, plumbing, and foundations. Rental conversions near the college have reduced owner-occupancy in Old Town. South Liberty\'s Shoal Creek corridor has newer homes, but builder-grade materials from the 2000s are aging out and the flood zone affects lower-lying lots. Probate for Liberty estates is handled by the Clay County Circuit Court, 7th Judicial Circuit, at the courthouse right on the square. The 2026 Clay County tax lien sale is scheduled for late August 2026. We buy in Historic Downtown, Liberty Hills, Old Town, and South Liberty. For Liberty property help, call SavingKC at (816) 429-2900 — we are located just 18 miles from Liberty.',
+      distanceFromOffice: '18 miles',
+      marketCondition: 'Seller\'s Market',
+      daysOnMarket: '22 days',
+      coordinates: { lat: 39.2461, lng: -94.4191 },
     },
     {
       name: 'Gladstone',
@@ -214,7 +219,12 @@ export const clay: CountyData = {
           localHook:
             'Bigger lots and backyard canopy. West Gladstone\'s Oakwood area has the Northland\'s best tree cover and room to garden.'
         }
-      ]
+      ],
+      authorityBlock: 'Gladstone calls itself the "Land of Happy Living," and its central Northland location backs that up. But the city\'s 1960s ranch homes are showing their age — galvanized plumbing, flat roofs on split-levels, and original mechanicals throughout. The Antioch and Vivion Road corridors have some of the most affordable homes in the Northland, and that affordability often comes with deferred maintenance. East Gladstone near Shoal Creek faces flood zone risks, and West Gladstone\'s cedar shake roofs need constant attention. Probate cases go through Clay County\'s 7th Judicial Circuit Court in Liberty. The 2026 Clay County tax lien sale is set for late August 2026. We work in Antioch, North Oak corridor, Englewood, and Oakwood. For Gladstone property help, call SavingKC at (816) 429-2900 — we are located just 12 miles from Gladstone.',
+      distanceFromOffice: '12 miles',
+      marketCondition: 'Balanced',
+      daysOnMarket: '30 days',
+      coordinates: { lat: 39.2039, lng: -94.5547 },
     },
     {
       name: 'Kearney',
@@ -258,7 +268,12 @@ export const clay: CountyData = {
           localHook:
             'New builds, strong schools, and a 30-minute commute to the Northland. Kearney South is where young families are landing.'
         }
-      ]
+      ],
+      authorityBlock: 'Kearney is the town where Jesse James grew up and where young KC-area families are putting down roots. New subdivisions along I-35 have drawn growth, but Downtown Kearney\'s older homes sit on well water with limited updates since original construction. South Kearney\'s 2000s-era builds were constructed during the housing boom, and some cut corners on materials. The city\'s rapid growth has strained water and sewer capacity. Probate is handled by the Clay County Circuit Court, 7th Judicial Circuit, in Liberty. The 2026 Clay County tax lien sale is scheduled for late August 2026. We buy in Downtown Kearney and Kearney South. For Kearney property help, call SavingKC at (816) 429-2900 — we are located just 30 miles from Kearney.',
+      distanceFromOffice: '30 miles',
+      marketCondition: 'Seller\'s Market',
+      daysOnMarket: '25 days',
+      coordinates: { lat: 39.3678, lng: -94.3622 },
     },
     {
       name: 'Excelsior Springs',
@@ -317,7 +332,12 @@ export const clay: CountyData = {
           localHook:
             'Watkins Woolen Mill — one of only two Civil War-era woolen mills still standing in the U.S. — is a short drive from these wooded hills.'
         }
-      ]
+      ],
+      authorityBlock: 'Excelsior Springs was once a nationally known mineral springs resort — The Elms Hotel still stands as a testament to that golden age. Today, the city\'s grand old homes need significant investment to restore. Spring-fed ground creates persistent moisture and drainage issues that conventional buyers struggle with. East-side properties along the Fishing River sit in flood zones, and West Excelsior\'s hillside homes have septic challenges on steep terrain. Probate is handled by the Clay County Circuit Court, 7th Judicial Circuit, in Liberty. The 2026 Clay County tax lien sale is scheduled for late August 2026. We serve the Historic Elms District, Eastside, and Thompson Hills. For Excelsior Springs property help, call SavingKC at (816) 429-2900 — we are located just 35 miles from Excelsior Springs.',
+      distanceFromOffice: '35 miles',
+      marketCondition: 'Buyer\'s Market',
+      daysOnMarket: '48 days',
+      coordinates: { lat: 39.3392, lng: -94.2261 },
     },
     {
       name: 'Smithville',
@@ -360,7 +380,12 @@ export const clay: CountyData = {
           localHook:
             'Walk Bridge Street for local shops and community events. Smithville\'s downtown is the kind of place where everyone waves.'
         }
-      ]
+      ],
+      authorityBlock: 'Smithville is a lakeside community anchored by Smithville Lake, one of the best fishing and boating destinations near KC. Properties near the lake range from waterfront homes to wooded acreage, but many run on well and septic instead of city services. Downtown Smithville\'s older homes need modernization, and the small-town infrastructure includes aging water and sewer lines. Seasonal population fluctuation near the lake can affect property values. Probate is handled by Clay County Circuit Court, 7th Judicial Circuit, in Liberty. The 2026 Clay County tax lien sale is scheduled for late August 2026. We buy in the Smithville Lake Area and Downtown Smithville. For Smithville property help, call SavingKC at (816) 429-2900 — we are located just 30 miles from Smithville.',
+      distanceFromOffice: '30 miles',
+      marketCondition: 'Balanced',
+      daysOnMarket: '34 days',
+      coordinates: { lat: 39.3867, lng: -94.5811 },
     },
     {
       name: 'North Kansas City',
@@ -403,7 +428,12 @@ export const clay: CountyData = {
           localHook:
             'NKC\'s warehouse district is becoming the Northland\'s trendiest neighborhood. Get in while the conversions are still underway.'
         }
-      ]
+      ],
+      authorityBlock: 'North Kansas City — NKC to locals — has transformed from an industrial hub into one of the Northland\'s hottest neighborhoods. Breweries and restaurants line Armour Road, and the Iron District is converting warehouses into mixed-use space. But NKC\'s residential core has small mid-century lots with limited expansion potential, and the city\'s industrial heritage means some properties need environmental clearance before sale. Redevelopment pressure is pushing prices above fundamentals for the housing condition. Probate is handled by Clay County Circuit Court, 7th Judicial Circuit, in Liberty. The 2026 Clay County tax lien sale is scheduled for late August 2026. We buy in the NKC Residential Core and Industrial Transition area. For NKC property help, call SavingKC at (816) 429-2900 — we are located just 4 miles from North Kansas City.',
+      distanceFromOffice: '4 miles',
+      marketCondition: 'Seller\'s Market',
+      daysOnMarket: '20 days',
+      coordinates: { lat: 39.1328, lng: -94.5672 },
     },
     {
       name: 'Claycomo',
@@ -431,7 +461,12 @@ export const clay: CountyData = {
           localHook:
             'Some Ford workers literally walk to work. Claycomo\'s homes sit in the shadow of the plant that builds F-150s.'
         }
-      ]
+      ],
+      authorityBlock: 'Claycomo is a tiny city defined by the Ford Kansas City Assembly Plant — the factory that builds the F-150. The residential area is compact, with modest worker cottages within walking distance of the plant. Industrial noise and truck traffic are part of daily life. These small homes have minimal square footage and aging water infrastructure. The homes are deeply affordable but hard to sell through traditional channels due to their size and proximity to the plant. Probate goes through Clay County Circuit Court, 7th Judicial Circuit, in Liberty. The 2026 Clay County tax lien sale is set for late August 2026. We serve the Claycomo Residential neighborhood. For Claycomo property help, call SavingKC at (816) 429-2900 — we are located just 14 miles from Claycomo.',
+      distanceFromOffice: '14 miles',
+      marketCondition: 'Buyer\'s Market',
+      daysOnMarket: '45 days',
+      coordinates: { lat: 39.2014, lng: -94.4925 },
     },
     {
       name: 'Holt',
@@ -459,7 +494,12 @@ export const clay: CountyData = {
           localHook:
             'True country living 30 minutes from the city. Holt\'s rolling farmland and river bluffs feel a world away from the metro.'
         }
-      ]
+      ],
+      authorityBlock: 'Holt is true rural Clay County — a handful of homes and a community church along Highway 92, surrounded by farms and Missouri River bottomland. Properties here run on well and septic systems, and limited city services mean slower fire response times. The Missouri River flood risk in bottomland areas makes traditional financing difficult. But for homeowners who need to sell rural property without the hassle of repairs and inspections, a cash sale makes sense. Probate is handled by Clay County Circuit Court, 7th Judicial Circuit, in Liberty. The 2026 Clay County tax lien sale is scheduled for late August 2026. We serve Holt Village. For Holt property help, call SavingKC at (816) 429-2900 — we are located just 35 miles from Holt.',
+      distanceFromOffice: '35 miles',
+      marketCondition: 'Buyer\'s Market',
+      daysOnMarket: '55 days',
+      coordinates: { lat: 39.4500, lng: -94.6500 },
     },
     {
       name: 'Lawson',
@@ -487,7 +527,12 @@ export const clay: CountyData = {
           localHook:
             'Lawson is the kind of small town where the football game is the biggest event of the week, and the homes are priced accordingly.'
         }
-      ]
+      ],
+      authorityBlock: 'Lawson sits at the far northeast corner of the KC metro where Clay and Ray counties meet. This small town offers classic Missouri small-town living — a main street, a high school campus, and Friday night football. But the housing stock is older with limited recent renovation, broadband is spotty in some areas, and the long commute to major KC employment centers keeps demand modest. Properties here are priced accordingly, often the most affordable in Clay County. Probate is handled by Clay County Circuit Court, 7th Judicial Circuit, in Liberty. The 2026 Clay County tax lien sale is scheduled for late August 2026. We serve Lawson Town Center. For Lawson property help, call SavingKC at (816) 429-2900 — we are located just 45 miles from Lawson.',
+      distanceFromOffice: '45 miles',
+      marketCondition: 'Buyer\'s Market',
+      daysOnMarket: '52 days',
+      coordinates: { lat: 39.4383, lng: -94.2039 },
     },
     {
       name: 'Missouri City',
@@ -515,7 +560,12 @@ export const clay: CountyData = {
           localHook:
             'River access and rock-bottom prices. Missouri City is a tiny riverside hamlet hiding in plain sight on Highway 210.'
         }
-      ]
+      ],
+      authorityBlock: 'Missouri City is one of the smallest incorporated cities in the KC metro, a tiny riverside hamlet on Highway 210 in southwestern Clay County. With fewer than 300 residents, the city has very limited services and infrastructure. Most properties sit in the Missouri River flood zone, which makes traditional financing nearly impossible. Remote location and minimal commercial amenities keep traditional buyer interest low. But for a cash buyer, the flood zone and location are factors we price in — not reasons to walk away. Probate is handled by Clay County Circuit Court, 7th Judicial Circuit, in Liberty. The 2026 Clay County tax lien sale is scheduled for late August 2026. We serve Missouri City Riverside. For Missouri City property help, call SavingKC at (816) 429-2900 — we are located just 20 miles from Missouri City.',
+      distanceFromOffice: '20 miles',
+      marketCondition: 'Buyer\'s Market',
+      daysOnMarket: '60 days',
+      coordinates: { lat: 39.2333, lng: -94.7000 },
     }
   ]
 };

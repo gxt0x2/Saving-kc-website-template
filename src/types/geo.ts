@@ -21,6 +21,11 @@ export interface CityData {
   medianHomeValue: string;
   zipCodes?: string[];
   neighborhoods: NeighborhoodData[];
+  authorityBlock: string;
+  distanceFromOffice: string;
+  marketCondition: 'Seller\'s Market' | 'Buyer\'s Market' | 'Balanced';
+  daysOnMarket: string;
+  coordinates?: { lat: number; lng: number };
 }
 
 export interface CourthouseData {

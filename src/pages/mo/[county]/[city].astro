@@ -1,6 +1,8 @@
 ---
 import LocationHubTemplate from '@/components/LocationHubTemplate.astro';
 import CalloutBox from '@/components/CalloutBox.astro';
+import NeighborhoodAuthorityBlock from '@/components/NeighborhoodAuthorityBlock.astro';
+import NeighborhoodComparisonTable from '@/components/NeighborhoodComparisonTable.astro';
 import { getCountiesByState } from '@/data/counties';
 import { neighborhoodUrl, cityUrl } from '@/lib/urls';
 import { brand } from '@/data/brand';
@@ -37,6 +39,9 @@ const facts = [
   { label: 'ZIP Codes', value: city.zipCodes?.join(', ') || 'N/A' },
   { label: 'Population', value: city.population },
   { label: 'Median Home Value', value: city.medianHomeValue, color: 'red' as const },
+  { label: 'Market Condition', value: city.marketCondition },
+  { label: 'Avg. Days on Market', value: city.daysOnMarket },
+  { label: 'Distance from Office', value: city.distanceFromOffice },
   { label: 'Neighborhoods', value: `${city.neighborhoods.length}` },
   { label: 'Agent Commissions', value: commissionEstimate, color: 'red' as const },
   { label: 'Our Offer', value: 'Within 24 hours', color: 'green' as const },
@@ -121,6 +126,22 @@ const situations = [
 >
   <!-- DEEP SLOT CONTENT -->
 
+  <NeighborhoodAuthorityBlock
+    cityName={city.name}
+    authorityBlock={city.authorityBlock}
+    distanceFromOffice={city.distanceFromOffice}
+    coordinates={city.coordinates}
+    zipCodes={city.zipCodes}
+  />
+
+  <CalloutBox
+    type="critical"
+    title={`2026 ${county.name.toUpperCase()} TAX SALE`}
+    text={`The ${county.name} tax lien sale is scheduled for ${county.taxSaleDate2026 ? new Date(county.taxSaleDate2026 + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : county.taxSaleDates || county.taxSaleMonth + ' 2026'}. ${county.taxSalePattern}. Location: ${county.taxSaleLocation || county.courthouse.address}. If your ${city.name} property is on the delinquent list, selling before the auction protects your equity. Call SavingKC at (816) 429-2900.`}
+  />
+
+  <NeighborhoodComparisonTable neighborhoods={city.neighborhoods} cityName={city.name} />
+
   <section class="content-section">
     <h2>Common Property Issues We See in {city.name}</h2>
     <div class="section-body">
@@ -145,6 +166,9 @@ const situations = [
       title="EVERY CONDITION WELCOME"
       text={`We've bought hundreds of homes in the Kansas City metro. Foundation cracks, fire damage, mold, hoarder conditions, code violations — none of it stops us from making a fair offer. The condition of your ${city.name} home is our problem to solve, not yours.`}
     />
+    <div class="road-back-cta">
+      <p>Dealing with property issues in {city.name}? <strong>The Road Back starts here.</strong> Call SavingKC at <a href="tel:8164292900">(816) 429-2900</a> or <a href="/get-offer/">get your cash offer online</a>.</p>
+    </div>
   </section>
 
   <section class="content-section">
@@ -198,6 +222,9 @@ const situations = [
         You walk away with the remaining equity — and a clean break from the property.
       </p>
     </div>
+    <div class="road-back-cta">
+      <p>Behind on {city.name} property taxes? <strong>The Road Back starts here.</strong> Call SavingKC at <a href="tel:8164292900">(816) 429-2900</a> or <a href="/get-offer/">get your cash offer online</a>.</p>
+    </div>
   </section>
 
   <section class="content-section">
@@ -215,6 +242,9 @@ const situations = [
         We buy inherited homes in any condition — you don't need to clean out, repair, or
         even visit the property.
       </p>
+    </div>
+    <div class="road-back-cta">
+      <p>Inherited a {city.name} property? <strong>The Road Back starts here.</strong> Call SavingKC at <a href="tel:8164292900">(816) 429-2900</a> or <a href="/get-offer/">get your cash offer online</a>.</p>
     </div>
   </section>
 
@@ -269,6 +299,25 @@ const situations = [
   .sit-card h3 { font-size: 1rem; font-weight: 700; color: var(--grey-900); margin-bottom: 4px; }
   .sit-card:hover h3 { color: var(--red); }
   .sit-card p { font-size: 0.85rem; color: var(--grey-500); margin: 0; }
+
+  .road-back-cta {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #FFF8F0 0%, #FFF4E8 100%);
+    border-left: 4px solid #CC0000;
+    border-radius: 6px;
+  }
+  .road-back-cta p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  .road-back-cta a {
+    color: #CC0000;
+    font-weight: 600;
+  }
+  .road-back-cta a:hover { text-decoration: underline; }
 
   @media (max-width: 640px) {
     .issue-list { grid-template-columns: 1fr; }

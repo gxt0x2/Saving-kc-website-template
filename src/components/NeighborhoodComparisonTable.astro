@@ -1,0 +1,119 @@
+---
+import type { NeighborhoodData } from '@/types/geo';
+
+interface Props {
+  neighborhoods: NeighborhoodData[];
+  cityName: string;
+}
+
+const { neighborhoods, cityName } = Astro.props;
+
+// Determine the primary challenge for each neighborhood (first distress factor)
+const rows = neighborhoods.map((n) => ({
+  name: n.name,
+  medianValue: n.medianHomeValue,
+  challenge: n.distressFactors[0] || 'Aging housing stock',
+}));
+---
+
+{rows.length > 1 && (
+  <section class="comparison-table-section">
+    <h2>Neighborhood Comparison: {cityName}</h2>
+    <div class="comparison-table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Neighborhood</th>
+            <th>Median Value</th>
+            <th>Key Challenge</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr>
+              <td class="comparison-table__name">{row.name}</td>
+              <td class="comparison-table__value">{row.medianValue}</td>
+              <td class="comparison-table__challenge">{row.challenge}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+)}
+
+<style>
+  .comparison-table-section {
+    margin: 40px 0;
+  }
+
+  .comparison-table-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--grey-100);
+  }
+
+  .comparison-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .comparison-table thead {
+    background: var(--grey-50, #F9F9F9);
+  }
+
+  .comparison-table th {
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666;
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--grey-200, #E2E2E2);
+  }
+
+  .comparison-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--grey-100, #EBEBEB);
+    color: var(--grey-700, #444);
+    vertical-align: top;
+  }
+
+  .comparison-table tbody tr:hover {
+    background: #FFFBF5;
+  }
+
+  .comparison-table__name {
+    font-weight: 600;
+    color: #111;
+    white-space: nowrap;
+  }
+
+  .comparison-table__value {
+    font-weight: 600;
+    color: #CC0000;
+    white-space: nowrap;
+  }
+
+  .comparison-table__challenge {
+    color: #555;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 640px) {
+    .comparison-table th,
+    .comparison-table td {
+      padding: 10px 12px;
+      font-size: 0.85rem;
+    }
+  }
+</style>

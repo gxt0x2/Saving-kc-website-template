@@ -1,0 +1,155 @@
+---
+interface Props {
+  cityName: string;
+  authorityBlock: string;
+  distanceFromOffice: string;
+  coordinates?: { lat: number; lng: number };
+  zipCodes?: string[];
+}
+
+const { cityName, authorityBlock, distanceFromOffice, coordinates, zipCodes } = Astro.props;
+
+const googleMapsApiKey = import.meta.env.PUBLIC_GOOGLE_MAPS_KEY;
+
+// SavingKC office coordinates
+const officeLat = 39.0926;
+const officeLng = -94.5837;
+
+const hasMap = googleMapsApiKey && coordinates;
+const staticMapUrl = hasMap
+  ? `https://maps.googleapis.com/maps/api/staticmap?center=${coordinates.lat},${coordinates.lng}&zoom=11&size=600x300&scale=2&markers=color:red%7Clabel:S%7C${officeLat},${officeLng}&markers=color:blue%7Clabel:C%7C${coordinates.lat},${coordinates.lng}&key=${googleMapsApiKey}`
+  : null;
+
+const directionsUrl = coordinates
+  ? `https://www.google.com/maps/dir/${officeLat},${officeLng}/${coordinates.lat},${coordinates.lng}/`
+  : null;
+
+// Schema markup: Service with areaServed
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `Cash Home Buying in ${cityName}`,
+  provider: {
+    '@type': 'LocalBusiness',
+    '@id': 'https://savingkc.com/#business',
+    name: 'Saving KC Homebuyers',
+    telephone: '+1-816-429-2900',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: cityName,
+    ...(zipCodes && zipCodes.length > 0 ? { postalCode: zipCodes } : {}),
+  },
+  description: `We buy houses for cash in ${cityName}. No repairs, no agents, no fees.`,
+};
+---
+
+<section class="authority-block">
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <h2>{cityName}: Local Expertise &amp; Property Solutions</h2>
+  <div class="authority-block__content">
+    <div class="authority-block__prose">
+      <p>{authorityBlock}</p>
+    </div>
+    {hasMap && staticMapUrl && directionsUrl && (
+      <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="authority-block__map-link">
+        <img
+          src={staticMapUrl}
+          alt={`Map showing SavingKC office location and ${cityName} — ${distanceFromOffice} apart`}
+          width="600"
+          height="300"
+          loading="lazy"
+          class="authority-block__map"
+        />
+        <span class="authority-block__map-caption">Get directions — {distanceFromOffice} from our office</span>
+      </a>
+    )}
+    {!hasMap && directionsUrl && (
+      <div class="authority-block__distance-badge">
+        <span class="authority-block__distance-icon">&#9679;</span>
+        <span>Just {distanceFromOffice} from our office at 1705 Baltimore Ave, Kansas City</span>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .authority-block {
+    margin: 32px 0;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, #FFF8F0 0%, #FFF4E8 100%);
+    border-left: 5px solid #CC0000;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .authority-block h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(204, 0, 0, 0.15);
+  }
+
+  .authority-block__prose {
+    color: #444;
+    line-height: 1.75;
+    font-size: 0.95rem;
+  }
+
+  .authority-block__prose p {
+    margin: 0;
+  }
+
+  .authority-block__map-link {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s;
+  }
+
+  .authority-block__map-link:hover {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+  }
+
+  .authority-block__map {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .authority-block__map-caption {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: #CC0000;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .authority-block__distance-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: #fff;
+    border: 1px solid #E2E2E2;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    color: #555;
+  }
+
+  .authority-block__distance-icon {
+    color: #CC0000;
+    font-size: 0.6rem;
+  }
+</style>

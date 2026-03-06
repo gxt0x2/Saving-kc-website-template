@@ -214,6 +214,9 @@ const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toL
         type="info"
         text={`The median home in ${neighborhood.name} is valued at ${neighborhood.medianHomeValue}. If repair costs eat up $15,000 to $30,000 of that, selling as-is to a cash buyer often puts more money in your pocket than fixing up and listing on the MLS.`}
       />
+      <div class="road-back-cta">
+        <p>Dealing with property challenges in {neighborhood.name}? <strong>The Road Back starts here.</strong> Call SavingKC at <a href="tel:8164292900">(816) 429-2900</a> or <a href="/get-offer/">get your cash offer online</a>.</p>
+      </div>
     </section>
 
     <!-- Why Cash Sale Makes Sense -->
@@ -279,6 +282,14 @@ const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toL
           to pay them off upfront.
         </p>
       </div>
+      <CalloutBox
+        type="critical"
+        title={`2026 ${county.name.toUpperCase()} TAX SALE`}
+        text={`The ${county.name} tax sale is scheduled for ${county.taxSaleDate2026 ? new Date(county.taxSaleDate2026 + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : county.taxSaleDates || county.taxSaleMonth + ' 2026'}. If your ${neighborhood.name} property is on the delinquent list, selling before the auction protects your equity. Call SavingKC at (816) 429-2900.`}
+      />
+      <div class="road-back-cta">
+        <p>Behind on property taxes in {neighborhood.name}? <strong>The Road Back starts here.</strong> Call SavingKC at <a href="tel:8164292900">(816) 429-2900</a> or <a href="/get-offer/">get your cash offer online</a>.</p>
+      </div>
     </section>
 
     <!-- Probate Info -->
@@ -294,6 +305,9 @@ const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toL
           has experience with {county.name} probate and can close as soon
           as the court allows.
         </p>
+      </div>
+      <div class="road-back-cta">
+        <p>Inherited a property in {neighborhood.name}? <strong>The Road Back starts here.</strong> Call SavingKC at <a href="tel:8164292900">(816) 429-2900</a> or <a href="/get-offer/">get your cash offer online</a>.</p>
       </div>
     </section>
 
@@ -428,6 +442,25 @@ const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toL
   .distress-item span:last-child {
     color: var(--grey-700);
   }
+
+  .road-back-cta {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #FFF8F0 0%, #FFF4E8 100%);
+    border-left: 4px solid #CC0000;
+    border-radius: 6px;
+  }
+  .road-back-cta p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  .road-back-cta a {
+    color: #CC0000;
+    font-weight: 600;
+  }
+  .road-back-cta a:hover { text-decoration: underline; }
 
   @media (max-width: 640px) {
     .landmarks-list {

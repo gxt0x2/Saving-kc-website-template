@@ -125,7 +125,12 @@ export const platte: CountyData = {
           localHook:
             'Work at KCI and be home in five minutes. Platte City South is the airport corridor\'s residential anchor.'
         }
-      ]
+      ],
+      authorityBlock: 'Platte City is the county seat of Platte County, a small but growing city along I-29 north of KCI Airport. The historic courthouse square area has pre-1920s homes with original foundations, lead paint, and asbestos concerns. North Platte City\'s newer subdivisions are showing age in their builder-grade materials. South Platte City in the KCI corridor deals with airport noise from flight paths directly overhead — a factor that eliminates FHA and VA buyers for some properties. Probate is handled by the Platte County Circuit Court, 6th Judicial Circuit, at the courthouse in Platte City. The 2026 Platte County tax lien sale is scheduled for August 2026. We serve Historic Platte City Square, Platte City North, and the KCI Corridor. For Platte City property help, call SavingKC at (816) 429-2900 — we are located just 30 miles from Platte City.',
+      distanceFromOffice: '30 miles',
+      marketCondition: 'Balanced',
+      daysOnMarket: '32 days',
+      coordinates: { lat: 39.3686, lng: -94.7822 },
     },
     {
       name: 'Parkville',
@@ -184,7 +189,12 @@ export const platte: CountyData = {
           localHook:
             'Park University\'s hilltop campus provides the backdrop — and the river bluff views from these streets are earned with every climb.'
         }
-      ]
+      ],
+      authorityBlock: 'Parkville is one of the Northland\'s most charming communities — river bluff views, English Landing Park festivals, and Park University\'s hilltop campus set the scene. But the charm comes with challenges: hillside properties face drainage and retaining wall issues, lower-elevation homes near the Missouri River sit in flood zones, and the historic homes climbing the bluffs require specialized maintenance. Riss Lake and National golf course homes carry high HOA dues and face uncertain land use if the courses close. Probate is handled by Platte County Circuit Court, 6th Judicial Circuit, in Platte City. The 2026 Platte County tax lien sale is set for August 2026. We buy in Downtown Parkville, Riss Lake, and Old Parkville. For Parkville property help, call SavingKC at (816) 429-2900 — we are located just 15 miles from Parkville.',
+      distanceFromOffice: '15 miles',
+      marketCondition: 'Seller\'s Market',
+      daysOnMarket: '24 days',
+      coordinates: { lat: 39.1950, lng: -94.6819 },
     },
     {
       name: 'Riverside',
@@ -243,7 +253,12 @@ export const platte: CountyData = {
           localHook:
             'Two interstates converge outside your door. Riverside South is the metro\'s commuter sweet spot with river views as a bonus.'
         }
-      ]
+      ],
+      authorityBlock: 'Riverside sits along the Missouri River between downtown KC and KCI Airport, anchored by the Argosy Casino and Red X shopping district. The city\'s residential streets between the river and I-635 have affordable mid-century homes, but the Missouri River flood zone affects lower-elevation properties and limits conventional financing. Casino traffic creates weekend congestion. The Briarcliff and Tiffany Springs area near Zona Rosa has newer homes with builder-grade 2000s construction, plus airport proximity brings flight path noise. Probate goes through Platte County Circuit Court, 6th Judicial Circuit, in Platte City. The 2026 Platte County tax lien sale is scheduled for August 2026. We serve Riverside Residential, Briarcliff, and Riverside South. For Riverside property help, call SavingKC at (816) 429-2900 — we are located just 10 miles from Riverside.',
+      distanceFromOffice: '10 miles',
+      marketCondition: 'Balanced',
+      daysOnMarket: '30 days',
+      coordinates: { lat: 39.1772, lng: -94.6128 },
     },
     {
       name: 'Weatherby Lake',
@@ -272,7 +287,12 @@ export const platte: CountyData = {
           localHook:
             'Private lake living inside the KC metro. Weatherby Lake\'s 110 acres of water are reserved for residents only.'
         }
-      ]
+      ],
+      authorityBlock: 'Weatherby Lake is a small lakeside city built around a private 110-acre lake in southern Platte County. The entire community is oriented around lake access, with homes ranging from original 1950s cottages to modern custom builds. The cottages need complete renovation — they were built as summer retreats, not year-round homes. Lake association dues add to ownership costs, and some older properties near the lake still run on septic systems. Selling through traditional channels takes time because the buyer pool is limited to people specifically seeking lake community living. Probate goes through Platte County Circuit Court, 6th Judicial Circuit, in Platte City. The 2026 Platte County tax lien sale is set for August 2026. We serve the Weatherby Lake Community. For Weatherby Lake property help, call SavingKC at (816) 429-2900 — we are located just 15 miles from Weatherby Lake.',
+      distanceFromOffice: '15 miles',
+      marketCondition: 'Balanced',
+      daysOnMarket: '36 days',
+      coordinates: { lat: 39.2267, lng: -94.6911 },
     },
     {
       name: 'Weston',
@@ -300,7 +320,12 @@ export const platte: CountyData = {
           localHook:
             'Sip local wine at Pirtle, tour the oldest distillery west of the Mississippi at McCormick, and walk streets that predate the Civil War.'
         }
-      ]
+      ],
+      authorityBlock: 'Weston is a historic Missouri River town founded in 1837 — older than Kansas City itself. The Weston Brewing Company, Pirtle Winery, and McCormick Distillery anchor a thriving antique and arts scene. But the town\'s beautiful antebellum and Victorian homes require specialized restoration expertise, and bluff erosion creates ongoing drainage challenges on steep-grade lots. Limited local employment keeps prices below what the architecture would suggest, making traditional sales slow. Probate is handled by Platte County Circuit Court, 6th Judicial Circuit, in Platte City. The 2026 Platte County tax lien sale is scheduled for August 2026. We serve Historic Weston. For Weston property help, call SavingKC at (816) 429-2900 — we are located just 40 miles from Weston.',
+      distanceFromOffice: '40 miles',
+      marketCondition: 'Buyer\'s Market',
+      daysOnMarket: '50 days',
+      coordinates: { lat: 39.4111, lng: -94.9022 },
     },
     {
       name: 'Camden Point',
@@ -328,7 +353,12 @@ export const platte: CountyData = {
           localHook:
             'Camden Point is farm country with a KC zip code. Open fields, quiet nights, and prices that reflect the simple life.'
         }
-      ]
+      ],
+      authorityBlock: 'Camden Point is a tiny village in northern Platte County — a handful of homes along Highway 92 surrounded by farmland and Missouri River bluffs. Rural properties here run on well and septic, have very limited municipal services, and sit on gravel roads in some areas. The location offers solitude rarely found this close to a major metro, but it also means traditional buyers are scarce and financing options are limited. For homeowners who need to sell without the hassle of finding a niche rural buyer, a cash sale is the practical path. Probate goes through Platte County Circuit Court, 6th Judicial Circuit, in Platte City. The 2026 Platte County tax lien sale is set for August 2026. We serve Camden Point Village. For Camden Point property help, call SavingKC at (816) 429-2900 — we are located just 35 miles from Camden Point.',
+      distanceFromOffice: '35 miles',
+      marketCondition: 'Buyer\'s Market',
+      daysOnMarket: '55 days',
+      coordinates: { lat: 39.4536, lng: -94.7486 },
     }
   ]
 };

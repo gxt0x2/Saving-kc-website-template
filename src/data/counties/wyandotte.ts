@@ -215,7 +215,12 @@ export const wyandotte: CountyData = {
           localHook:
             'Armourdale has been flooded and rebuilt more than once. The neighborhood\'s tenacity is written into every cinder block and front porch.'
         }
-      ]
+      ],
+      authorityBlock: 'Kansas City, Kansas is the seat of the unified Wyandotte County government — the only county in Kansas where city and county share a single governing body. That means code enforcement, tax collection, and lien actions all move through one office, often faster than homeowners expect. Strawberry Hill\'s pre-1930s homes on steep terrain need complete system overhauls. Argentine\'s former smelter sites may require environmental assessments. Quindaro has some of the highest vacancy rates in the metro. Village West near the Speedway has newer homes, but event-day traffic and commercial isolation are drawbacks. Probate goes through the Wyandotte County District Court, 29th Judicial District, at the courthouse on 7th Street — just 5 miles from our office. The 2026 Wyandotte County tax sale is set for September 2026. We buy in Strawberry Hill, Argentine, Turner, Rosedale, Quindaro, Bethel, Riverview, Armourdale, and Village West. For KCK property help, call SavingKC at (816) 429-2900 — we are located just 5 miles from Kansas City, KS.',
+      distanceFromOffice: '5 miles',
+      marketCondition: 'Buyer\'s Market',
+      daysOnMarket: '42 days',
+      coordinates: { lat: 39.1155, lng: -94.6268 },
     },
     {
       name: 'Bonner Springs',
@@ -259,7 +264,12 @@ export const wyandotte: CountyData = {
           localHook:
             'Golf at Sunflower Hills, fish the Kansas River, and enjoy the quiet that comes with living on the metro\'s western edge.'
         }
-      ]
+      ],
+      authorityBlock: 'Bonner Springs sits on the western edge of Wyandotte County where metro meets country. The National Agricultural Center and Hall of Fame is a fitting landmark for a town that straddles suburban and rural. Downtown Bonner Springs\' older homes have original plumbing and electrical, and southern properties near the Kansas River face flood zone risks that eliminate most conventional buyers. The city\'s limited commercial amenities mean residents drive to the Legends or Shawnee for most errands. Probate goes through the Wyandotte County District Court, 29th Judicial District, at the courthouse in KCK. The 2026 Wyandotte County tax sale is set for September 2026. We serve Downtown Bonner Springs and Bonner Springs South. For Bonner Springs property help, call SavingKC at (816) 429-2900 — we are located just 25 miles from Bonner Springs.',
+      distanceFromOffice: '25 miles',
+      marketCondition: 'Balanced',
+      daysOnMarket: '36 days',
+      coordinates: { lat: 39.0597, lng: -94.8833 },
     },
     {
       name: 'Edwardsville',
@@ -303,7 +313,12 @@ export const wyandotte: CountyData = {
           localHook:
             'Higher ground with valley views. Edwardsville Heights is a quiet perch overlooking the Kansas River corridor.'
         }
-      ]
+      ],
+      authorityBlock: 'Edwardsville is a small city experiencing rapid change as the logistics and warehouse boom transforms western Wyandotte County along I-70 and I-435. The residential core still has affordable older homes on quiet streets, but growing truck traffic from warehouse development is changing the city\'s character. Edwardsville Heights offers newer homes with valley views, but elevated sites face wind exposure and erosion. The job corridor growth is a double-edged sword — employment access is great, but industrial encroachment concerns traditional buyers. Probate goes through the Wyandotte County District Court, 29th Judicial District, at the courthouse in KCK. The 2026 Wyandotte County tax sale is set for September 2026. We serve Edwardsville Residential and Edwardsville Heights. For Edwardsville property help, call SavingKC at (816) 429-2900 — we are located just 18 miles from Edwardsville.',
+      distanceFromOffice: '18 miles',
+      marketCondition: 'Balanced',
+      daysOnMarket: '34 days',
+      coordinates: { lat: 39.0614, lng: -94.8197 },
     },
     {
       name: 'Lake Quivira',
@@ -331,7 +346,12 @@ export const wyandotte: CountyData = {
           localHook:
             'A private 300-acre lake, a country club, and a gated community. Lake Quivira is the KC metro\'s most exclusive lakeside address.'
         }
-      ]
+      ],
+      authorityBlock: 'Lake Quivira is the KC metro\'s most exclusive lakeside community — a private 300-acre lake, country club, gated entrance, and homes ranging from mid-century originals to custom builds. But exclusivity creates its own selling challenges: lake association fees are substantial, lakefront properties face erosion and seawall maintenance costs, and the buyer pool is limited to people specifically seeking private lake living. Mid-century homes in the community need major renovation to compete with newer builds around the lake. Probate is handled by the Wyandotte County District Court, 29th Judicial District, at the courthouse in KCK — Kansas transfer-on-death deeds can bypass probate entirely. The 2026 Wyandotte County tax sale is set for September 2026. We serve Lake Quivira Shores. For Lake Quivira property help, call SavingKC at (816) 429-2900 — we are located just 20 miles from Lake Quivira.',
+      distanceFromOffice: '20 miles',
+      marketCondition: 'Balanced',
+      daysOnMarket: '40 days',
+      coordinates: { lat: 39.0411, lng: -94.7631 },
     }
   ]
 };
