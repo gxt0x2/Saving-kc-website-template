@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://savingkc.com/sitemap-index.xml
