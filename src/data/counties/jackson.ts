@@ -33,36 +33,60 @@ export const jackson: CountyData = {
   courthouseLandmarks: 'Our office at 1712 Main St sits less than a mile from the Jackson County Courthouse at 415 E 12th Street — in the heart of downtown Kansas City. We\'re steps from City Hall at 12th and Oak, around the corner from the Kansas City Public Library on 14th and Baltimore, and just blocks from the T-Mobile Center and the Power & Light District. When we file documents at the courthouse, we walk. When we close at local title companies near Union Station, we\'re there in minutes. This isn\'t a service area we drive to — it\'s the neighborhood we work in every day. We know the recording office staff, the probate clerks, and the tax collection procedures because we\'re physically present in this building multiple times a week. That proximity means faster document filing, quicker title searches, and smoother closings for every Jackson County property owner we work with.',
   countyFaqs: [
     {
+      question: 'How fast can you close on a house in Jackson County?',
+      answer: 'We typically close in 7 to 14 days, though we can close in as few as 7 days or up to 60 days depending on your specific needs. For an immediate timeline, call SavingKC at (816) 429-2900.',
+    },
+    {
+      question: 'Do I need to make repairs before selling?',
+      answer: 'No. We buy houses in as-is condition with no repairs, no cleaning, and no professional inspections required.',
+    },
+    {
+      question: 'How much will you offer for my house?',
+      answer: 'We provide a fair, transparent cash offer usually within 24 hours of visiting the property. Get your specific offer at SavingKC.com.',
+    },
+    {
+      question: 'Are there any fees or commissions?',
+      answer: 'There are zero fees and zero commissions. We pay all closing costs, including title and recording fees, so the offer you accept is the amount you receive.',
+    },
+    {
+      question: 'What if my house has liens or back taxes?',
+      answer: 'You do not need to pay these off before selling. SavingKC uses the sale proceeds at closing to clear all tax liens, judgment liens, and back taxes for you. Call us at (816) 429-2900 to discuss your lien status.',
+    },
+    {
+      question: 'Can I sell if I\'m behind on mortgage payments?',
+      answer: 'Yes. If you are behind on payments and running out of time, a cash sale can provide a clean break and protect your remaining equity.',
+    },
+    {
       question: 'When does Jackson County hold its tax lien sale?',
-      answer: 'Jackson County holds its annual tax lien sale on the third Monday of August. Properties with delinquent taxes from the prior year are eligible. Once a lien is sold, the original owner has one year to redeem the property by paying the full amount plus 10% annual interest. If you are facing a lien sale, selling your home before that August date is one of the fastest ways to clear the debt and keep your remaining equity. Saving KC can close in as few as 7 days — well before the auction. Call (816) 429-2900 for a free lien analysis.',
+      answer: 'The 2026 Jackson County tax lien sales are held in August. The Independence sale is scheduled for August 10, 2026, and the Kansas City sale is August 24, 2026.',
     },
     {
       question: 'Where is probate handled in Jackson County?',
-      answer: 'Probate cases in Jackson County go through the 16th Judicial Circuit Court at 415 E 12th Street in downtown Kansas City. For estates valued under $40,000, Missouri allows a simplified small-estate affidavit that skips the full probate process. However, if the estate includes real property and there is a dispute among heirs, the timeline can stretch to 12-18 months — and you would be responsible for taxes and maintenance the entire time. Saving KC works with executors and heirs at every stage of probate and can often close before the court issues its final order. Call (816) 429-2900 to discuss your inherited property.',
+      answer: 'Probate cases are handled by the 16th Judicial Circuit, located at the Jackson County Courthouse at 415 E 12th St, Kansas City, MO 64106. Our office is just one mile from this location.',
     },
     {
       question: 'How does Jackson County reassessment affect my property taxes?',
-      answer: 'Jackson County reassesses property values in odd-numbered years. When your assessed value jumps — and in recent cycles, increases of 20-40% have been common — your tax bill follows. If you are already struggling with payments, a reassessment spike can push you into delinquency fast. Selling before the new assessment takes effect lets you avoid the higher tax burden entirely. Saving KC bases our offer on current market value, not the county\'s assessed figure. Call (816) 429-2900 for a no-obligation cash offer.',
+      answer: 'Missouri reassesses property values in odd-numbered years, which can significantly increase your tax burden even without home improvements. If your taxes have become unmanageable, SavingKC can help.',
     },
     {
       question: 'Can I sell an inherited house in Jackson County before probate is finished?',
-      answer: 'Yes. In Missouri, you can sell inherited real estate during the probate process with court approval. The 16th Circuit Court in Jackson County routinely grants permission for estate sales when the proceeds benefit the estate. If probate has not been filed yet, Saving KC can help you understand whether a small-estate affidavit applies or whether full probate is required. Either way, Saving KC buys inherited homes in any condition — you do not need to clean out, repair, or visit the property. Call (816) 429-2900 to discuss your situation.',
+      answer: 'Yes. With court approval and Letters Testamentary, you can sell the property while the estate is still open. Contact SavingKC at (816) 429-2900 to coordinate with your probate attorney.',
     },
     {
       question: 'What is the redemption period after a Jackson County tax lien sale?',
-      answer: 'After a tax lien is sold in Jackson County, the original owner has exactly one year to redeem the property. During that year, you must pay the full lien amount plus 10% annual interest to the lien purchaser. But here is the complication most homeowners miss: if there is a pending probate on the property, the redemption timeline can overlap with court proceedings, creating a situation where neither the estate nor the heir can act quickly. Saving KC specializes in exactly these overlaps — selling before the redemption window closes is often the cleanest path forward. If your deadline is approaching, contact Saving KC at (816) 429-2900 immediately.',
+      answer: 'You have exactly one year from the date of the lien sale to redeem your property by paying the full lien amount plus 10% interest and costs.',
     },
     {
       question: "How does Missouri's 2025 Electronic Wills Act affect probate in Jackson County?",
-      answer: "Missouri now recognizes electronic wills signed after August 28, 2025. If your loved one created an electronic will, it may be accepted by the Jackson County Circuit Court, 16th Judicial Circuit — potentially speeding up the probate filing process. Saving KC (SavingKC.com) works with estate attorneys familiar with these new digital standards. Whether the will is paper or electronic, Saving KC can purchase the inherited property at any stage of probate. Call (816) 429-2900.",
+      answer: 'As of August 28, 2025, the court now recognizes notarized digital wills created on authorized platforms. SavingKC stays current on these 2026 legal standards to ensure smooth title transfers.',
     },
     {
       question: 'What are the penalties for late property taxes in Jackson County?',
-      answer: 'If you miss the December 31 deadline in Jackson County, penalties begin accruing at 1% per month on the unpaid balance. By August, your property becomes eligible for tax lien sale. The longer you wait, the more you owe. Selling to Saving KC clears all tax debt at closing — we can close in as few as 7 days. Call (816) 429-2900.',
+      answer: 'Penalties accrue at a rate of 1% per month on the unpaid balance starting January 1. Avoid these compounding costs by calling SavingKC at (816) 429-2900.',
     },
     {
       question: 'Can I sell a house with a tax lien in Jackson County?',
-      answer: 'Yes. You do not need to pay off tax liens before selling. At closing, the title company uses sale proceeds to clear all liens — including tax liens, mechanic\'s liens, and judgment liens. You receive whatever equity remains. Saving KC buys Jackson County properties with liens regularly and can close in as few as 7 days. For a free lien analysis, call (816) 429-2900.',
+      answer: 'Yes. You can sell to a direct buyer who clears the lien at the time of closing. This is often the fastest way to save your equity before the one-year redemption window expires.',
     },
   ],
   cities: [
