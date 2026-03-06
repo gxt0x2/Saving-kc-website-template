@@ -63,28 +63,13 @@ const relatedLinks = [
   { label: 'Foundation Issues', href: '/situations/foundation-issues/' },
 ];
 
-const countyContacts: Record<string, { label: string; value: string; href?: string }[]> = {
-  jackson: [
-    { label: 'Office', value: 'Jackson County Assessor' },
-    { label: 'Phone', value: '(816) 881-3530', href: 'tel:8168813530' },
-    { label: 'Address', value: '415 E 12th St, Kansas City, MO 64106' },
-    { label: 'Website', value: 'jacksongov.org', href: 'https://www.jacksongov.org' },
-  ],
-  clay: [
-    { label: 'Office', value: 'Clay County Assessor' },
-    { label: 'Phone', value: '(816) 407-3520', href: 'tel:8164073520' },
-    { label: 'Address', value: '11 S Water St, Liberty, MO 64068' },
-    { label: 'Website', value: 'claycountymo.gov', href: 'https://www.claycountymo.gov' },
-  ],
-  platte: [
-    { label: 'Office', value: 'Platte County Assessor' },
-    { label: 'Phone', value: '(816) 858-3356', href: 'tel:8168583356' },
-    { label: 'Address', value: '415 Third St, Platte City, MO 64079' },
-    { label: 'Website', value: 'co.platte.mo.us', href: 'https://www.co.platte.mo.us' },
-  ],
-};
-
-const contactItems = countyContacts[county.slug] || [];
+const contactItems = [
+  { label: 'Company', value: 'Saving KC Homebuyers' },
+  { label: 'Phone', value: '(816) 429-2900', href: 'tel:8164292900' },
+  { label: 'Address', value: '1705 Baltimore Ave, Kansas City, MO 64108' },
+  { label: 'Distance', value: city.distanceFromOffice + ' from ' + city.name },
+  { label: 'Website', value: 'SavingKC.com', href: 'https://savingkc.com' },
+];
 
 const breadcrumbs = [
   { label: stateName, href: `/${stateSlug}/` },

@@ -63,22 +63,13 @@ const relatedLinks = [
   { label: 'Foundation Issues', href: '/situations/foundation-issues/' },
 ];
 
-const countyContacts: Record<string, { label: string; value: string; href?: string }[]> = {
-  wyandotte: [
-    { label: 'Office', value: 'Wyandotte County Appraiser' },
-    { label: 'Phone', value: '(913) 573-2810', href: 'tel:9135732810' },
-    { label: 'Address', value: '710 N 7th St, Kansas City, KS 66101' },
-    { label: 'Website', value: 'wycokck.org', href: 'https://www.wycokck.org' },
-  ],
-  johnson: [
-    { label: 'Office', value: 'Johnson County Appraiser' },
-    { label: 'Phone', value: '(913) 715-0725', href: 'tel:9137150725' },
-    { label: 'Address', value: '100 N Kansas Ave, Olathe, KS 66061' },
-    { label: 'Website', value: 'jocogov.org', href: 'https://www.jocogov.org' },
-  ],
-};
-
-const contactItems = countyContacts[county.slug] || [];
+const contactItems = [
+  { label: 'Company', value: 'Saving KC Homebuyers' },
+  { label: 'Phone', value: '(816) 429-2900', href: 'tel:8164292900' },
+  { label: 'Address', value: '1705 Baltimore Ave, Kansas City, MO 64108' },
+  { label: 'Distance', value: city.distanceFromOffice + ' from ' + city.name },
+  { label: 'Website', value: 'SavingKC.com', href: 'https://savingkc.com' },
+];
 
 const breadcrumbs = [
   { label: stateName, href: `/${stateSlug}/` },
