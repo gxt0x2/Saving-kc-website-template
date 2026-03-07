@@ -70,6 +70,9 @@ const situations = [
     </div>
   </section>
 
+  <!-- PROCESS -->
+  <ProcessSteps />
+
   <!-- VIDEO -->
   <section class="section" style="text-align:center">
     <div class="container" style="max-width:720px">
@@ -77,9 +80,6 @@ const situations = [
       <YouTubeEmbed videoId="nx04z2feHX8" title="How the Cash Buyer Closing Process Works" />
     </div>
   </section>
-
-  <!-- PROCESS -->
-  <ProcessSteps />
 
   <!-- ABOUT -->
   <section class="section about-section" id="about">
@@ -145,30 +145,30 @@ const situations = [
   <Testimonials />
 
   <!-- SERVICE AREAS -->
-  <section class="section" style="background:var(--grey-50)">
-    <div class="container">
-      <h2 class="section-title" style="text-align:center">Serving the Entire KC Metro</h2>
-      <p class="section-subtitle" style="text-align:center">5 counties, 47+ cities across Missouri and Kansas.</p>
-      <div class="grid-3" style="text-align:center">
-        <a href="/mo/jackson/" class="card" style="text-decoration:none;color:inherit">
+  <section class="section service-areas-section">
+    <div class="container" style="text-align:center">
+      <h2 class="section-title">Serving the Entire KC Metro</h2>
+      <p class="section-subtitle">5 counties, 47+ cities across Missouri and Kansas.</p>
+      <div class="service-areas-grid">
+        <a href="/mo/jackson/" class="area-card">
           <h3>Jackson County, MO</h3>
-          <p style="color:var(--grey-500);font-size:0.9rem">Kansas City, Independence, Blue Springs, Lee's Summit, Grandview, Raytown</p>
+          <p>Kansas City, Independence, Blue Springs, Lee's Summit, Grandview, Raytown</p>
         </a>
-        <a href="/mo/clay/" class="card" style="text-decoration:none;color:inherit">
+        <a href="/mo/clay/" class="area-card">
           <h3>Clay County, MO</h3>
-          <p style="color:var(--grey-500);font-size:0.9rem">Liberty, Gladstone, Kearney, Excelsior Springs, North KC</p>
+          <p>Liberty, Gladstone, Kearney, Excelsior Springs, North KC</p>
         </a>
-        <a href="/mo/platte/" class="card" style="text-decoration:none;color:inherit">
+        <a href="/mo/platte/" class="area-card">
           <h3>Platte County, MO</h3>
-          <p style="color:var(--grey-500);font-size:0.9rem">Platte City, Parkville, Weatherby Lake, Riverside</p>
+          <p>Platte City, Parkville, Weatherby Lake, Riverside</p>
         </a>
-        <a href="/ks/wyandotte/" class="card" style="text-decoration:none;color:inherit">
+        <a href="/ks/wyandotte/" class="area-card">
           <h3>Wyandotte County, KS</h3>
-          <p style="color:var(--grey-500);font-size:0.9rem">Kansas City KS, Bonner Springs, Edwardsville</p>
+          <p>Kansas City KS, Bonner Springs, Edwardsville</p>
         </a>
-        <a href="/ks/johnson/" class="card" style="text-decoration:none;color:inherit">
+        <a href="/ks/johnson/" class="area-card">
           <h3>Johnson County, KS</h3>
-          <p style="color:var(--grey-500);font-size:0.9rem">Overland Park, Olathe, Shawnee, Lenexa, Merriam, Mission</p>
+          <p>Overland Park, Olathe, Shawnee, Lenexa, Merriam, Mission</p>
         </a>
       </div>
     </div>
@@ -295,7 +295,67 @@ const situations = [
     .situations-grid {
       grid-template-columns: repeat(3, 1fr);
     }
+    .service-areas-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .service-areas-grid .area-card:nth-child(4),
+    .service-areas-grid .area-card:nth-child(5) {
+      grid-column: auto;
+      justify-self: auto;
+    }
+    .service-areas-grid .area-card:nth-child(5) {
+      grid-column: 1 / -1;
+      max-width: 300px;
+      justify-self: center;
+    }
   }
+  /* Service Areas */
+  .service-areas-section {
+    background: transparent;
+  }
+  .service-areas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    justify-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .area-card {
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    padding: 20px 16px;
+    border-radius: var(--radius-lg);
+    transition: border-color 0.15s;
+    border: 1px solid var(--grey-200);
+  }
+  .area-card:hover {
+    border-color: var(--red);
+    text-decoration: none;
+  }
+  .area-card:hover h3 {
+    color: var(--red);
+  }
+  .area-card h3 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  .area-card p {
+    font-size: 0.85rem;
+    color: var(--grey-500);
+    margin: 0;
+  }
+  /* Center the bottom row of 2 cards */
+  .service-areas-grid .area-card:nth-child(4) {
+    grid-column: 1 / 2;
+    justify-self: end;
+  }
+  .service-areas-grid .area-card:nth-child(5) {
+    grid-column: 2 / 3;
+    justify-self: start;
+  }
+
   @media (max-width: 640px) {
     .hero {
       padding: 40px 0;
@@ -311,6 +371,15 @@ const situations = [
     }
     .situations-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+    .service-areas-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+    .service-areas-grid .area-card:nth-child(4),
+    .service-areas-grid .area-card:nth-child(5) {
+      grid-column: auto;
+      justify-self: auto;
     }
   }
 </style>
