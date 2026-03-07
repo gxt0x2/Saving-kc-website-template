@@ -722,25 +722,7 @@ p {
   color: var(--red-dark);
 }
 
-/* FAQ Toggle */
-.faq-toggle {
-  font-size: 1.4rem;
-  color: var(--grey-400);
-  transition: transform 0.2s;
-  user-select: none;
-}
-
-.faq-item.active .faq-toggle {
-  transform: rotate(45deg);
-}
-
-.faq-answer {
-  display: none;
-}
-
-.faq-item.active .faq-answer {
-  display: block;
-}
+/* FAQ — native <details> handles show/hide; no global overrides */
 
 /* Situation Icon */
 .situation-icon {
