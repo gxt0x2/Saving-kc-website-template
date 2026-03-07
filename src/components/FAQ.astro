@@ -13,14 +13,12 @@ const { items } = Astro.props;
       {items.map((item) => (
         <details class="faq-item" open>
           <summary class="faq-question">
-            <span>{item.question}</span>
+            <h3 class="faq-q-text">{item.question}</h3>
             <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M19 9l-7 7-7-7" />
             </svg>
           </summary>
-          <div class="faq-answer">
-            <p>{item.answer}</p>
-          </div>
+          <div class="faq-answer" set:html={item.answer} />
         </details>
       ))}
     </div>
@@ -82,9 +80,13 @@ const { items } = Astro.props;
     background: rgba(249, 250, 251, 0.5);
   }
 
-  .faq-question span {
+  .faq-q-text {
     color: var(--grey-900);
     padding-right: 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
   }
 
   .faq-chevron {
@@ -104,9 +106,10 @@ const { items } = Astro.props;
     line-height: 1.7;
   }
 
-  .faq-answer p {
-    margin: 0;
-  }
+  .faq-answer p { margin: 0 0 12px; }
+  .faq-answer p:last-child { margin-bottom: 0; }
+  .faq-answer a { color: var(--red); text-decoration: underline; }
+  .faq-answer a:hover { color: var(--red-dark); }
 
   @media (min-width: 768px) {
     .faq-question { padding: 20px; }

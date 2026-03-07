@@ -292,15 +292,12 @@ const jumpPills = [
       </p>
     </div>
     <h3>2026 Tax Sale Critical Dates</h3>
-    <div class="countdown-banner">
+    <div class="countdown-banner" data-tax-sale-date={county.taxSaleDate2026} data-county-name={county.name} data-sale-type="tax sale">
       <div class="countdown-banner__icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       </div>
       <div class="countdown-banner__text">
-        {daysUntilSale > 0
-          ? <><strong>{daysUntilSale} days</strong> until the {county.name} tax sale — <strong>{taxSaleDateFormatted}</strong></>
-          : <><strong>The 2026 {county.name} tax sale has passed.</strong></>
-        }
+        Calculating...
       </div>
       <div class="countdown-banner__pattern">{county.taxSalePattern}</div>
     </div>
@@ -921,3 +918,35 @@ const jumpPills = [
     .distress-grid { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  document.querySelectorAll('.countdown-banner[data-tax-sale-date]').forEach((banner) => {
+    const dateStr = banner.getAttribute('data-tax-sale-date');
+    const countyName = banner.getAttribute('data-county-name');
+    const saleType = banner.getAttribute('data-sale-type') || 'tax sale';
+    const textEl = banner.querySelector('.countdown-banner__text');
+    if (!dateStr || !textEl) return;
+
+    function update() {
+      const saleDate = new Date(dateStr + 'T10:00:00');
+      const now = new Date();
+      const diffMs = saleDate.getTime() - now.getTime();
+      const days = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+      const formatted = saleDate.toLocaleDateString('en-US', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+
+      if (days > 0) {
+        textEl.innerHTML = `<strong>${days} day${days === 1 ? '' : 's'}</strong> until the ${countyName} ${saleType} — <strong>${formatted}</strong>`;
+      } else {
+        textEl.innerHTML = `<strong>The 2026 ${countyName} ${saleType} has passed.</strong>`;
+      }
+    }
+
+    update();
+    // Refresh at midnight so the count stays accurate for long-open tabs
+    const now = new Date();
+    const msUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime() - now.getTime();
+    setTimeout(() => { update(); setInterval(update, 86400000); }, msUntilMidnight + 1000);
+  });
+</script>

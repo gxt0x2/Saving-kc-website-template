@@ -73,54 +73,54 @@ export const situations: SituationData[] = [
     ],
     faqs: [
       {
-        question: 'Do I need to get a foundation inspection before selling?',
+        question: 'Do I need a foundation inspection before selling in 2026?',
         answer:
-          'No. When you sell to a cash buyer like us, we handle our own property assessment. You don\'t need to hire an inspector or a structural engineer. Save that $500 to $800 fee.',
+          '<strong>No, you do not need an inspection.</strong> <strong>Saving KC Homebuyers</strong> (816-429-2900) handles the property walk-through at no cost to you. Skip the $500-$800 engineer fee. We assess the damage ourselves and make a <strong>fair cash offer within 24 hours</strong>. Learn more about related <a href="/situations/water-damage/">water damage issues</a> that often appear alongside foundation problems.',
       },
       {
-        question: 'Will I get a fair price for a house with foundation problems?',
+        question: 'How much will I get for a house with foundation problems?',
         answer:
-          'We make offers based on the after-repair value of the home minus estimated repair costs. While the offer will be below full market value, you save on repair bills ($5,000-$50,000), agent commissions (5-6% of sale price), holding costs, and months of stress. Many sellers net more than they would after paying for repairs.',
+          '<strong>Saving KC</strong> (816-429-2900) bases every offer on the <strong>after-repair value</strong> minus repair costs. You skip $5,000-$50,000 in repairs, 5-6% agent fees, and months of stress. Many KC sellers net more than they would after paying for fixes. Call us for a <strong>free, no-obligation offer</strong> on your <a href="/mo/jackson/">Jackson County</a> home today.',
       },
       {
         question: 'How fast can I close on a house with foundation damage?',
         answer:
-          'We can close in as few as 7 days. Because we pay cash, there is no lender approval process, no appraisal contingency, and no financing delays. You pick the closing date that works for your schedule.',
+          '<strong>As few as 7 days.</strong> Because <strong>Saving KC Homebuyers</strong> (816-429-2900) pays cash, there is <strong>no lender approval, no appraisal, and no financing delays</strong>. You pick the closing date. We have closed foundation-damage homes across the metro, from <a href="/ks/wyandotte/">Wyandotte County</a> to Lee\'s Summit.',
       },
       {
-        question: 'Do I have to disclose foundation problems in Missouri?',
+        question: 'What does Missouri law say about disclosing foundation problems?',
         answer:
-          'Yes. Missouri law requires sellers to disclose known material defects, including foundation issues, on the Seller\'s Disclosure Statement. Kansas has similar requirements. Failing to disclose can result in legal liability after the sale. When you sell to us, disclosure is simple because we already know about the issues and buy accordingly.',
+          '<strong>Missouri RSMo 442.606 requires sellers to disclose known material defects</strong>, including foundation issues, on the Seller\'s Disclosure Statement. Kansas has a similar rule under K.S.A. 58-30,106. When you sell to <strong>Saving KC</strong> (816-429-2900), disclosure is simple because <strong>we already know about the damage</strong> and price accordingly.',
       },
       {
         question: 'What if my foundation problem is really severe?',
         answer:
-          'We buy homes with all levels of foundation damage, from minor settling cracks to complete structural failure. Whether your basement walls are bowing, your home is sinking on one side, or your foundation needs full replacement, we\'ll still make an offer.',
+          '<strong>Saving KC Homebuyers</strong> (816-429-2900) buys homes with <strong>every level of foundation damage</strong>. Bowing walls, sinking slabs, full structural failure -- we still make an offer. We have purchased homes less than 1.1 miles from the Jackson County Courthouse with severe settling. No job is too big for our team.',
       },
       {
         question: 'Can I sell a house with foundation problems if I still owe on the mortgage?',
         answer:
-          'Yes. At closing, the title company pays off your remaining mortgage balance from the sale proceeds. If you owe more than the offer amount, we can discuss options including negotiating with your lender on a short sale.',
+          '<strong>Yes.</strong> The title company pays off your remaining mortgage balance from the sale proceeds at closing. If you owe more than the home is worth, <strong>Saving KC</strong> (816-429-2900) can help negotiate a <strong>short sale</strong> with your lender. See our <a href="/situations/behind-on-payments/">behind on payments</a> page for more details.',
       },
       {
-        question: 'Do foundation problems get worse if I wait to sell?',
+        question: 'When should I sell a house with foundation cracks?',
         answer:
-          'Yes, always. Foundation damage is progressive. A crack that costs $1,500 to fix today can turn into a $15,000 wall stabilization job in two or three years. Water intrusion through cracks also leads to mold and wood rot. The sooner you sell, the better your offer will be.',
+          '<strong>As soon as possible.</strong> Foundation damage is progressive. A $1,500 crack today can become a $15,000 wall repair in two years. Water intrusion leads to <a href="/situations/water-damage/">water damage</a> and mold. Call <strong>Saving KC Homebuyers</strong> (816-429-2900) now -- the sooner you sell, the better your offer will be.',
       },
       {
         question: 'Will you buy a house with foundation issues and other problems too?',
         answer:
-          'Absolutely. Foundation damage rarely exists in isolation. We buy homes that also have water damage, mold, outdated electrical, bad plumbing, roof problems, and code violations alongside the foundation issues. One offer covers everything.',
+          '<strong>Absolutely.</strong> Foundation damage rarely exists alone. <strong>Saving KC</strong> (816-429-2900) buys homes that also have <strong>water damage, mold, bad plumbing, roof problems, and code violations</strong>. One offer covers everything. Visit our <a href="/situations/water-damage/">water damage</a> page to learn more.',
       },
       {
-        question: 'How do you determine what my house with foundation problems is worth?',
+        question: 'How does Saving KC determine what my house is worth?',
         answer:
-          'We look at comparable sales in your KC neighborhood, estimate the after-repair value, then subtract projected repair costs and our margin. We walk you through the numbers so you understand exactly how we arrived at the offer. No hidden fees or last-minute deductions.',
+          'We look at <strong>comparable sales</strong> in your KC neighborhood, estimate the after-repair value, then subtract repair costs and our margin. <strong>Saving KC Homebuyers</strong> (816-429-2900) walks you through the math so you see exactly how we arrived at the number. <strong>No hidden fees</strong> and no last-minute deductions.',
       },
       {
-        question: 'Is it better to repair the foundation before selling or sell as-is?',
+        question: 'Is it better to repair the foundation or sell as-is?',
         answer:
-          'For most KC homeowners, selling as-is is the better financial decision. Foundation repairs cost $5,000 to $50,000, take weeks to complete, and don\'t guarantee a dollar-for-dollar return. You also still have to disclose the prior damage, which scares off buyers anyway.',
+          'For most KC homeowners, <strong>selling as-is is the smarter move</strong>. Repairs cost $5,000-$50,000, take weeks, and do not guarantee a dollar-for-dollar return. Under Missouri RSMo 442.606 you must still disclose the prior damage, which scares buyers. Call <strong>Saving KC</strong> (816-429-2900) for a better path forward.',
       },
     ],
     comparison: [
@@ -307,54 +307,54 @@ export const situations: SituationData[] = [
     ],
     faqs: [
       {
-        question: 'Do I need to clean up fire damage before selling?',
+        question: 'Do I need to clean up fire damage before selling in 2026?',
         answer:
-          'No. We buy fire-damaged homes exactly as they are. You do not need to clean up debris, remove smoke odor, or make any repairs. Leave everything as-is.',
+          '<strong>No cleanup is needed.</strong> <strong>Saving KC Homebuyers</strong> (816-429-2900) buys fire-damaged homes exactly as they are. Leave the debris, smoke odor, and damaged materials in place. We handle <strong>all demolition and restoration</strong> after closing. Call us today for a fast cash offer.',
       },
       {
         question: 'Can I sell if the fire department condemned my house?',
         answer:
-          'Yes. We purchase condemned and uninhabitable properties. Even if the city has posted your home as unsafe to occupy, we can still buy it for the land and remaining structure value.',
+          '<strong>Yes.</strong> <strong>Saving KC</strong> (816-429-2900) purchases <strong>condemned and uninhabitable properties</strong> across the KC metro. Even if the city posted your home as unsafe under Kansas City\'s property maintenance code, we buy it for land and remaining structure value. See our <a href="/situations/code-violations/">code violations</a> page for more.',
       },
       {
-        question: 'How long after a fire can I sell my house?',
+        question: 'When can I start selling after a fire?',
         answer:
-          'You can start the selling process immediately after the fire department clears the scene and any investigation is complete. If arson is suspected, you may need to wait until investigators release the property.',
+          'You can start <strong>right after the fire department clears the scene</strong>. If arson is suspected, wait until investigators release the property. Once cleared, call <strong>Saving KC Homebuyers</strong> (816-429-2900) and we can have a <strong>cash offer within 24 hours</strong>. Do not wait -- holding costs add up fast.',
       },
       {
-        question: 'Will you buy a house with only smoke damage?',
+        question: 'Will Saving KC buy a house with only smoke damage?',
         answer:
-          'Absolutely. Smoke damage alone can cost thousands to remediate and makes homes nearly impossible to sell traditionally. We buy homes with smoke damage, soot damage, and odor issues throughout.',
+          '<strong>Absolutely.</strong> Smoke damage alone costs thousands to fix and makes homes nearly impossible to sell on the MLS. <strong>Saving KC</strong> (816-429-2900) buys homes with <strong>smoke, soot, and odor damage</strong> throughout. No remediation needed on your end.',
       },
       {
         question: 'Can I keep my insurance payout and still sell the house?',
         answer:
-          'Yes. You can settle your insurance claim and sell the damaged property separately. The insurance payout covers your loss, and the property sale gives you additional cash. Many KC homeowners use this approach to maximize their total recovery.',
+          '<strong>Yes, you can keep both.</strong> Settle your insurance claim and sell the damaged property separately to <strong>Saving KC Homebuyers</strong> (816-429-2900). The claim follows the policyholder, not the property. Many <a href="/mo/jackson/">Jackson County</a> homeowners use this approach to <strong>maximize total recovery</strong>.',
       },
       {
         question: 'What if my fire-damaged house has asbestos?',
         answer:
-          'Homes built before 1980 in Kansas City often contain asbestos in siding, floor tiles, insulation, and pipe wrap. Fire can disturb these materials. We buy properties with asbestos exposure and handle abatement as part of our renovation. It doesn\'t affect your ability to sell.',
+          'Pre-1980 Kansas City homes often contain <strong>asbestos in siding, tiles, and insulation</strong>. Fire can disturb these materials. <strong>Saving KC</strong> (816-429-2900) buys properties with asbestos exposure and <strong>handles abatement</strong> during renovation. It does not affect your ability to sell to us.',
       },
       {
-        question: 'Will the city condemn my house after a fire?',
+        question: 'How does Saving KC determine the value of a fire-damaged home?',
         answer:
-          'Kansas City code enforcement may post a property as unsafe or uninhabitable after a fire. This doesn\'t prevent a sale. We buy condemned properties regularly and work with the city to resolve the condemnation during our renovation process.',
-      },
-      {
-        question: 'How do you determine the value of a fire-damaged home?',
-        answer:
-          'We calculate the after-repair value based on comparable sales in your KC neighborhood, then subtract estimated restoration costs and our margin. We walk you through the full breakdown so you can see exactly how we arrived at the number. No hidden fees.',
+          'We calculate the <strong>after-repair value</strong> based on comparable sales in your KC neighborhood, then subtract restoration costs and our margin. <strong>Saving KC Homebuyers</strong> (816-429-2900) shows you the full breakdown. <strong>No hidden fees</strong>, no last-minute deductions at closing.',
       },
       {
         question: 'Can I sell a fire-damaged house if I still owe on the mortgage?',
         answer:
-          'Yes. The mortgage is paid off at closing from the sale proceeds. If you owe more than the property is currently worth, we can discuss short sale options with your lender. Most KC lenders prefer a short sale over a foreclosure on a fire-damaged property.',
+          '<strong>Yes.</strong> The mortgage is paid off at closing from sale proceeds. If you owe more than the property is worth, <strong>Saving KC</strong> (816-429-2900) can discuss <strong>short sale options</strong> with your lender. See our <a href="/situations/behind-on-payments/">behind on payments</a> page for details.',
       },
       {
         question: 'What about fire damage to a rental or investment property?',
         answer:
-          'We buy fire-damaged rental and investment properties across the KC metro. Whether the property was occupied by tenants or vacant at the time of the fire, we purchase it as-is. If tenants were displaced, we handle the property, not the tenant situation.',
+          '<strong>Saving KC Homebuyers</strong> (816-429-2900) buys <strong>fire-damaged rentals and investment properties</strong> across the KC metro, from <a href="/ks/wyandotte/">Wyandotte County</a> to Lee\'s Summit. Whether tenants were living there or it was vacant, we purchase as-is and handle everything after closing.',
+      },
+      {
+        question: 'Where in Kansas City do you buy fire-damaged homes?',
+        answer:
+          '<strong>Everywhere in the metro.</strong> <strong>Saving KC</strong> (816-429-2900) buys fire-damaged properties in <a href="/mo/jackson/">Jackson County</a>, Johnson County, Wyandotte County, Clay County, and all surrounding areas. We have purchased homes just minutes from downtown KC with total fire loss. <strong>No neighborhood is off limits.</strong>',
       },
     ],
     comparison: [
@@ -524,54 +524,54 @@ export const situations: SituationData[] = [
     ],
     faqs: [
       {
-        question: 'Do I need to dry out my house before selling?',
+        question: 'Do I need to dry out my house before selling in 2026?',
         answer:
-          'No. We buy homes with active water issues, standing water, and ongoing leaks. You do not need to dry, clean, or remediate anything before selling to us.',
+          '<strong>No drying or cleanup is needed.</strong> <strong>Saving KC Homebuyers</strong> (816-429-2900) buys homes with <strong>active water issues, standing water, and ongoing leaks</strong>. We handle all remediation after closing. Call today for a fast cash offer on your water-damaged home.',
       },
       {
         question: 'Can I sell a house with mold from water damage?',
         answer:
-          'Yes. Mold is one of the most common secondary effects of water damage, and it does not prevent a cash sale. We buy homes with mold regardless of severity.',
+          '<strong>Yes.</strong> Mold is the most common side effect of water damage, and it does not stop a cash sale. <strong>Saving KC</strong> (816-429-2900) buys homes with mold no matter how bad it is. See our <a href="/situations/foundation-issues/">foundation issues</a> page too, since water often damages foundations.',
       },
       {
         question: 'What if my house flooded and I have no flood insurance?',
         answer:
-          'Many Kansas City homeowners lack flood insurance, especially those outside FEMA-designated flood zones. We buy flood-damaged homes whether or not you have coverage.',
+          'Many KC homeowners lack flood coverage, especially outside FEMA flood zones. <strong>Saving KC Homebuyers</strong> (816-429-2900) buys <strong>flood-damaged homes with or without insurance</strong>. We have purchased flooded properties near Brush Creek, the Blue River, and across <a href="/mo/jackson/">Jackson County</a>.',
       },
       {
-        question: 'Will water damage history affect my sale price?',
+        question: 'How much will water damage reduce my home\'s value?',
         answer:
-          'Water damage does reduce property value, but our offer accounts for current condition. You avoid the $5,000 to $60,000+ in repair costs, months of work, and the risk of mold returning after repairs.',
+          'Water damage does lower value, but our offer accounts for <strong>current condition</strong>. You avoid $5,000-$60,000 in repair costs, months of work, and the risk of mold returning. <strong>Saving KC</strong> (816-429-2900) gives you a <strong>fair cash number</strong> so you can move forward fast.',
       },
       {
-        question: 'How do you determine an offer on a water-damaged home?',
+        question: 'How does Saving KC make an offer on a water-damaged home?',
         answer:
-          'We estimate the after-repair value, subtract estimated repair costs and our margin, and present a fair cash offer. We show you how we arrived at the number so there are no surprises.',
+          'We estimate the <strong>after-repair value</strong>, subtract repair costs and our margin, and present a fair cash offer. <strong>Saving KC Homebuyers</strong> (816-429-2900) shows you the math. <strong>No hidden fees</strong> and no surprises at closing.',
       },
       {
         question: 'Can I sell a house with a sewer backup problem?',
         answer:
-          'Yes. Sewer backups are one of the most common water damage issues in the KC metro due to the aging combined sewer system. We buy homes with active sewer problems, previous backup damage, and even standing sewage in the basement.',
+          '<strong>Yes.</strong> Sewer backups are common in KC due to the <strong>aging combined sewer system</strong>. <strong>Saving KC</strong> (816-429-2900) buys homes with active sewer problems, past backup damage, and even standing sewage. We handle the mess after closing.',
       },
       {
         question: 'What if my house is in a flood zone?',
         answer:
-          'We buy flood zone and repetitive loss properties across the KC metro. Flood zone properties are harder to sell traditionally because buyers must carry expensive flood insurance. We pay cash, so flood insurance requirements don\'t affect our purchase.',
+          '<strong>Saving KC Homebuyers</strong> (816-429-2900) buys <strong>flood zone and repetitive-loss properties</strong> across the metro. Traditional buyers must carry costly flood insurance, which scares them off. We pay cash, so flood zone rules <strong>do not affect our purchase</strong>.',
       },
       {
-        question: 'Do I need to disclose water damage when selling in Missouri?',
+        question: 'What does Missouri law require me to disclose about water damage?',
         answer:
-          'Yes. Missouri law requires sellers to disclose known water damage, flooding history, and any mold issues on the Seller\'s Disclosure Statement. When you sell to us, disclosure is straightforward because we already know about the damage and buy accordingly.',
+          'Under <strong>Missouri RSMo 442.606</strong>, sellers must disclose known water damage, flooding history, and mold on the Seller\'s Disclosure Statement. When you sell to <strong>Saving KC</strong> (816-429-2900), disclosure is easy because <strong>we already know about the damage</strong> and price our offer accordingly.',
       },
       {
         question: 'Can water damage cause foundation problems?',
         answer:
-          'Yes. Chronic water intrusion erodes mortar joints, weakens concrete, and saturates soil beneath footings. Over time, this leads to foundation settling and cracking. We buy homes where water damage has led to secondary foundation issues.',
+          '<strong>Yes.</strong> Water erodes mortar, weakens concrete, and saturates soil under footings. Over time this leads to <strong>settling and cracking</strong>. <strong>Saving KC Homebuyers</strong> (816-429-2900) buys homes where water damage created <a href="/situations/foundation-issues/">foundation issues</a> too. One offer covers both.',
       },
       {
-        question: 'What if I can\'t afford to fix the water damage?',
+        question: 'Where in Kansas City do you buy water-damaged homes?',
         answer:
-          'That\'s exactly the situation where selling as-is makes the most sense. You don\'t need to spend a dime on repairs. We buy the home in its current condition and handle all remediation and restoration after closing.',
+          '<strong>Every neighborhood in the metro.</strong> <strong>Saving KC</strong> (816-429-2900) buys water-damaged properties in <a href="/mo/jackson/">Jackson County</a>, <a href="/ks/wyandotte/">Wyandotte County</a>, Johnson County, and all surrounding areas. Homes near Turkey Creek, Indian Creek, and the Missouri River flood areas are ones we see often.',
       },
     ],
     comparison: [
@@ -742,54 +742,54 @@ export const situations: SituationData[] = [
     ],
     faqs: [
       {
-        question: 'Do I need a mold inspection before selling?',
+        question: 'Do I need a mold inspection before selling in 2026?',
         answer:
-          'No. We do our own assessment of the property. You do not need to hire a mold inspector or testing company before selling to us.',
+          '<strong>No inspection is needed.</strong> <strong>Saving KC Homebuyers</strong> (816-429-2900) does our own assessment at no cost to you. Skip the $300-$600 testing fee. We evaluate the mold ourselves and make a <strong>cash offer within 24 hours</strong>. Call today.',
       },
       {
         question: 'Is it legal to sell a house with mold in Missouri?',
         answer:
-          'Yes. You must disclose known mold on the Seller\'s Disclosure Statement, but you are not required to remediate before selling. We handle disclosure simply since we already know about the mold.',
+          '<strong>Yes.</strong> Under <strong>Missouri RSMo 442.606</strong>, you must disclose known mold on the Seller\'s Disclosure Statement, but you are <strong>not required to fix it</strong> before selling. <strong>Saving KC</strong> (816-429-2900) already knows about the mold, so disclosure is simple.',
       },
       {
         question: 'Can mold make a house unsellable?',
         answer:
-          'Mold makes a home very difficult to sell on the traditional market, but it does not make it unsellable. Cash buyers purchase homes with mold every day, regardless of type or severity.',
+          'Mold makes a home very hard to sell on the MLS, but <strong>it does not make it unsellable</strong>. <strong>Saving KC Homebuyers</strong> (816-429-2900) buys homes with mold every day, no matter the type or how bad it is. See our <a href="/situations/water-damage/">water damage</a> page for related issues.',
       },
       {
         question: 'What if I do not know the full extent of the mold?',
         answer:
-          'That is fine. We expect hidden mold behind walls, under flooring, and in ductwork. Our offer accounts for the possibility that visible mold is only part of the problem.',
+          '<strong>That is fine.</strong> <strong>Saving KC</strong> (816-429-2900) expects hidden mold behind walls, under floors, and in ductwork. Our offer accounts for the chance that <strong>visible mold is only part of the problem</strong>. You do not need to rip open walls to find out.',
       },
       {
         question: 'Will mold come back after remediation?',
         answer:
-          'Mold returns if the moisture source isn\'t fixed. That\'s one reason selling as-is makes sense. You avoid paying $5,000 to $15,000 for remediation only to have the mold come back months later.',
+          '<strong>Yes, if the moisture source is not fixed.</strong> That is why selling as-is to <strong>Saving KC Homebuyers</strong> (816-429-2900) makes sense. You avoid paying $5,000-$15,000 for remediation only to have the mold return months later. We fix the source after we buy.',
       },
       {
         question: 'How long does professional mold remediation take?',
         answer:
-          'Professional remediation takes 3 to 7 days for most Kansas City homes. That doesn\'t include the time for source repair (fixing the leak or drainage issue), post-remediation testing, and reconstruction of removed materials. Total project time is typically 2 to 6 weeks.',
+          'Remediation alone takes <strong>3 to 7 days</strong>. Add source repair, post-testing, and wall reconstruction and the total is 2-6 weeks. <strong>Saving KC</strong> (816-429-2900) lets you <strong>skip all of that</strong> with a fast cash sale. Close in as few as 7 days.',
       },
       {
-        question: 'Can mold make my house condemned?',
+        question: 'Can mold get my house condemned in Kansas City?',
         answer:
-          'In severe cases, yes. Kansas City code enforcement and the health department can declare a property uninhabitable due to extensive mold. We buy condemned mold properties and handle remediation after closing.',
+          '<strong>In severe cases, yes.</strong> KC code enforcement can declare a property uninhabitable due to extensive mold. <strong>Saving KC Homebuyers</strong> (816-429-2900) buys <a href="/situations/code-violations/">condemned properties</a> and handles remediation after closing. Condemnation does not stop our purchase.',
       },
       {
         question: 'What if the mold is in the HVAC system?',
         answer:
-          'Mold in the HVAC ductwork spreads spores throughout the entire home every time the system runs. Duct cleaning or replacement adds $3,000 to $7,000 to remediation costs. We buy homes with mold-contaminated HVAC systems as-is.',
+          'HVAC mold spreads spores through the whole house every time the system runs. Duct cleaning adds <strong>$3,000-$7,000</strong> to costs. <strong>Saving KC</strong> (816-429-2900) buys homes with <strong>mold-contaminated HVAC systems as-is</strong>. No cleaning needed before you sell.',
       },
       {
-        question: 'Do I have to tell buyers about mold in Missouri?',
+        question: 'Where in Kansas City do you buy homes with mold?',
         answer:
-          'Yes. Missouri\'s Seller Disclosure Statement requires you to disclose known mold issues. Failing to disclose can result in legal liability after the sale. When selling to us, disclosure is simple because we already know about the mold and price our offer accordingly.',
+          '<strong>Every neighborhood.</strong> <strong>Saving KC Homebuyers</strong> (816-429-2900) buys mold-damaged homes across <a href="/mo/jackson/">Jackson County</a>, <a href="/ks/wyandotte/">Wyandotte County</a>, Johnson County, and all surrounding areas. Older homes in Midtown, Waldo, and Brookside are ones we see most often.',
       },
       {
         question: 'Can I sell a rental property with mold?',
         answer:
-          'Yes. Mold in rental properties creates landlord liability in Missouri. Tenants can file health department complaints, withhold rent, or pursue legal action. Selling to a cash buyer resolves the liability quickly. We buy tenant-occupied properties with mold and handle the tenant situation after closing.',
+          '<strong>Yes.</strong> Mold in rentals creates landlord liability in Missouri. Tenants can file complaints or withhold rent. Selling to <strong>Saving KC</strong> (816-429-2900) <strong>resolves the liability fast</strong>. We buy tenant-occupied mold properties and handle the tenant situation after closing.',
       },
     ],
     comparison: [
@@ -930,54 +930,54 @@ export const situations: SituationData[] = [
     ],
     faqs: [
       {
-        question: 'Do I need to remove anything from the house before selling?',
+        question: 'Do I need to remove anything from a hoarder house before selling?',
         answer:
-          'No. Take any personal items you want and leave everything else. Furniture, trash, appliances, stored items. We take it all with the house.',
+          '<strong>No.</strong> Take what you want and leave the rest. <strong>Saving KC Homebuyers</strong> (816-429-2900) takes the house with <strong>everything inside</strong> -- furniture, trash, appliances, stored items. We handle the full cleanout after closing at no cost to you.',
       },
       {
-        question: 'Will the clutter reduce my offer?',
+        question: 'How much will clutter reduce my 2026 cash offer?',
         answer:
-          'Cleanout costs are factored into the offer, typically $3,000 to $15,000 depending on severity. However, you save that exact amount by not paying for cleanup yourself, plus you avoid the weeks of time and emotional energy the cleanout would require.',
+          'Cleanout costs of <strong>$3,000-$15,000</strong> are factored into the offer. But you save that same amount by not paying for cleanup yourself. <strong>Saving KC</strong> (816-429-2900) also saves you weeks of time and the emotional toll. Call us for a <strong>free, no-obligation offer</strong>.',
       },
       {
-        question: 'Can you buy a hoarder house that has code violations?',
+        question: 'Can Saving KC buy a hoarder house with code violations?',
         answer:
-          'Yes. Many hoarder homes have active code violations from the city. We buy properties with violations and handle compliance after closing. We\'ve purchased homes with $5,000 to $15,000 in accumulated fines and resolved them.',
+          '<strong>Yes.</strong> Many hoarder homes have active <a href="/situations/code-violations/">code violations</a>. <strong>Saving KC Homebuyers</strong> (816-429-2900) buys properties with violations and handles compliance after closing. We have purchased homes with <strong>$5,000-$15,000 in fines</strong> and resolved them.',
       },
       {
         question: 'What if there are biohazards in the home?',
         answer:
-          'We purchase homes with biohazard conditions including animal waste, sewage issues, and other hazardous situations. Our cleanup teams are equipped to handle these safely. Biohazard conditions don\'t disqualify a property from our buying process.',
+          '<strong>Saving KC</strong> (816-429-2900) purchases homes with <strong>biohazard conditions</strong> including animal waste, sewage, and other hazards. Our cleanup teams handle these safely. Biohazard conditions <strong>do not disqualify</strong> a property from our buying process.',
       },
       {
         question: 'Can I sell a hoarder house if I live out of state?',
         answer:
-          'Yes. Many hoarder home sales involve out-of-state family members dealing with a relative\'s property. We handle the walkthrough, paperwork, and closing locally. You can sign documents remotely through a mobile notary.',
+          '<strong>Yes.</strong> Many hoarder sales involve out-of-state family members. <strong>Saving KC Homebuyers</strong> (816-429-2900) handles the walkthrough, paperwork, and closing locally. You sign documents through a <strong>mobile notary</strong> in your state. See our <a href="/situations/inherited-property/">inherited property</a> page for more.',
       },
       {
         question: 'What happens to the items left in the house after closing?',
         answer:
-          'Once we close and take ownership, everything in the home becomes our property. We sort through items, donate usable goods to local KC charities, recycle what we can, and dispose of the rest responsibly.',
+          'Everything becomes our property. <strong>Saving KC</strong> (816-429-2900) sorts through items, <strong>donates usable goods</strong> to local KC charities, recycles what we can, and disposes of the rest. You walk away with zero responsibility.',
       },
       {
-        question: 'How do you determine your offer on a hoarder house?',
+        question: 'How does Saving KC determine the offer on a hoarder house?',
         answer:
-          'We estimate the after-renovation value of the home, then subtract estimated cleanout costs, repair costs, and our margin. The offer reflects a fair price for the home in its current condition, saving you from spending that money yourself.',
+          'We estimate the <strong>after-renovation value</strong>, then subtract cleanout costs, repair costs, and our margin. <strong>Saving KC Homebuyers</strong> (816-429-2900) shows you the math. The offer reflects a <strong>fair price</strong> for the home in its current condition.',
       },
       {
-        question: 'What if the hoarding situation involves a family member who still lives there?',
+        question: 'What if a family member still lives in the hoarder house?',
         answer:
-          'We work with families in sensitive situations. If a family member is living in the home and needs help transitioning, we can provide extra time before closing and connect you with local KC resources for housing assistance.',
+          '<strong>Saving KC</strong> (816-429-2900) works with families in sensitive situations. If a family member needs help moving, we provide <strong>extra time before closing</strong> and can connect you with local KC housing resources. We treat every situation with respect.',
       },
       {
-        question: 'Do you buy hoarder houses in all Kansas City neighborhoods?',
+        question: 'Where in Kansas City do you buy hoarder houses?',
         answer:
-          'Yes. We buy hoarder properties across the entire KC metro including Kansas City, Missouri, Independence, Blue Springs, Lee\'s Summit, Grandview, Raytown, Overland Park, Olathe, Shawnee, and all surrounding areas.',
+          '<strong>Everywhere in the metro.</strong> <strong>Saving KC Homebuyers</strong> (816-429-2900) buys hoarder properties in <a href="/mo/jackson/">Jackson County</a>, <a href="/ks/wyandotte/">Wyandotte County</a>, Johnson County, and all surrounding cities including Independence, Grandview, Raytown, Overland Park, and Olathe.',
       },
       {
         question: 'Is a hoarder house considered condemned?',
         answer:
-          'Not necessarily. A house is only condemned when the city officially declares it unfit for habitation. Many hoarder homes have code violations but aren\'t condemned. Even if your home has been condemned, we can still purchase it.',
+          '<strong>Not always.</strong> A house is condemned only when the city officially declares it unfit. Many hoarder homes have <a href="/situations/code-violations/">code violations</a> but are not condemned. Even if yours is condemned, <strong>Saving KC</strong> (816-429-2900) can still buy it.',
       },
     ],
     comparison: [
@@ -1143,54 +1143,54 @@ export const situations: SituationData[] = [
     ],
     faqs: [
       {
-        question: 'Do I have to go through probate to sell an inherited house?',
+        question: 'Do I have to go through probate to sell an inherited house in 2026?',
         answer:
-          'It depends on how the property was titled. If the deceased held it in a trust, joint tenancy with right of survivorship, or transfer-on-death deed, probate may not be required. Otherwise, Missouri probate is needed to transfer title authority. Kansas has a similar requirement.',
+          '<strong>It depends on how the property was titled.</strong> If held in a trust, joint tenancy, or transfer-on-death deed, <a href="/probate/">probate</a> may not be needed. Otherwise, Missouri probate under <strong>RSMo Chapter 473</strong> is required. <strong>Saving KC Homebuyers</strong> (816-429-2900) works with estate attorneys to close during or after probate.',
       },
       {
         question: 'Can I sell an inherited house from out of state?',
         answer:
-          'Yes. Many heirs live outside Kansas City. We handle everything locally: the property walkthrough, title work, and closing. You can sign documents remotely via mobile notary or mail-away closing. You don\'t need to travel to KC at any point.',
+          '<strong>Yes.</strong> <strong>Saving KC</strong> (816-429-2900) handles everything locally -- walkthrough, title work, and closing. You sign documents via <strong>mobile notary</strong> or mail-away closing. No travel to Kansas City required. We have closed sales with heirs in California, Texas, and Florida.',
       },
       {
         question: 'Who pays the property taxes on an inherited home?',
         answer:
-          'The estate or heirs are responsible for property taxes from the date of death. Selling quickly minimizes this expense. In Jackson County, property taxes on a $180,000 home run about $2,520 per year, so every month counts.',
+          'The <strong>estate or heirs</strong> owe property taxes from the date of death. Selling fast saves money. In <a href="/mo/jackson/">Jackson County</a>, taxes on a $180,000 home run about <strong>$2,520 per year</strong>. Call <strong>Saving KC Homebuyers</strong> (816-429-2900) to stop the clock.',
       },
       {
         question: 'What if the inherited property has a reverse mortgage?',
         answer:
-          'We buy homes with reverse mortgages. When the homeowner passes, the loan typically becomes due within 6 months. Selling to us can pay off the reverse mortgage balance and provide remaining equity to the heirs before the lender forecloses.',
+          '<strong>Saving KC</strong> (816-429-2900) buys homes with <strong>reverse mortgages</strong>. When the owner passes, the loan is usually due within 6 months. We pay off the balance and provide <strong>remaining equity to the heirs</strong> before the lender forecloses.',
       },
       {
         question: 'Can I sell if I am not the only heir?',
         answer:
-          'Yes, but all heirs or the court-appointed personal representative must agree to the sale. We have closed many multi-heir sales and can work with your estate attorney to coordinate signatures and distribute proceeds to each party.',
+          '<strong>Yes.</strong> All heirs or the court-appointed personal representative must agree. <strong>Saving KC Homebuyers</strong> (816-429-2900) has closed many <strong>multi-heir sales</strong>. We coordinate signatures and the title company distributes proceeds to each party directly.',
       },
       {
         question: 'How long does Missouri probate take?',
         answer:
-          'Missouri probate typically takes 6 to 12 months, though simple estates can sometimes be resolved in 4 to 6 months. The personal representative can petition the court to approve a property sale before the estate is fully settled, so you don\'t have to wait for probate to end.',
+          'Missouri <a href="/probate/">probate</a> typically takes <strong>6 to 12 months</strong> under RSMo Chapter 473. Simple estates may resolve in 4-6 months. The personal representative can petition to sell the property <strong>before probate ends</strong>. <strong>Saving KC</strong> (816-429-2900) works within your probate timeline.',
       },
       {
-        question: 'What if the deceased didn\'t have a will?',
+        question: 'What if the deceased did not have a will?',
         answer:
-          'When someone dies without a will (intestate), Missouri law determines who inherits the property based on family relationships. The court appoints an administrator to manage the estate. We work with administrators just as we do with executors named in a will.',
+          'When someone dies intestate, <strong>Missouri RSMo 474.010</strong> determines who inherits based on family relationships. The court appoints an administrator. <strong>Saving KC Homebuyers</strong> (816-429-2900) works with administrators just like executors named in a will.',
       },
       {
         question: 'Do I need to clean out the inherited home before selling?',
         answer:
-          'No. We buy inherited properties with all contents included. Take any personal items, family photos, or valuables you want and leave the rest. We handle the cleanout after closing at no cost to you.',
+          '<strong>No.</strong> <strong>Saving KC</strong> (816-429-2900) buys inherited homes <strong>with all contents included</strong>. Take family photos and valuables, leave the rest. We handle the cleanout after closing at no cost. This is especially helpful for <a href="/situations/hoarder-house/">hoarder situations</a>.',
       },
       {
         question: 'What if there are liens or back taxes on the inherited property?',
         answer:
-          'Liens and back taxes are paid from the sale proceeds at closing. The title company identifies all outstanding obligations and settles them before distributing funds to the heirs. You don\'t need to pay anything out of pocket.',
+          'Liens and <a href="/tax-delinquent/">back taxes</a> are <strong>paid from the sale proceeds at closing</strong>. The title company finds all debts and settles them before distributing funds to heirs. You pay <strong>nothing out of pocket</strong>. Call <strong>Saving KC</strong> (816-429-2900) for a free offer.',
       },
       {
-        question: 'Can I sell an inherited house that\'s in a trust?',
+        question: 'Can I sell an inherited house that is in a trust?',
         answer:
-          'Yes. If the property is held in a living trust, the successor trustee has authority to sell without going through probate. This is one of the fastest ways to sell inherited property because you skip the court process entirely.',
+          '<strong>Yes.</strong> The successor trustee can sell <strong>without probate</strong>. This is the fastest way to sell inherited property because you skip the court process. <strong>Saving KC Homebuyers</strong> (816-429-2900) can close trust-held properties in <strong>as few as 7 days</strong>.',
       },
     ],
     comparison: [
@@ -1353,54 +1353,54 @@ export const situations: SituationData[] = [
     ],
     faqs: [
       {
-        question: 'Do both spouses need to agree to sell the house?',
+        question: 'Do both spouses need to agree to sell the house in 2026?',
         answer:
-          'Generally yes, both spouses must sign the deed at closing. If one spouse refuses, the other can petition the court to order the sale during the divorce proceedings. Missouri and Kansas courts regularly order home sales when the property can\'t be equitably divided otherwise.',
+          '<strong>Generally yes.</strong> Both spouses must sign the deed at closing. If one refuses, the other can petition the court to order the sale. Missouri and Kansas courts regularly order home sales under <strong>equitable distribution laws</strong>. <strong>Saving KC Homebuyers</strong> (816-429-2900) works with both parties and their attorneys.',
       },
       {
         question: 'How is the sale money divided in a divorce?',
         answer:
-          'The proceeds are divided according to your divorce agreement or court order. In Missouri and Kansas, equitable distribution means the split is based on fairness considering factors like marriage length, each spouse\'s contributions, and economic circumstances. The split may or may not be 50/50.',
+          'Proceeds are divided per your <strong>divorce agreement or court order</strong>. Under Missouri RSMo 452.330, equitable distribution considers marriage length, contributions, and economic circumstances. The split may not be 50/50. <strong>Saving KC</strong> (816-429-2900) distributes funds through the title company as directed.',
       },
       {
         question: 'Can I sell if we are still on the same mortgage?',
         answer:
-          'Yes. The mortgage is paid off from the sale proceeds at closing, releasing both spouses from the loan obligation completely. This is the cleanest way to remove both names from the debt.',
+          '<strong>Yes.</strong> The mortgage is paid off from sale proceeds at closing, <strong>releasing both spouses</strong> from the loan. This is the cleanest way to remove both names from the debt. Call <strong>Saving KC Homebuyers</strong> (816-429-2900) to get started.',
       },
       {
         question: 'What if we owe more than the house is worth?',
         answer:
-          'If you are underwater on the mortgage, we can discuss options including a short sale where the lender agrees to accept less than the full balance. A short sale is far better for both credit scores than letting the home go to foreclosure while you argue about it.',
+          '<strong>Saving KC</strong> (816-429-2900) can discuss <strong>short sale options</strong> where the lender accepts less than the full balance. A short sale is far better for both credit scores than letting the home go to <a href="/situations/pre-foreclosure/">foreclosure</a> while you argue about it.',
       },
       {
         question: 'Will selling fast hurt our sale price?',
         answer:
-          'When you add up the 5-6% agent commissions ($12,500 to $15,000 on a $250,000 home), repair costs, staging costs, and 4 to 8 months of holding costs, many divorcing couples actually net more from a fast cash sale.',
+          'When you add up <strong>5-6% agent commissions</strong>, repair costs, staging, and 4-8 months of holding costs, many divorcing couples <strong>actually net more</strong> from a fast cash sale. <strong>Saving KC Homebuyers</strong> (816-429-2900) charges <strong>zero commissions and zero fees</strong>.',
       },
       {
-        question: 'Can we sell during the divorce if there\'s a temporary restraining order on assets?',
+        question: 'Can we sell during the divorce if there is a restraining order on assets?',
         answer:
-          'If the court has issued a temporary order freezing marital assets, you\'ll need court approval to sell. Your attorney can petition for permission, especially if holding the property is causing financial hardship. Judges typically approve sales that benefit both parties.',
+          'If the court froze marital assets, you need <strong>court approval</strong> to sell. Your attorney can petition for permission, especially if holding the property causes hardship. <strong>Saving KC</strong> (816-429-2900) works with both attorneys to coordinate everything.',
       },
       {
-        question: 'What if my spouse already moved out and stopped paying?',
+        question: 'What if my spouse moved out and stopped paying?',
         answer:
-          'You\'re still both responsible for the mortgage regardless of who lives in the home. If your spouse stopped contributing, selling fast prevents missed payments from damaging both credit scores. Don\'t wait for them to start paying again.',
+          '<strong>Both spouses are still responsible</strong> for the mortgage no matter who lives there. Selling fast prevents missed payments from damaging both credit scores. Call <strong>Saving KC Homebuyers</strong> (816-429-2900) today. See our <a href="/situations/behind-on-payments/">behind on payments</a> page for more.',
       },
       {
-        question: 'Do we each need our own attorney for a divorce home sale?',
+        question: 'Where in Kansas City do you handle divorce home sales?',
         answer:
-          'We recommend both parties have their own divorce attorney review the sale terms. We coordinate with both attorneys to ensure the closing and proceeds distribution align with your divorce agreement or court order.',
+          '<strong>Everywhere in the metro.</strong> <strong>Saving KC</strong> (816-429-2900) has handled divorce sales in <a href="/mo/jackson/">Jackson County</a>, Johnson County, <a href="/ks/wyandotte/">Wyandotte County</a>, and all surrounding areas. We coordinate with family courts in every jurisdiction across the metro.',
       },
       {
-        question: 'Can I sell the house if my name isn\'t on the title?',
+        question: 'Can I sell the house if my name is not on the title?',
         answer:
-          'In Missouri and Kansas, marital property belongs to both spouses regardless of whose name is on the title. You have a legal interest in the home even if your name isn\'t on the deed. Your divorce attorney can confirm your rights.',
+          '<strong>Yes.</strong> Under Missouri RSMo 452.330 and Kansas K.S.A. 23-2802, <strong>marital property belongs to both spouses</strong> regardless of whose name is on the title. <strong>Saving KC Homebuyers</strong> (816-429-2900) works with your attorney to confirm your rights.',
       },
       {
         question: 'What if the house needs repairs and neither of us wants to pay?',
         answer:
-          'This is one of the most common divorce scenarios we see. Neither spouse wants to invest money into a home they\'re leaving. Selling as-is to a cash buyer eliminates the repair argument entirely. We buy the home in its current condition.',
+          'This is the <strong>most common divorce scenario</strong> we see. Neither spouse wants to invest in a home they are leaving. <strong>Saving KC</strong> (816-429-2900) buys the home <strong>as-is</strong>. No repairs, no arguments, no delays. One clean sale and you both move forward.',
       },
     ],
     comparison: [
@@ -1561,31 +1561,55 @@ export const situations: SituationData[] = [
     ],
     faqs: [
       {
-        question: 'How far behind on payments can I be and still sell?',
+        question: 'How far behind on payments can I be and still sell in 2026?',
         answer:
-          'You can sell at any stage, whether you\'re one month behind or in active pre-foreclosure. You can sell right up until the foreclosure auction date in Missouri. The sooner you act, the more equity you preserve and the more options you have.',
+          '<strong>You can sell at any stage.</strong> One month behind or in active <a href="/situations/pre-foreclosure/">pre-foreclosure</a> -- it does not matter. In Missouri you can sell right up until the auction date. <strong>Saving KC Homebuyers</strong> (816-429-2900) closes fast to <strong>preserve your equity</strong>.',
       },
       {
         question: 'Will selling stop foreclosure proceedings?',
         answer:
-          'Yes. Selling and paying off the mortgage stops foreclosure. If a foreclosure sale date is set, we can often close before that date. Contact us immediately if you have a pending sale date.',
+          '<strong>Yes.</strong> Selling and paying off the mortgage <strong>stops foreclosure</strong>. If a sale date is set, <strong>Saving KC</strong> (816-429-2900) can often close before that date. Contact us right away if you have a <strong>pending auction</strong>. See our <a href="/situations/pre-foreclosure/">pre-foreclosure</a> page for details.',
       },
       {
         question: 'Can I sell if I already received a foreclosure notice?',
         answer:
-          'Yes. In Missouri, you can sell up until the foreclosure auction takes place. In Kansas, the judicial process gives you even more time. Either way, act fast.',
+          '<strong>Yes.</strong> In Missouri, you can sell until the auction takes place. Kansas judicial foreclosure under <strong>K.S.A. 60-2410</strong> gives you even more time. Either way, call <strong>Saving KC Homebuyers</strong> (816-429-2900) immediately. <strong>Every day counts.</strong>',
       },
       {
         question: 'Will I have to pay the late fees and penalties?',
         answer:
-          'All past-due amounts, late fees, and lender penalties are paid from the sale proceeds at closing. You don\'t need to bring any money to the table.',
+          '<strong>All past-due amounts, late fees, and lender penalties</strong> are paid from the sale proceeds at closing. You bring <strong>nothing to the table</strong>. <strong>Saving KC</strong> (816-429-2900) covers closing costs too.',
       },
-      { question: 'What if I\'m behind because of a job loss?', answer: 'Job loss is the most common reason homeowners fall behind. If your income has permanently changed, selling may be the smartest move. It eliminates the mortgage payment and gives you a fresh start.' },
-      { question: 'Can I sell if I\'m also going through a divorce?', answer: 'Yes. We frequently work with homeowners dealing with both divorce and missed payments. Selling fast prevents further credit damage to both parties.' },
-      { question: 'Will I owe taxes on forgiven debt in a short sale?', answer: 'Potentially. The IRS may consider forgiven debt as taxable income. Exceptions exist for primary residences and insolvent taxpayers. Consult a tax professional.' },
-      { question: 'Can the bank come after me for money after a sale?', answer: 'If you sell for the full payoff, the loan is satisfied. In a short sale, the lender may or may not waive the deficiency. We negotiate deficiency waivers as part of our process.' },
-      { question: 'What if I tried a loan modification and was denied?', answer: 'A denied modification doesn\'t prevent you from selling. Many homeowners who are denied modifications end up selling to us. It often means selling is your best remaining option.' },
-      { question: 'How much equity do I need to sell?', answer: 'If your home is worth more than your total mortgage balance (including past-due amounts), you have equity. If you\'re underwater, a short sale may work. We can help you figure out which applies within 24 hours.' },
+      {
+        question: 'What if I am behind because of a job loss?',
+        answer:
+          'Job loss is the top reason homeowners fall behind. If your income has permanently changed, selling may be the <strong>smartest move</strong>. <strong>Saving KC Homebuyers</strong> (816-429-2900) can close in as few as 7 days, giving you a <strong>fresh start</strong> with cash in your pocket.',
+      },
+      {
+        question: 'Can I sell if I am also going through a divorce?',
+        answer:
+          '<strong>Yes.</strong> <strong>Saving KC</strong> (816-429-2900) frequently works with homeowners facing <strong>both divorce and missed payments</strong>. Selling fast prevents further credit damage to both spouses. Visit our <a href="/situations/divorce/">divorce</a> page for more.',
+      },
+      {
+        question: 'Will I owe taxes on forgiven debt in a short sale?',
+        answer:
+          '<strong>Potentially.</strong> The IRS may treat forgiven debt as taxable income. Exceptions exist for primary residences and insolvent taxpayers under <strong>IRS Form 982</strong>. <strong>Saving KC Homebuyers</strong> (816-429-2900) recommends consulting a tax professional. Do not let tax concerns stop you from acting.',
+      },
+      {
+        question: 'Can the bank come after me for money after a sale?',
+        answer:
+          'If you sell for the full payoff, the loan is satisfied. In a short sale, the lender <strong>may or may not waive the deficiency</strong>. <strong>Saving KC</strong> (816-429-2900) <strong>negotiates deficiency waivers</strong> as part of our process to protect you.',
+      },
+      {
+        question: 'What if my loan modification was denied?',
+        answer:
+          'A denied modification <strong>does not prevent you from selling</strong>. Many homeowners who are denied end up selling to <strong>Saving KC Homebuyers</strong> (816-429-2900). It often means selling is your best remaining option. Call us today for a <strong>free, no-obligation offer</strong>.',
+      },
+      {
+        question: 'How much equity do I need to sell my house?',
+        answer:
+          'If your home is worth more than your total mortgage balance, you have equity. If you are underwater, a <strong>short sale</strong> may work. <strong>Saving KC</strong> (816-429-2900) can help you figure out which applies <strong>within 24 hours</strong>. We serve all of <a href="/mo/jackson/">Jackson County</a> and the KC metro.',
+      },
     ],
     comparison: [
       {
@@ -1725,54 +1749,54 @@ export const situations: SituationData[] = [
     ],
     faqs: [
       {
-        question: 'How much time do I have to sell in pre-foreclosure?',
+        question: 'How much time do I have to sell in pre-foreclosure in 2026?',
         answer:
-          'In Missouri, you have until the auction date. This can be as few as 20 days after the notice of sale is published. In Kansas, the judicial process provides more time (usually 6 to 12 months total), but every day you wait reduces your options. Contact us immediately so we can assess your timeline and move fast.',
+          'In Missouri, you have <strong>until the auction date</strong>, which can be as few as 20 days after the notice of sale is published. Kansas judicial foreclosure under <strong>K.S.A. 60-2410</strong> provides more time. Call <strong>Saving KC Homebuyers</strong> (816-429-2900) right away so we can assess your timeline.',
       },
       {
         question: 'Will the bank know I am selling?',
         answer:
-          'Yes, and most lenders prefer a voluntary sale over foreclosure because they recover more money. Your lender may even pause the foreclosure process while a legitimate sale is pending. We communicate directly with your lender\'s loss mitigation department to coordinate the payoff and ensure the auction is postponed.',
+          '<strong>Yes, and that is a good thing.</strong> Most lenders prefer a voluntary sale because they recover more money. <strong>Saving KC</strong> (816-429-2900) communicates directly with your lender\'s <strong>loss mitigation department</strong> to coordinate the payoff and postpone the auction.',
       },
       {
         question: 'Can I sell if the auction date is already set?',
         answer:
-          'Yes, in many cases. We can close in as few as 7 days, and your lender will often postpone the auction when presented with a signed purchase agreement and proof of funds. We\'ve successfully closed deals just days before scheduled auctions at the Jackson County Courthouse. Time is critical, so contact us today.',
+          '<strong>Yes, in many cases.</strong> <strong>Saving KC Homebuyers</strong> (816-429-2900) can close in as few as <strong>7 days</strong>. Lenders often postpone the auction when shown a signed contract and proof of funds. We have closed deals just days before auctions at the <strong>Jackson County Courthouse</strong>, about 1.1 miles from downtown KC.',
       },
       {
         question: 'What costs come out of the sale proceeds?',
         answer:
-          'Your full mortgage balance, all past-due payments, late fees, lender penalties, and any other liens (tax liens, HOA liens, judgment liens) are paid at closing through the title company. We cover closing costs. You keep whatever equity remains after all payoffs.',
+          'Your full mortgage balance, past-due payments, late fees, and all liens (<a href="/tax-delinquent/">tax liens</a>, HOA liens, judgment liens) are paid at closing. <strong>Saving KC</strong> (816-429-2900) covers closing costs. You keep <strong>whatever equity remains</strong> after payoffs.',
       },
       {
-        question: 'Can I sell my house in pre-foreclosure if I have a second mortgage?',
+        question: 'Can I sell in pre-foreclosure if I have a second mortgage?',
         answer:
-          'Yes. Both the first and second mortgage (or HELOC) get paid off at closing. If the combined balances exceed the sale price, we can negotiate with the junior lien holder to accept a reduced payoff. Second mortgage holders often accept 10 to 20 cents on the dollar to release their lien because they\'d get nothing in a foreclosure.',
+          '<strong>Yes.</strong> Both the first and second mortgage get paid off at closing. If balances exceed the sale price, <strong>Saving KC Homebuyers</strong> (816-429-2900) negotiates with the junior lien holder. Second mortgage holders often accept <strong>10-20 cents on the dollar</strong> because they would get nothing in foreclosure.',
       },
       {
-        question: 'Will I owe taxes on the forgiven debt if I do a short sale?',
+        question: 'Will I owe taxes on forgiven debt in a short sale?',
         answer:
-          'Potentially. Forgiven mortgage debt can be treated as taxable income by the IRS. However, if you were insolvent at the time (your debts exceeded your assets), you may qualify for an exclusion under IRS Form 982. We recommend consulting a tax professional, but don\'t let tax concerns stop you from avoiding foreclosure.',
+          '<strong>Potentially.</strong> The IRS may treat forgiven debt as taxable income. If you were insolvent, you may qualify for an exclusion under <strong>IRS Form 982</strong>. <strong>Saving KC</strong> (816-429-2900) recommends consulting a tax professional. Do not let tax concerns stop you from avoiding foreclosure.',
       },
       {
         question: 'What if my house needs repairs and I am also in pre-foreclosure?',
         answer:
-          'That\'s actually common. Many homeowners who fall behind on payments also defer maintenance. We buy houses in any condition, so property damage, deferred maintenance, or code violations don\'t change our willingness to make an offer. We factor everything into one number.',
+          'That is <strong>very common</strong>. Many homeowners who fall behind also defer maintenance. <strong>Saving KC Homebuyers</strong> (816-429-2900) buys houses <strong>in any condition</strong>. Damage, deferred maintenance, and <a href="/situations/code-violations/">code violations</a> do not change our willingness to make an offer.',
       },
       {
-        question: 'Is it too late if I already received a Notice of Sale?',
+        question: 'Is it too late if I received a Notice of Sale?',
         answer:
-          'Not necessarily. The Notice of Sale starts a minimum 20-day countdown in Missouri, but many lenders will postpone the auction if you have a signed contract with a cash buyer. Call us the same day you receive the notice. We\'ve pulled homeowners back from the brink in Independence, Raytown, and Kansas City KS with just days to spare.',
+          '<strong>Not necessarily.</strong> The Notice of Sale starts a minimum <strong>20-day countdown</strong> in Missouri. Lenders often postpone if you have a signed cash contract. Call <strong>Saving KC</strong> (816-429-2900) the same day you receive the notice. We have saved homes in Independence, Raytown, and <a href="/ks/wyandotte/">KCK</a>.',
       },
       {
         question: 'Do I need a real estate attorney to sell in pre-foreclosure?',
         answer:
-          'Missouri doesn\'t require an attorney for real estate transactions, but having one review the paperwork is never a bad idea, especially in pre-foreclosure situations. We work with local title companies that handle the payoff coordination, lien clearance, and closing documents. If you want your own attorney, we\'ll work with them.',
+          'Missouri does not require an attorney for real estate sales. But having one review paperwork is wise. <strong>Saving KC Homebuyers</strong> (816-429-2900) works with local title companies that handle payoff coordination, lien clearance, and closing documents. If you want your own attorney, <strong>we work with them</strong>.',
       },
       {
         question: 'What happens to my equity if the house goes to auction?',
         answer:
-          'At auction, properties typically sell for 60 to 75% of market value. The lender takes their full payoff (loan balance plus all fees) first. Whatever is left goes to junior lien holders, then to you. In many cases, the auction price barely covers the first mortgage, and the homeowner gets nothing. Selling before auction almost always preserves more of your equity.',
+          'At auction, homes typically sell for <strong>60-75% of market value</strong>. The lender takes their payoff first. Many homeowners get nothing. Selling before auction to <strong>Saving KC</strong> (816-429-2900) <strong>almost always preserves more equity</strong>. See our <a href="/situations/behind-on-payments/">behind on payments</a> page for more options.',
       },
     ],
     comparison: [
@@ -1938,54 +1962,54 @@ export const situations: SituationData[] = [
     ],
     faqs: [
       {
-        question: 'Do I need to maintain the property while it is for sale?',
+        question: 'Do I need to maintain a vacant property while it is for sale in 2026?',
         answer:
-          'When listing traditionally, yes. You\'ve got to maintain the lawn, keep utilities on, and ensure the property is presentable for showings. When selling to us, no. We close fast (as few as 7 days) and take the property as-is. You can stop mowing the lawn and paying the utility bills as soon as we close.',
+          '<strong>Not when you sell to us.</strong> <strong>Saving KC Homebuyers</strong> (816-429-2900) closes in as few as <strong>7 days</strong> and takes the property as-is. Stop mowing, stop paying utilities, and stop worrying the day we close. Traditional listings require months of upkeep.',
       },
       {
         question: 'Can I sell a vacant property from out of state?',
         answer:
-          'Yes. We handle everything locally including the walkthrough, title work, and closing coordination. You can review the offer by phone or email and sign closing documents via mobile notary in your state or through remote online notarization. You don\'t need to travel to Kansas City.',
+          '<strong>Yes.</strong> <strong>Saving KC</strong> (816-429-2900) handles everything locally -- walkthrough, title work, and closing. You review the offer by phone and sign via <strong>mobile notary</strong> in your state. No travel needed. See our <a href="/situations/inherited-property/">inherited property</a> page for out-of-state tips.',
       },
       {
         question: 'What if squatters have moved into my vacant house?',
         answer:
-          'We buy properties with squatter situations. Once we close, we handle the legal process of removing unauthorized occupants. In Missouri, this requires a formal eviction filing even for squatters, and we have the experience and legal resources to handle it quickly.',
+          '<strong>Saving KC Homebuyers</strong> (816-429-2900) buys <strong>properties with squatter situations</strong>. After closing, we handle the legal removal process. In Missouri, even squatters require a formal eviction filing. We have the experience and resources to handle it fast.',
       },
       {
-        question: 'Will you buy a vacant lot or just houses?',
+        question: 'Will Saving KC buy a vacant lot or just houses?',
         answer:
-          'We primarily buy houses and structures, but we also purchase vacant lots in certain Kansas City areas, particularly in developing neighborhoods or areas near commercial corridors. Contact us with the lot details and we\'ll let you know.',
+          'We primarily buy houses, but we also purchase <strong>vacant lots</strong> in certain KC areas, especially developing neighborhoods and commercial corridors. Call <strong>Saving KC</strong> (816-429-2900) with the lot details and we will let you know right away.',
       },
       {
-        question: 'How do you determine the value of a neglected vacant home?',
+        question: 'How does Saving KC determine the value of a neglected vacant home?',
         answer:
-          'We compare to similar homes in the area that have recently sold, estimate repair costs based on our in-person walkthrough, and make a cash offer based on the after-repair value minus the investment needed to bring it back to market condition. We show you the math so you can see exactly how we arrived at the number.',
+          'We compare to <strong>recent sales</strong> in your area, estimate repair costs from our walk-through, and make a cash offer based on <strong>after-repair value</strong> minus renovation costs. <strong>Saving KC Homebuyers</strong> (816-429-2900) shows you the math. No hidden fees.',
       },
       {
-        question: 'What if there are liens or back taxes on the property?',
+        question: 'What if there are liens or back taxes on the vacant property?',
         answer:
-          'We buy properties with liens and delinquent taxes regularly. All liens, tax debts, and other encumbrances are paid off at closing through the title company. The amounts come out of the sale proceeds, and you walk away with the balance. We research all of this before making our offer so there are no surprises.',
+          '<strong>Saving KC</strong> (816-429-2900) buys properties with liens and <a href="/tax-delinquent/">delinquent taxes</a> all the time. All debts are <strong>paid from the sale proceeds</strong> at closing through the title company. You walk away with the balance. No out-of-pocket costs.',
       },
       {
-        question: 'Do I need to clean out the house before selling?',
+        question: 'Do I need to clean out the vacant house before selling?',
         answer:
-          'No. We buy homes with everything inside, from furniture and appliances to decades of personal belongings. Cleanout costs typically run $2,000 to $8,000 depending on the amount of stuff. We handle that after closing, saving you both the cost and the hassle.',
+          '<strong>No.</strong> <strong>Saving KC Homebuyers</strong> (816-429-2900) buys homes with everything inside. Cleanout costs of $2,000-$8,000 are on us. We handle it after closing, <strong>saving you the cost and the hassle</strong>.',
       },
       {
         question: 'Can I sell a vacant property that has been condemned?',
         answer:
-          'Yes. Condemnation means the city has declared the building unfit for occupancy, but the property can still be sold. We buy condemned properties and either renovate them back to code compliance or demolish and rebuild. The condemnation doesn\'t stop the sale.',
+          '<strong>Yes.</strong> Condemnation means the city declared the building unfit, but it <strong>can still be sold</strong>. <strong>Saving KC</strong> (816-429-2900) buys condemned properties in <a href="/mo/jackson/">Jackson County</a> and across the metro. We renovate to code or rebuild after closing.',
       },
       {
-        question: 'How long does it take to sell a vacant house on the regular market?',
+        question: 'How long does it take to sell a vacant house on the MLS?',
         answer:
-          'Vacant homes in Kansas City sit on the MLS for an average of 90 to 180 days, and that\'s after you\'ve spent weeks or months getting them ready to list. The whole process from decision to closing can take 6 to 12 months. With us, you can go from first phone call to closing in as few as 7 to 14 days.',
+          'Vacant KC homes sit on the MLS for <strong>90-180 days</strong> on average, and that is after weeks of prep work. Total time: 6-12 months. With <strong>Saving KC Homebuyers</strong> (816-429-2900), you go from first call to closing in <strong>as few as 7-14 days</strong>.',
       },
       {
         question: 'What if I inherited the vacant property and the title is complicated?',
         answer:
-          'We deal with complicated title situations regularly, including properties that need probate, heirship affidavits, or have multiple owners. We work with local title companies and attorneys who specialize in clearing these issues. It may take a bit longer than a clean-title deal, but we can still get it done.',
+          '<strong>Saving KC</strong> (816-429-2900) handles complicated titles regularly -- <a href="/probate/">probate</a>, heirship affidavits, and multi-owner situations. We work with local title companies and attorneys who clear these issues. It may take a bit longer, but <strong>we can still get it done</strong>.',
       },
     ],
     comparison: [
@@ -2147,54 +2171,54 @@ export const situations: SituationData[] = [
     ],
     faqs: [
       {
-        question: 'Do I need to evict the tenants before selling?',
+        question: 'Do I need to evict the tenants before selling in 2026?',
         answer:
-          'No. We buy the property with tenants in place and handle the tenant situation after closing. You do not need to file for eviction or go to court.',
+          '<strong>No.</strong> <strong>Saving KC Homebuyers</strong> (816-429-2900) buys the property <strong>with tenants in place</strong> and handles the tenant situation after closing. You do not need to file for eviction or go to court. We take over the problem the day we close.',
       },
       {
-        question: 'What happens to the tenants after you buy the property?',
+        question: 'What happens to the tenants after Saving KC buys the property?',
         answer:
-          'We honor existing lease terms as required by law. For month-to-month tenants, we provide proper legal notice if we decide not to continue the tenancy.',
+          'We <strong>honor existing lease terms</strong> as required by Missouri RSMo 441.060. For month-to-month tenants, we provide proper legal notice if we choose not to continue the tenancy. <strong>Saving KC</strong> (816-429-2900) handles all tenant communication after closing.',
       },
       {
         question: 'Can I sell if the tenants have not paid rent in months?',
         answer:
-          'Yes. Non-paying tenants do not prevent a sale. We factor the tenant situation into our offer and take over the problem at closing.',
+          '<strong>Yes.</strong> Non-paying tenants do not stop a sale. <strong>Saving KC Homebuyers</strong> (816-429-2900) factors the tenant situation into our offer and <strong>takes over the problem at closing</strong>. Stop losing money every month and call us today.',
       },
       {
         question: 'What if the tenants have damaged the property?',
         answer:
-          'We buy properties with tenant damage of all kinds. The damage is factored into our offer, but you avoid the cost and stress of repairing it yourself.',
+          '<strong>Saving KC</strong> (816-429-2900) buys properties with <strong>tenant damage of all kinds</strong>. The damage is factored into our offer, but you avoid the cost and stress of repairing it yourself. See our <a href="/situations/code-violations/">code violations</a> page if the city has cited the property.',
       },
       {
-        question: 'Will I get a lower offer because of bad tenants?',
+        question: 'How much will bad tenants reduce my offer?',
         answer:
-          'The tenant situation does affect the offer because of the costs we absorb (eviction, repairs, vacancy). However, when you factor in the months of lost rent, legal fees, and repair costs you avoid, many sellers come out ahead financially compared to the evict-repair-relist path.',
+          'The tenant situation does affect the offer because of eviction, repair, and vacancy costs we absorb. But when you add up <strong>months of lost rent, legal fees, and repair bills</strong>, many sellers come out ahead with <strong>Saving KC Homebuyers</strong> (816-429-2900) compared to the evict-repair-relist path.',
       },
       {
         question: 'What if my tenant has a Section 8 voucher?',
         answer:
-          'We buy Section 8 properties. The Housing Choice Voucher (Section 8) lease has specific terms that the new owner must follow. In some cases, Section 8 tenants are actually easier to work with because the housing authority pays a portion of the rent directly. We evaluate each situation individually.',
+          '<strong>Saving KC</strong> (816-429-2900) buys <strong>Section 8 properties</strong>. The Housing Choice Voucher lease has terms the new owner must follow. In some cases, Section 8 tenants are easier to work with because the <strong>housing authority pays rent directly</strong>. We evaluate each situation.',
       },
       {
-        question: 'Can I sell a rental property if there is an active eviction case pending?',
+        question: 'Can I sell if there is an active eviction case pending?',
         answer:
-          'Yes. An active eviction filing doesn\'t prevent the sale of the property. The eviction case transfers to the new owner along with the lease. We can take over the pending case and continue it, or we may choose to work out a cash-for-keys agreement with the tenant after closing.',
+          '<strong>Yes.</strong> An active eviction does not prevent a sale. The case transfers to the new owner. <strong>Saving KC Homebuyers</strong> (816-429-2900) can continue the case or use a <strong>cash-for-keys agreement</strong> after closing. Either way, it is no longer your problem.',
       },
       {
         question: 'Do I need to tell the tenants I am selling?',
         answer:
-          'Missouri law doesn\'t require you to notify tenants of a pending sale. However, your lease may contain provisions about showing the property or landlord access. We typically coordinate one walkthrough visit with reasonable notice. After closing, we handle all tenant communication.',
+          'Missouri law does not require tenant notification of a pending sale. Your lease may have access provisions. <strong>Saving KC</strong> (816-429-2900) coordinates <strong>one walkthrough</strong> with reasonable notice. After closing, we handle all communication with tenants in <a href="/mo/jackson/">Jackson County</a> and beyond.',
       },
       {
         question: 'What is a cash-for-keys agreement?',
         answer:
-          'Cash-for-keys is when the property owner pays the tenant a lump sum (typically $500 to $3,000) to voluntarily vacate by an agreed-upon date. It\'s often faster and cheaper than formal eviction. We use this approach frequently after purchasing properties with difficult tenants.',
+          'Cash-for-keys means the owner pays the tenant <strong>$500-$3,000</strong> to leave by an agreed date. It is often <strong>faster and cheaper than formal eviction</strong>. <strong>Saving KC Homebuyers</strong> (816-429-2900) uses this approach frequently after purchasing properties with difficult tenants.',
       },
       {
-        question: 'Can I sell my rental portfolio all at once?',
+        question: 'Can I sell my entire rental portfolio at once?',
         answer:
-          'Yes. If you own multiple rental properties in the KC metro and want out of the landlord business entirely, we can make offers on your whole portfolio. We\'ll evaluate each property individually and can close them all together or on separate timelines.',
+          '<strong>Yes.</strong> If you own multiple rentals in the KC metro and want out, <strong>Saving KC</strong> (816-429-2900) can make offers on your <strong>whole portfolio</strong>. We evaluate each property and can close them together or on separate timelines across <a href="/mo/jackson/">Jackson County</a> and <a href="/ks/wyandotte/">Wyandotte County</a>.',
       },
     ],
     comparison: [
@@ -2356,54 +2380,54 @@ export const situations: SituationData[] = [
     ],
     faqs: [
       {
-        question: 'Will code violation fines come out of my sale proceeds?',
+        question: 'Will code violation fines come out of my sale proceeds in 2026?',
         answer:
-          'If the city has placed a municipal lien on the property, it must be paid at closing from the proceeds. We account for this in our offer so there are no surprises.',
+          '<strong>Yes, if the city placed a municipal lien.</strong> It must be paid at closing from the proceeds. <strong>Saving KC Homebuyers</strong> (816-429-2900) accounts for this in our offer so there are <strong>no surprises</strong>. We research all liens before we make our number.',
       },
       {
-        question: 'Can I sell a condemned house?',
+        question: 'Can I sell a condemned house in Kansas City?',
         answer:
-          'Yes. We purchase condemned properties. Condemnation means the city has declared the building unfit for occupancy, but the property can still be sold and the structure repaired or demolished by the new owner.',
+          '<strong>Yes.</strong> <strong>Saving KC</strong> (816-429-2900) purchases <strong>condemned properties</strong> across the metro. Condemnation means the city declared the building unfit, but the property can still be sold. We repair or rebuild after closing. See homes we buy in <a href="/mo/jackson/">Jackson County</a>.',
       },
       {
         question: 'Do I need to fix the violations before I can sell?',
         answer:
-          'Not when selling to a cash buyer. Code compliance is typically required for mortgage-financed sales, but cash transactions do not have lender requirements.',
+          '<strong>Not when selling to a cash buyer.</strong> Code compliance is needed for mortgage-financed sales, but <strong>Saving KC Homebuyers</strong> (816-429-2900) pays cash with <strong>no lender requirements</strong>. We take the property as-is and handle all code issues after closing.',
       },
       {
         question: 'What if I have unpermitted additions or remodeling?',
         answer:
-          'We buy homes with unpermitted work. Bringing unpermitted construction up to code is our responsibility after closing, not yours.',
+          '<strong>Saving KC</strong> (816-429-2900) buys homes with <strong>unpermitted work</strong>. Bringing construction up to Kansas City building code is our job after closing, not yours. Call us for a free offer on your property.',
       },
       {
-        question: 'How fast can you close on a property with code violations?',
+        question: 'How fast can Saving KC close on a property with code violations?',
         answer:
-          'We can close in as few as 7 days. This is especially important for code violation properties because every day that passes means more fines accumulating. A 7-day close on a property with $200 per day in fines saves you $1,400 compared to waiting just two more weeks.',
+          '<strong>As few as 7 days.</strong> Every day that passes means more fines. A 7-day close on a property with $200/day fines saves you <strong>$1,400</strong> compared to waiting two more weeks. <strong>Saving KC Homebuyers</strong> (816-429-2900) moves fast to <strong>stop the fine clock</strong>.',
       },
       {
         question: 'What if I received a demolition notice from the city?',
         answer:
-          'Contact us immediately. If the city has scheduled your property for demolition, the clock is ticking. We can close fast enough to take ownership before demolition occurs, and we\'ll work with the city to stop the demolition and submit a renovation plan instead. Demolition charges ($15,000 to $50,000) get billed to the property owner, so selling before that happens is critical.',
+          '<strong>Contact us immediately.</strong> <strong>Saving KC</strong> (816-429-2900) can close fast enough to take ownership <strong>before demolition</strong>. We work with the city to submit a renovation plan instead. Demolition charges of $15,000-$50,000 get billed to the owner, so <strong>selling before that is critical</strong>.',
       },
       {
-        question: 'Can the city force me to sell my property because of code violations?',
+        question: 'Can the city force me to sell because of code violations?',
         answer:
-          'The city can\'t force a direct sale, but they can make ownership extremely expensive through daily fines, municipal liens, condemnation orders, and ultimately demolition. They can also pursue criminal charges for habitual code violators. Practically speaking, the financial pressure often leaves selling as the most rational option.',
+          'The city cannot force a direct sale, but they <strong>make ownership very expensive</strong> through daily fines, municipal liens, condemnation, and demolition. Under KC\'s nuisance code, criminal charges are possible for habitual violators. Call <strong>Saving KC Homebuyers</strong> (816-429-2900) before costs spiral.',
       },
       {
-        question: 'What if I don\'t know about all the violations on my property?',
+        question: 'What if I do not know about all the violations on my property?',
         answer:
-          'That\'s common, especially if you\'ve inherited the property or live out of state. We research the full violation history through the city\'s records before making our offer. You can also check yourself by calling KC\'s 311 Action Center or searching the online permits and inspections database. We factor all known violations into our offer so there are no surprises at closing.',
+          'That is common, especially for <a href="/situations/inherited-property/">inherited properties</a> or out-of-state owners. <strong>Saving KC</strong> (816-429-2900) <strong>researches the full violation history</strong> through city records before making our offer. You can also call KC\'s 311 Action Center to check.',
       },
       {
-        question: 'Do code violations affect my property tax assessment?',
+        question: 'Where in Kansas City do you buy homes with code violations?',
         answer:
-          'Not directly. The county assessor bases your tax assessment on market value, not code compliance. However, you may be able to appeal your assessment if the violations have significantly reduced the property\'s market value. We can help you understand whether an appeal makes sense before selling.',
+          '<strong>Everywhere in the metro.</strong> <strong>Saving KC Homebuyers</strong> (816-429-2900) buys code-violation properties in <a href="/mo/jackson/">Jackson County</a>, <a href="/ks/wyandotte/">Wyandotte County</a>, Johnson County, and all surrounding areas. No neighborhood is off limits.',
       },
       {
         question: 'What if my property has both code violations and a tax lien?',
         answer:
-          'We buy properties with multiple types of liens regularly. Both the municipal lien (from code violations) and the tax lien are paid from the sale proceeds at closing through the title company. We research all encumbrances before making our offer, so the number you see is the number you get.',
+          '<strong>Saving KC</strong> (816-429-2900) buys properties with <strong>multiple types of liens</strong> regularly. Both the municipal lien and the <a href="/tax-delinquent/">tax lien</a> are paid from sale proceeds at closing. We research all debts before making our offer, so <strong>the number you see is the number you get</strong>.',
       },
     ],
     comparison: [

@@ -1,0 +1,321 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import LeadForm from '@/components/LeadForm.astro';
+import { brand } from '@/data/brand';
+---
+
+<BaseLayout
+  title="Get Your Free Cash Offer — Saving KC Homebuyers"
+  description={`Get a free, no-obligation cash offer on your Kansas City home in 24 hours. Call ${brand.phoneFormatted} or fill out the form. No repairs, no fees, close on your schedule.`}
+  canonical={`${brand.domain}/get-offer/`}
+>
+  <section class="offer-hero">
+    <div class="container offer-inner">
+      <div class="offer-content">
+        <h1>Get Your Free Cash Offer</h1>
+        <p class="offer-sub">
+          Tell us about your property and we will send you a fair, no-obligation cash offer within 24 hours. No repairs needed. No agent fees. You pick the closing date.
+        </p>
+
+        <div class="offer-steps">
+          <div class="offer-step">
+            <div class="step-num">1</div>
+            <div>
+              <strong>Fill Out the Form</strong>
+              <p>Takes about 60 seconds. Just your name, phone, and the property address.</p>
+            </div>
+          </div>
+          <div class="offer-step">
+            <div class="step-num">2</div>
+            <div>
+              <strong>We Call You Within 24 Hours</strong>
+              <p>A quick conversation to learn more about your situation and the property.</p>
+            </div>
+          </div>
+          <div class="offer-step">
+            <div class="step-num">3</div>
+            <div>
+              <strong>Get Your Cash Offer</strong>
+              <p>A written offer with a full breakdown — no hidden fees, no surprises.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="offer-call">
+          <p>Prefer to talk now?</p>
+          <a href={`tel:${brand.phone}`} class="btn btn-secondary btn-lg offer-phone-btn">{brand.phoneFormatted}</a>
+        </div>
+      </div>
+
+      <div class="offer-form-col">
+        <LeadForm source="get-offer-page" />
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip">
+    <div class="container trust-inner">
+      <div class="trust-item">
+        <strong>Zero Fees</strong>
+        <span>No commissions, no closing costs</span>
+      </div>
+      <div class="trust-item">
+        <strong>Any Condition</strong>
+        <span>Foundation issues, mold, fire damage — we buy as-is</span>
+      </div>
+      <div class="trust-item">
+        <strong>Close in 14 Days</strong>
+        <span>Or take 60 days — you pick the date</span>
+      </div>
+      <div class="trust-item">
+        <strong>100% Free</strong>
+        <span>No obligation. Walk away anytime</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container faq-inner">
+      <h2>Common Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is there really no cost to me?</summary>
+          <p>Correct. We pay all closing costs, title fees, and transfer taxes. There are no agent commissions and no hidden charges. The offer amount is what you walk away with, minus only your existing mortgage payoff and any liens on the title.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need to make any repairs first?</summary>
+          <p>No. We buy houses in any condition. Foundation problems, roof damage, mold, outdated kitchens, junk in every room — it does not matter. Leave the house exactly as it is.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How fast can you close?</summary>
+          <p>As fast as 7 days. Most sellers choose 14 to 30 days. If you need more time to pack or find your next place, we can close in 60 days or longer. You pick the date.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What if I change my mind?</summary>
+          <p>No problem. You can walk away at any time before closing with zero penalties. Our offer comes with no obligation and no pressure.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .offer-hero {
+    background: linear-gradient(135deg, var(--grey-900) 0%, var(--grey-800) 100%);
+    color: var(--white);
+    padding: 60px 0 80px;
+  }
+
+  .offer-inner {
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .offer-content h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .offer-sub {
+    font-size: 1.15rem;
+    color: var(--grey-300);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .offer-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .offer-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--red);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .offer-step strong {
+    display: block;
+    font-size: 1.05rem;
+    margin-bottom: 2px;
+  }
+
+  .offer-step p {
+    font-size: 0.9rem;
+    color: var(--grey-400);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .offer-call {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .offer-call p {
+    font-size: 0.95rem;
+    color: var(--grey-400);
+    margin: 0;
+  }
+
+  .offer-phone-btn {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+  }
+
+  .offer-form-col :global(.lead-form) {
+    background: var(--white);
+    color: var(--grey-800);
+  }
+
+  /* Trust strip */
+  .trust-strip {
+    background: var(--grey-50);
+    padding: 40px 0;
+    border-bottom: 1px solid var(--grey-200);
+  }
+
+  .trust-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+
+  .trust-item strong {
+    display: block;
+    font-size: 1.05rem;
+    color: var(--grey-900);
+    margin-bottom: 4px;
+  }
+
+  .trust-item span {
+    font-size: 0.85rem;
+    color: var(--grey-500);
+  }
+
+  /* FAQ */
+  .faq-section {
+    padding: 60px 0;
+  }
+
+  .faq-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .faq-inner h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: var(--grey-50);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .faq-item summary {
+    padding: 18px 24px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--red);
+    flex-shrink: 0;
+  }
+
+  .faq-item[open] summary::after {
+    content: '−';
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item p {
+    padding: 0 24px 18px;
+    color: var(--grey-600);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .offer-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .offer-content h1 {
+      font-size: 2rem;
+    }
+
+    .offer-form-col {
+      max-width: 440px;
+    }
+
+    .trust-inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .offer-hero {
+      padding: 40px 0 60px;
+    }
+
+    .offer-content h1 {
+      font-size: 1.7rem;
+    }
+
+    .trust-inner {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .offer-call {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

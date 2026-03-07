@@ -15,15 +15,13 @@ const { items, title } = Astro.props;
     {items.map((item) => (
       <details class="faq-item" open>
         <summary class="faq-question">
-          <span>{item.question}</span>
+          <h3 class="faq-q-text">{item.question}</h3>
           <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M19 9l-7 7-7-7" />
           </svg>
         </summary>
         <div class="faq-answer">
-          <div class="faq-answer-inner">
-            {item.answer}
-          </div>
+          <div class="faq-answer-inner" set:html={item.answer} />
         </div>
       </details>
     ))}
@@ -98,9 +96,13 @@ const { items, title } = Astro.props;
     background: rgba(249, 250, 251, 0.5);
   }
 
-  .faq-question span {
+  .faq-q-text {
     color: var(--grey-900);
     padding-right: 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
   }
 
   .faq-chevron {
@@ -123,6 +125,10 @@ const { items, title } = Astro.props;
     color: var(--grey-700);
     line-height: 1.6;
   }
+  .faq-answer-inner p { margin: 0 0 12px; }
+  .faq-answer-inner p:last-child { margin-bottom: 0; }
+  .faq-answer-inner a { color: var(--red); text-decoration: underline; }
+  .faq-answer-inner a:hover { color: var(--red-dark); }
 
   @media (min-width: 768px) {
     .faq-question {

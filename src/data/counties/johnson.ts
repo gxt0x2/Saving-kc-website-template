@@ -37,36 +37,36 @@ export const johnson: CountyData = {
   courthouseLandmarks: 'The Johnson County Courthouse at 100 N Kansas Avenue sits in the heart of downtown Olathe — near the Johnson County Courthouse Square, the Mahaffie Stagecoach Stop historic site, and the restaurants and shops along Santa Fe Street. Johnson County Community College and the Johnson County Museum of History are both within a few miles. Our office at 1705 Baltimore Ave in Kansas City is 28 miles northeast, and we make regular trips to Olathe for courthouse filings, title company closings, and property inspections across the county. Johnson County is the fastest-growing county in the Kansas City metro, and that growth creates unique challenges — rising property assessments, HOA complications, and estates that include properties worth more than the family expected. We work with Olathe-area title companies who understand these dynamics.',
   countyFaqs: [
     {
-      question: 'How does Kansas transfer-on-death deed work for Johnson County properties?',
-      answer: 'Kansas allows property owners to file a transfer-on-death (TOD) deed, which passes real estate directly to a named beneficiary without going through probate. If a Johnson County property was held with a TOD deed, the beneficiary can sell as soon as they file the death certificate and an affidavit with the Register of Deeds. This can cut months off the timeline compared to full probate. If you inherited a Johnson County home through a TOD deed and want to sell quickly, Saving KC can close in as few as 7 days once the deed transfer is recorded. Call (816) 429-2900.',
+      question: 'How does Kansas annual reassessment affect my 2026 Johnson County property taxes?',
+      answer: 'Kansas reassesses property values <strong>every single year</strong>. Missouri only does it every two years. Your 2026 Johnson County tax bill can jump even if you made no improvements. Johnson County has the <strong>highest median home values</strong> in the metro, so rising assessments hit harder here. Selling ends that burden for good. <strong>Saving KC Homebuyers</strong> (816-429-2900) can close in as few as <strong>7 days</strong>. Our office at 1705 Baltimore Ave is 28 miles from the Johnson County Courthouse in Olathe.',
     },
     {
-      question: 'When are Johnson County property taxes due?',
-      answer: 'Johnson County property taxes are due December 20 each year — 11 days earlier than Missouri counties across the state line. Kansas reassesses property values annually, so your tax bill can increase every year even if you have made no improvements. If rising assessments have pushed your tax burden beyond what you can manage, selling the property eliminates that obligation entirely. Saving KC pays all closing costs and can close on your schedule. Call (816) 429-2900 for a no-obligation offer.',
+      question: 'When are Johnson County property taxes due in 2026?',
+      answer: 'Johnson County property taxes are due <strong>December 20</strong> — 11 days earlier than Missouri counties. Miss that date and penalties start right away. Under <strong>K.S.A. 79-2801</strong>, the county can hold a <a href="/tax-delinquent/">tax foreclosure sale</a> after three years of missed payments. The next Johnson County tax sale is <strong>September 2026</strong>. Sell before that date to protect your equity and credit. <strong>Saving KC</strong> (816-429-2900) pays all closing costs and can close on your schedule.',
     },
     {
-      question: 'What are the simplified estate procedures in Kansas?',
-      answer: 'Kansas offers a simplified probate process for smaller estates. If the total estate value is under $40,000 (excluding jointly held property and TOD accounts), heirs can use a small-estate affidavit to claim assets without full court proceedings. For larger estates, Kansas probate through the 10th Judicial District Court in Olathe is generally faster than Missouri — but it still requires court oversight for real property sales. Saving KC works with Johnson County executors and heirs at every stage and can often purchase the property before the estate is fully settled. Call (816) 429-2900.',
+      question: 'What is a transfer-on-death deed for Johnson County property?',
+      answer: 'Under <strong>K.S.A. 59-3501</strong>, a Kansas transfer-on-death (TOD) deed lets property pass to a named person <strong>without probate</strong>. The beneficiary files a death certificate and affidavit with the Johnson County Register of Deeds. Then they can sell right away — no court approval needed. This saves months compared to full <a href="/probate/">probate</a> through the 10th Judicial District. <strong>Saving KC Homebuyers</strong> (816-429-2900) buys TOD-transferred properties and can close in as few as 7 days.',
     },
     {
-      question: 'Can HOA issues prevent me from selling my Johnson County home?',
-      answer: 'Many Johnson County subdivisions — especially in Overland Park, Lenexa, and Olathe — have homeowners associations with strict covenants. If you have fallen behind on HOA dues, accumulated violation fines, or have unresolved maintenance orders, a traditional sale can stall when the title company discovers outstanding HOA liens. Saving KC buys properties with HOA issues regularly. The liens are resolved at closing from the sale proceeds, and you do not need to bring the property into compliance before selling. Call (816) 429-2900.',
+      question: 'Can HOA issues prevent me from selling my Johnson County home in 2026?',
+      answer: '<strong>No — you can still sell.</strong> Many Johnson County subdivisions in Overland Park, Lenexa, and Olathe have strict HOA covenants. Unpaid dues, violation fines, and maintenance orders create liens that scare off traditional buyers. <strong>Saving KC</strong> (816-429-2900) buys properties with <strong>HOA issues regularly</strong>. All liens are cleared at closing from the sale proceeds. You do not need to fix anything first. Our office at 1705 Baltimore Ave is just 28 miles from the Olathe courthouse.',
     },
     {
-      question: 'Why is selling a distressed home harder in Johnson County than other KC metro counties?',
-      answer: 'Johnson County buyers expect move-in-ready condition. The median home value here is significantly higher than Jackson or Wyandotte County, which means buyer expectations are higher too. A home that needs $30,000 in repairs will sit on the MLS while buyers tour the new construction down the street. If your Johnson County home needs work you cannot afford, a cash sale lets you skip the renovation, skip the listing, and get fair value based on the property\'s current condition — not what it could be worth after a full rehab. Contact Saving KC at (816) 429-2900 for a fair cash offer based on your home\'s current condition.',
-    },
-    {
-      question: 'How does Kansas annual reassessment affect my Johnson County property taxes?',
-      answer: 'Kansas reassesses property values every year — unlike Missouri\'s odd-year cycle. This means your Johnson County tax bill can increase annually even without improvements. If rising assessments have made your tax burden unmanageable, selling eliminates the obligation entirely. Saving KC can close in as few as 7 days. Call (816) 429-2900.',
-    },
-    {
-      question: 'What is a transfer-on-death deed in Johnson County?',
-      answer: 'A Kansas transfer-on-death (TOD) deed lets property pass to a named beneficiary without going through probate. If the deceased owner filed a TOD deed in Johnson County, the beneficiary can sell the property as soon as the deed transfer is recorded — no court approval needed. Saving KC buys TOD-transferred properties and can close quickly. Call (816) 429-2900.',
+      question: 'Why is selling a distressed home harder in Johnson County?',
+      answer: 'Johnson County buyers expect <strong>move-in-ready condition</strong>. The median home value here is much higher than Jackson or Wyandotte County. A home that needs $30,000 in repairs will sit on the MLS while buyers tour new construction down the street. A <strong>cash sale</strong> lets you skip renovations and get fair value based on current condition. <strong>Saving KC Homebuyers</strong> (816-429-2900) makes offers based on what your home is worth <strong>today</strong> — not after a rehab you cannot afford.',
     },
     {
       question: 'Can I sell a house with a tax lien in Johnson County?',
-      answer: 'Yes. You do not need to pay off tax liens before selling. At closing, the title company uses sale proceeds to clear all liens — including tax liens, mechanic\'s liens, and judgment liens. You receive whatever equity remains. Saving KC buys Johnson County properties with liens regularly and can close in as few as 7 days. For a free lien analysis, call (816) 429-2900.',
+      answer: '<strong>Yes.</strong> You do not need to pay off liens before selling. At closing, the title company uses sale proceeds to clear <strong>all liens</strong> — tax liens, mechanic\'s liens, and judgment liens. You keep whatever equity remains. Under <strong>K.S.A. 79-2801</strong>, unpaid liens can lead to a <a href="/tax-delinquent/">tax sale</a> — so acting early protects you. <strong>Saving KC</strong> (816-429-2900) buys Johnson County properties with liens regularly and can close in <strong>7 days</strong>.',
+    },
+    {
+      question: 'How does Johnson County probate work for inherited property in 2026?',
+      answer: 'Probate goes through the <strong>10th Judicial District</strong> at the Johnson County Courthouse, 100 N Kansas Ave in Olathe — 28 miles from our office at 1705 Baltimore Ave. Under <strong>K.S.A. Chapter 59</strong>, Kansas offers simplified steps for small estates under $40,000. For larger <a href="/situations/inherited-property/">inherited properties</a>, court oversight is required. A TOD deed (K.S.A. 59-3501) can skip probate entirely. <strong>Saving KC</strong> (816-429-2900) works with executors and heirs to buy homes fast.',
+    },
+    {
+      question: 'Where are the most common distressed properties in Johnson County?',
+      answer: '<strong>Merriam, Mission, and north Overland Park</strong> have the most affordable — and oldest — homes in Johnson County. These 1950s-1960s neighborhoods have aging plumbing, original electrical, and sewer laterals that need replacement. HOA-heavy subdivisions in Lenexa and south Olathe also create selling headaches. <strong>Saving KC Homebuyers</strong> (816-429-2900) buys in <strong>every Johnson County city</strong> regardless of condition. Our office at 1705 Baltimore Ave is just 28 miles from the courthouse in Olathe.',
     },
   ],
   cities: [

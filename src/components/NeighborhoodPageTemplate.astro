@@ -50,38 +50,41 @@ const neighborLinks = city.neighborhoods
 
 const stateAbbr = county.state === 'mo' ? 'MO' : 'KS';
 
+const medianNum = parseInt(neighborhood.medianHomeValue.replace(/[$,]/g, ''));
+const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toLocaleString()}` : 'thousands';
+
 const faqs = [
   {
-    question: `How fast can I sell my house in ${neighborhood.name}?`,
-    answer: `Most homeowners in ${neighborhood.name} who sell to us close in 7 to 14 days. You pick the date. If you need more time to move, we can close in 30 to 60 days. The timeline is entirely up to you.`,
+    question: `How fast can I sell my house in ${neighborhood.name} in 2026?`,
+    answer: `<p><strong>Saving KC Homebuyers (<a href="tel:8164292900">816-429-2900</a>) can close on your ${neighborhood.name} home in as few as 7 days in 2026. You pick the closing date. No banks, no appraisals, no waiting. We pay cash and cover all closing costs so you walk away with the full offer amount.</strong></p><p>If you need more time to move, we can close in 30 to 60 days instead. The timeline is yours to choose. Many ${neighborhood.name} homeowners prefer a fast close because it stops mortgage payments, tax bills, and insurance costs from piling up.</p>`,
+  },
+  {
+    question: `How much will I get for my ${neighborhood.name} home in a cash sale?`,
+    answer: `<p><strong>Saving KC Homebuyers (<a href="tel:8164292900">816-429-2900</a>) bases every cash offer on recent sales in ${neighborhood.name} and ${city.name}, the home's condition, and current repair costs. The median home value in ${neighborhood.name} is ${neighborhood.medianHomeValue}, and we use that as a starting point.</strong></p><p>We show you exactly how we calculate the number. There are zero agent commissions, zero fees, and zero closing costs on your side. On a ${neighborhood.medianHomeValue} home, that saves you roughly ${commissionEstimate} compared to listing with an agent on the MLS.</p>`,
+  },
+  {
+    question: `What happens if my ${neighborhood.name} property has delinquent taxes?`,
+    answer: `<p><strong>Saving KC Homebuyers (<a href="tel:8164292900">816-429-2900</a>) buys ${neighborhood.name} homes with back taxes, tax liens, and other title problems every month. Under ${county.state === 'mo' ? 'RSMo Chapter 140' : 'K.S.A. 79-2801'}, unpaid property taxes can lead to a tax sale, but selling before the auction protects your equity.</strong></p><p>At closing, the title company pays off your tax balance from the sale proceeds. You do not need to settle the debt first. For a full breakdown of your options, read our <a href="/tax-delinquent/">tax-delinquent property guide</a>. ${county.taxLienInfo}</p>`,
+  },
+  {
+    question: `How long does probate take when selling an inherited house in ${county.name}?`,
+    answer: `<p><strong>Saving KC Homebuyers (<a href="tel:8164292900">816-429-2900</a>) buys inherited and probate homes in ${neighborhood.name} at every stage. Under ${county.state === 'mo' ? 'RSMo Chapter 473' : 'K.S.A. Chapter 59'}, probate in ${county.name} typically takes 6 to 12 months, but we can close as soon as the court grants authority to sell.</strong></p><p>Whether you are the personal representative, are waiting for court approval, or have multiple heirs, we handle the paperwork. Our office is just ${county.courthouse.distanceMiles} miles from the ${county.courthouse.name}, so we work with ${county.name} probate regularly. Learn more in our <a href="/probate/">probate guide</a>.</p>`,
   },
   {
     question: `Do I need to make repairs before selling my ${neighborhood.name} home?`,
-    answer: `No. We buy houses in ${neighborhood.name} in any condition. Foundation cracks, roof damage, outdated kitchens, overgrown yards, mold, fire damage. None of it matters. We handle all repairs after closing.`,
+    answer: `<p><strong>Saving KC Homebuyers (<a href="tel:8164292900">816-429-2900</a>) buys houses in ${neighborhood.name} in any condition. No repairs, no cleaning, no upgrades. Foundation cracks, roof damage, mold, fire damage, outdated kitchens, overgrown yards — none of it matters to us.</strong></p><p>We handle all repairs after closing. Many ${neighborhood.name} homeowners face $15,000 to $30,000 in repair estimates just to list on the MLS. Selling as-is to a cash buyer often puts more money in your pocket because you skip those costs entirely.</p>`,
   },
   {
-    question: `How do you determine a cash offer for a ${neighborhood.name} property?`,
-    answer: `We look at recent comparable sales in ${neighborhood.name} and the surrounding ${city.name} area, estimate the repair costs, and factor in our holding and resale costs. We show you exactly how we got to our number so there are no surprises.`,
+    question: `What happens if I owe more than my house is worth in 2026?`,
+    answer: `<p><strong>Saving KC Homebuyers (<a href="tel:8164292900">816-429-2900</a>) can still help if you owe more than your ${neighborhood.name} home is worth. At closing, the title company pays off your remaining mortgage from the sale proceeds. If the balance exceeds the home's value, we can negotiate a short sale with your lender on your behalf.</strong></p><p>Many homeowners facing <a href="/situations/pre-foreclosure/">pre-foreclosure</a> choose a cash sale because it stops the clock. We close fast, which can prevent a foreclosure from hitting your credit report. Call us before your lender sets a sale date.</p>`,
   },
   {
-    question: `Are there any fees when I sell my ${neighborhood.name} house to you?`,
-    answer: `Zero. No agent commissions, no closing costs, no fees of any kind. The cash offer we give you is the amount you walk away with at closing. We pay all title and closing costs ourselves.`,
+    question: `How much does it cost to sell my house to Saving KC Homebuyers?`,
+    answer: `<p><strong>It costs you zero dollars to sell to Saving KC Homebuyers (<a href="tel:8164292900">816-429-2900</a>). There are no agent commissions, no closing costs, no junk fees, and no hidden charges. The cash offer we give you is the exact amount you receive at closing.</strong></p><p>Compare that to a traditional sale of a ${neighborhood.medianHomeValue} ${neighborhood.name} home, where agent commissions alone run roughly ${commissionEstimate}. Add in repair costs, staging, and months of mortgage payments while you wait for a buyer, and the savings from a direct cash sale add up fast.</p>`,
   },
   {
-    question: `What if I still owe money on my mortgage?`,
-    answer: `That's fine. At closing, the title company pays off your remaining mortgage balance from the sale proceeds. If you owe more than the home is worth, we can discuss short sale options with your lender.`,
-  },
-  {
-    question: `Can I sell an inherited house in ${neighborhood.name}?`,
-    answer: `Yes. We buy inherited properties regularly in ${county.name}. Whether the estate is in probate or you already have clear title, we can work with your situation. ${county.probateInfo}`,
-  },
-  {
-    question: `Do I need to clean out the house before selling?`,
-    answer: `No. Leave behind anything you don't want. Furniture, appliances, personal items, junk, construction debris. We handle all cleanout and disposal after closing at no cost to you.`,
-  },
-  {
-    question: `Will you buy my house if it has code violations?`,
-    answer: `Absolutely. Code violations are one of the most common reasons ${city.name} homeowners sell to us. Open permits, condemned status, occupancy issues. We deal with all of it after the sale.`,
+    question: `What types of ${neighborhood.name} properties does Saving KC buy?`,
+    answer: `<p><strong>Saving KC Homebuyers (<a href="tel:8164292900">816-429-2900</a>) buys single-family homes, duplexes, triplexes, and small multi-family properties in ${neighborhood.name}. We buy homes with code violations, fire damage, hoarder conditions, foundation issues, and condemned status.</strong></p><p>Common situations we handle in ${neighborhood.name} include <a href="/situations/inherited-property/">inherited homes</a> where the family lives out of state, rental properties with problem tenants, homes in divorce, and properties facing ${county.name} tax liens. Whatever your situation, we have seen it before and we can help.</p>`,
   },
 ];
 
@@ -140,8 +143,6 @@ const breadcrumbSchema = {
   ],
 };
 
-const medianNum = parseInt(neighborhood.medianHomeValue.replace(/[$,]/g, ''));
-const commissionEstimate = medianNum > 0 ? `$${Math.round(medianNum * 0.055).toLocaleString()}` : 'thousands';
 ---
 
 <BaseLayout title={pageTitle} description={pageDesc}>
