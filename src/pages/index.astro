@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import LeadForm from '../components/LeadForm.astro';
 import ProcessSteps from '../components/ProcessSteps.astro';
 import ComparisonTable from '../components/ComparisonTable.astro';
+import SellerNetCalculator from '../components/SellerNetCalculator.astro';
 import Testimonials from '../components/Testimonials.astro';
 import FAQ from '../components/FAQ.astro';
 
@@ -121,6 +122,13 @@ const situations = [
       <h2 class="section-title" style="text-align:center">Cash Sale vs. Traditional Listing</h2>
       <p class="section-subtitle" style="text-align:center">See why homeowners choose our cash offer.</p>
       <ComparisonTable />
+    </div>
+  </section>
+
+  <!-- SELLER NET CALCULATOR -->
+  <section class="section">
+    <div class="container">
+      <SellerNetCalculator medianHomeValue="$185,000" stateName="Kansas City" />
     </div>
   </section>
 
