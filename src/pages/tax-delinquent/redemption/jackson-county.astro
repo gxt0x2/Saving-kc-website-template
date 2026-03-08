@@ -74,20 +74,27 @@ const comparisonRows = [
       <nav class="breadcrumb">
         <a href="/">Home</a> &rsaquo; <a href="#">Tax Delinquent</a> &rsaquo; <a href="#">Redemption</a> &rsaquo; <span>Jackson County</span>
       </nav>
-      <h1>Jackson County Tax Sale Redemption: Your Complete Guide</h1>
-      <p class="page-hero-sub">Understand your rights, deadlines, and options before it's too late.</p>
-      <div class="hero-key-stats">
-        <div class="key-stat">
-          <strong>1 Year</strong>
-          <span>Redemption (1st/2nd offering)</span>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Jackson County Tax Sale Redemption: Your Complete Guide</h1>
+          <p class="page-hero-sub">Understand your rights, deadlines, and options before it's too late.</p>
+          <div class="hero-key-stats">
+            <div class="key-stat">
+              <strong>1 Year</strong>
+              <span>Redemption (1st/2nd offering)</span>
+            </div>
+            <div class="key-stat">
+              <strong>90 Days</strong>
+              <span>Redemption (3rd offering)</span>
+            </div>
+            <div class="key-stat">
+              <strong>10%</strong>
+              <span>Annual interest on delinquent taxes</span>
+            </div>
+          </div>
         </div>
-        <div class="key-stat">
-          <strong>90 Days</strong>
-          <span>Redemption (3rd offering)</span>
-        </div>
-        <div class="key-stat">
-          <strong>10%</strong>
-          <span>Annual interest on delinquent taxes</span>
+        <div class="hero-form-wrap">
+          <LeadForm source="tax-delinquent-jackson-county" />
         </div>
       </div>
     </div>
@@ -252,16 +259,27 @@ const comparisonRows = [
 
 <style>
   .page-hero {
-    background: var(--cream);
-    padding: 40px 0 50px;
+    background: linear-gradient(135deg, var(--grey-900) 0%, var(--grey-800) 100%);
+    color: var(--white);
+    padding: 50px 0 60px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-form-wrap :global(.lead-form) {
+    background: var(--white);
+    color: var(--grey-800);
   }
   .breadcrumb {
     font-size: 0.85rem;
     margin-bottom: 16px;
     color: var(--grey-500);
   }
-  .breadcrumb a { color: var(--grey-500); }
-  .breadcrumb span { color: var(--grey-700); font-weight: 600; }
+  .breadcrumb a { color: var(--grey-400); }
+  .breadcrumb span { color: var(--white); font-weight: 600; }
   .page-hero h1 {
     font-size: 2.2rem;
     font-weight: 900;
@@ -269,7 +287,7 @@ const comparisonRows = [
   }
   .page-hero-sub {
     font-size: 1.1rem;
-    color: var(--grey-500);
+    color: var(--grey-300);
     margin-bottom: 28px;
   }
   .hero-key-stats {
@@ -283,7 +301,7 @@ const comparisonRows = [
   }
   .key-stat span {
     font-size: 0.85rem;
-    color: var(--grey-500);
+    color: var(--grey-400);
   }
 
   /* Timeline */
@@ -358,6 +376,14 @@ const comparisonRows = [
     border-bottom: none;
   }
 
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-form-wrap {
+      max-width: 420px;
+    }
+  }
   @media (max-width: 640px) {
     .page-hero h1 { font-size: 1.6rem; }
     .hero-key-stats { flex-direction: column; gap: 16px; }
